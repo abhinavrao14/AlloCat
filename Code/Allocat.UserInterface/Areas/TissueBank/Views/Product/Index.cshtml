@@ -1,0 +1,316 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+<script src="~/Assets/js/customJs/TissueBank/TissueBankController.js"></script>
+<script src="~/Assets/js/customJs/TissueBank/TissueBankService.js"></script>
+<style>
+    .grad {
+        background: -moz-linear-gradient(45deg, rgba(39,90,123,1) 0%, rgba(53,121,166,1) 25%, rgba(39,90,123,1) 50%, rgba(53,121,166,1) 75%, rgba(33,117,172,1) 100%); /* ff3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(39,90,123,1)), color-stop(25%, rgba(53,121,166,1)), color-stop(50%, rgba(39,90,123,1)), color-stop(75%, rgba(53,121,166,1)), color-stop(100%, rgba(33,117,172,1))); /* safari4+,chrome */
+        background: -webkit-linear-gradient(45deg, rgba(39,90,123,1) 0%, rgba(53,121,166,1) 25%, rgba(39,90,123,1) 50%, rgba(53,121,166,1) 75%, rgba(33,117,172,1) 100%); /* safari5.1+,chrome10+ */
+        background: -o-linear-gradient(45deg, rgba(39,90,123,1) 0%, rgba(53,121,166,1) 25%, rgba(39,90,123,1) 50%, rgba(53,121,166,1) 75%, rgba(33,117,172,1) 100%); /* opera 11.10+ */
+        background: -ms-linear-gradient(45deg, rgba(39,90,123,1) 0%, rgba(53,121,166,1) 25%, rgba(39,90,123,1) 50%, rgba(53,121,166,1) 75%, rgba(33,117,172,1) 100%); /* ie10+ */
+        background: linear-gradient(45deg, rgba(39,90,123,1) 0%, rgba(53,121,166,1) 25%, rgba(39,90,123,1) 50%, rgba(53,121,166,1) 75%, rgba(33,117,172,1) 100%); /* w3c */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2175ac', endColorstr='#275a7b',GradientType=1 ); /* ie6-9 */
+    }
+</style>
+<style>
+    table {
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid orange;
+    }
+
+    @@media only screen and (min-width: 1025px) {
+        #othertable {
+            display: none;
+        }
+    }
+
+    @@media only screen and (max-width: 1024px) {
+        #maintable {
+            display: none;
+        }
+    }
+
+    @@media only screen and (min-width: 901px) {
+        #icn {
+            display: none;
+        }
+    }
+
+    @@media only screen and (max-width: 900px) {
+        #hide {
+            display: none;
+        }
+    }
+
+    @@media only screen and (min-width: 901px) {
+        #exone {
+            display: none;
+        }
+    }
+</style>
+
+<div ng-controller="ProductController">
+    <input type="hidden" for="TissueBankId" id="TissueBankId" value="@ViewBag.user.InfoId" />
+    <ul class="breadcrumb breadcrumb-page">
+        <div class="breadcrumb-label text-light-gray">You are here: </div>
+        <li>
+            <a tabindex="-1" href="@Url.Action("Index", "Home", new { Area = "TissueBank" })">
+                <span class="mm-text">Home</span>
+            </a>
+        </li>
+        <li class="active"><a href="">Product Management</a></li>
+    </ul>
+    <div class="page-header">
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;Display Products</h1>
+        </div>
+    </div> <!-- / .page-header -->
+
+    <div class="panel colourable" id="filter">
+        <div class="panel-body panel-padding">
+            <div class="row">
+                <div class="form-inline">
+                    <div class="form-group col-md-4">
+                        <label class="filter-col" style="margin-right:0;" for="pref-perpage">Rows per page: </label>
+                        <select class="form-control" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13);" ng-disabled="Products.length<1" ng-options="item for item in PageSizes" ng-model="PageSize" ng-change="PageSizeChanged()"></select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="filter-col" style="margin-right:0;" for="pref-search">Search: </label>
+                        <input class="form-control" ng-model="SearchBy" placeholder="Search" type="search" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13);" ng-change="search()" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="filter-col" style="margin-right:0;" for="pref-perpage">Sort By: </label>
+                        <select class="form-control" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13);" ng-disabled="Products.length<1" ng-options="SortOption for SortOption in SortOptions" ng-model="SortOption" ng-change="SortOptionChanged()"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
+        <div class="col-md-12">
+                <div class="col-md-8" style="font-size:18px; margin-bottom:10px;">
+                    Result : {{Products.length}} Products
+                </div>
+                <div class="col-md-4" style="width:355px">
+                    Current Page : {{CurrentPage}}&nbsp;&nbsp;
+                    <button ng-click="getPreviousPage()" ng-disabled="CurrentPage==1" type="button" class="btn btn-flat filter-col" style="background-color:#ffffff; border-color:#7a6f6f; border-bottom-color:#999;">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i> Previous Page
+                    </button>
+                    <button ng-click="getNextPage()" ng-disabled="CurrentPage*PageSize>Products.length" type="button" class="btn btn-flat filter-col" style="background-color:#ffffff; border-color:#7a6f6f; border-bottom-color:#999;">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i> Next Page
+                    </button>
+                </div>
+            </div>
+    </div>*@
+        <div class="col-sm-12" id="maintable">
+            <div class="panel">
+                <div class="panel-body">
+                    <div>
+                        <div class="col-md-8" style="font-size:18px">
+                            Result : {{Products.length}} Products
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row pagination-demo">
+                                <div class="col-sm-12">
+                                    <ul class="pagination" style="float:right">
+                                        <li ng-click="getFirstPage()" ng-if="CurrentPage>1"><a href="#">««</a></li>
+                                        <li ng-click="getPreviousPage()" ng-if="CurrentPage>1"><a href="#">«</a></li>
+                                        <li class="active"><a href="#">{{CurrentPage}}/{{TotalPage}} </a></li>
+                                        <li ng-click="getNextPage()" ng-if="CurrentPage*PageSize<TotalProducts"><a href="#">»</a></li>
+                                        <li ng-click="getLastPage()" ng-if="CurrentPage*PageSize<TotalProducts"><a href="#">»»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span ng-if="dataLoading" style="color:darkgreen;">Please Wait..</span>
+                        <div ng-if="Products.length==0" class="panel panel-default alert alert-danger">
+                            Sorry..No Products.
+                        </div>
+                        <table class="table table-bordered table-hover table-striped" id="table">
+                            <thead style="background-color:#3177a5; color:#ffffff">
+                                <tr>
+                                    @*<th>S.No.</th>*@
+                                    <th>Product Master</th>
+                                    <th>Product Types & Its Variations</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="Product in Products | unique:'ProductMasterId'" style="border:2px solid #333;">
+                                    @*<td style="width:5%">{{$index + StartLimit+1}}</td>*@
+                                    <td class="grad" style="color:#ffffff; text-align:center;width:20%;font-size:20px">{{Product.ProductMasterName}}</td>
+                                    <td style="padding-right: 0px; padding-left: 0px;">
+                                        <table class="table table-bordered table-striped">
+                                            <thead style="background-color:#3487bd; color:#ffffff;">
+                                                <tr>
+                                                    <th>Product Type</th>
+                                                    <th id="hide">Variations</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat-start="SubProduct in Products | unique:'ProductType' | filter:{'ProductMasterId':  Product.ProductMasterId}:true">
+                                                    <td>
+                                                        <b style="font-size:16px">{{SubProduct.ProductType}}</b>
+                                                        <button id="icn" ng-if="SubProduct.expanded" ng-click="SubProduct.expanded = false" style="background-color:red; color:#ffffff; border-color:#ffffff; border-radius:5px">-</button>
+                                                        <button id="icn" ng-if="!SubProduct.expanded" ng-click="SubProduct.expanded = true" style="background-color:green; color:#ffffff; border-color:#ffffff; border-radius:5px">+</button>
+                                                    </td>
+                                                    <td id="hide" style="padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px;">
+                                                        <table class="table table-bordered table-hover table-striped" style="border: 2px solid #999;">
+                                                            @*<colgroup>
+                                                                    <col class="col-md-3">
+                                                                    <col class="col-md-3">
+                                                                    <col class="col-md-2">
+                                                                    <col class="col-md-2">
+                                                                    <col class="col-md-2">
+                                                                </colgroup>*@
+                                                            <thead style="background-color: rgba(47, 98, 132, 0.75); color:#ffffff; border-bottom: 3px solid #999;">
+                                                                <tr>
+                                                                    <th>Product Code</th>
+                                                                    <th>Product Size</th>
+                                                                    <th>Preservation Type</th>
+                                                                    <th>Unit Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr ng-repeat="SuperSubProduct in Products | filter:{'ProductType':  SubProduct.ProductType}:true">
+                                                                    <td>{{SuperSubProduct.ProductCode}}</td>
+                                                                    <td>{{SuperSubProduct.ProductSize}}</td>
+                                                                    <td>{{SuperSubProduct.PreservationType}}</td>
+                                                                    <td>
+                                                                        {{SuperSubProduct.UnitPrice==null ? 'N/A' : SuperSubProduct.UnitPrice | currency}}
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </td>
+
+                                                </tr>
+                                                <tr ng-if="SubProduct.expanded" ng-repeat-end="">
+                                                    <td colspan="7">
+                                                        <div class="col-md-12" id="exone">
+                                                            <div class="col-md-12">
+                                                                <p class="grad" style="color:#ffffff; text-align:center;font-size:20px">{{Product.ProductMasterName}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="width:10%">
+                                        @*<span ng-click="add()" class="btn btn-primary">Manage</span>*@
+                                        @{
+                                            var url = Url.Action("Manage", "Product", new { Id = "{{Id=Product.ProductMasterId}}" });
+                                            url = HttpUtility.UrlDecode(url);
+                                        }
+                                        <a data-ng-href="@url"><i class="fa fa-pencil-square-o" style="font-size:18px"></i> <u style="color:#2175ac; font-size:17px">Manage</u></a>
+                                        @*<a style="color: #fff;" data-ng-href="@url">
+
+                                                <img src="~/Assets/image/Icon.png" title="Manage" style="width:65px; height:60px" />
+                                            </a>*@
+                                        @*<span class="btn btn-primary" style="height:40px;"><a style="color: #fff;" data-ng-href="@url">Manage</a></span>*@
+                                    </td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-sm-12" id="othertable">
+        <div class="panel">
+            <div class="panel-body">
+                <div>
+                    <div class="col-md-8" style="font-size:18px">
+                        Result : {{Products.length}} Products
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row pagination-demo">
+                            <div class="col-sm-12">
+                                <ul class="pagination" style="float:right">
+                                    <li class="disabled"><a href="#">«</a></li>
+                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                    <li class="disabled"><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span ng-if="dataLoading" style="color:darkgreen;">Please Wait..</span>
+                    <span ng-if="Products.length==0" style="color:darkgreen;">Sorry..No Products.</span>
+                    <table class="table table-bordered table-hover table-striped" id="table">
+                        <thead style="background-color:#6389a3; color:#ffffff">
+                            <tr style="font-size:18px">
+                                <th>Product</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="Product in Products | unique:'ProductMasterId'" style="border:2px solid #333;">
+                                <td style="padding-right: 0px; padding-left: 0px; width:60%">
+                                    <div class="col-md-12 grad" style="text-align:center; padding:10px"><b style="font-size:15px; color:#ffffff">{{Product.ProductMasterName}}</b><br /></div>
+                                    <div class="col-md-6"><h4><b>Product Types:</b></h4></div>
+                                    <table class="table table-bordered table-striped">
+                                        <tbody>
+                                            <tr ng-repeat-start="SubProduct in Products | unique:'ProductType'">
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-md-10" style="text-indent: 65px;">
+                                                            <b style="float:left; font-size:16px;">{{SubProduct.ProductType}}</b>
+                                                            <button ng-if="SubProduct.expanded" ng-click="SubProduct.expanded = false" style="margin-left:30px; float:right; background-color:red; color:#ffffff; border-color:#ffffff; border-radius:5px; position:absolute">-</button>
+                                                            <button ng-if="!SubProduct.expanded" ng-click="SubProduct.expanded = true" style="margin-left:30px; float:right; background-color:green; color:#ffffff; border-color:#ffffff; border-radius:5px; position:absolute">+</button>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <b>Total Variations:</b> <span class="label" style="margin-left:10px; position:absolute; background:#3579a5; font-size:11px; line-height:15px; padding:0 4px">2</span><i class="fa fa-database" style="font-size:20px; margin-top:5px" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr ng-if="SubProduct.expanded" ng-repeat-end="">
+                                                <td>
+
+                                                    <div style="border:2px solid #999; text-indent: 25px; padding: 10px;" ng-repeat="SuperSubProduct in Products | filter:{'ProductType':  SubProduct.ProductType}:true">
+                                                        <ul><b>ProductCode: </b> <i style="font-size:16px">{{SuperSubProduct.ProductCode}}</i></ul>
+                                                        <ul><b>ProductSize: </b> <i style="font-size:16px">{{SuperSubProduct.ProductSize}}</i></ul>
+                                                        <ul><b>PreservationType:</b> <i style="font-size:16px">{{SuperSubProduct.PreservationType}}</i></ul>
+                                                        <ul><b>UnitPrice : </b> <i style="font-size:16px">{{SuperSubProduct.UnitPrice==null ? 'N/A' : SuperSubProduct.UnitPrice | currency}}</i></ul>
+
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+
+                                <td style="width:10%; text-align: center;">
+                                    @*@{
+                                            var url = Url.Action("Manage", "Product", new { Id = "{{Id=Product.ProductMasterId}}" });
+                                            url = HttpUtility.UrlDecode(url);
+                                        }*@
+                                    <a data-ng-href="@url"><i class="fa fa-pencil-square-o" style="font-size:18px"></i> <u style="color:#2175ac; font-size:17px">Manage</u></a>
+                                    @*<a style="color: #fff;">
+                                        <img src="~/Assets/image/Icon.png" title="Manage" style="width:65px; height:60px" />
+                                    </a>*@
+                                    @*<span class="btn btn-primary" style="height:40px;"><a style="color: #fff;" data-ng-href="@url">Manage</a></span>*@
+                                </td>
+                            </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

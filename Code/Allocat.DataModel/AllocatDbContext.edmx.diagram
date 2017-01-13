@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bf29885e8be8402bbfbeda8a3216642e" Name="Diagram1">
+        <EntityTypeShape EntityType="AllocatDbModel.City" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.DomainScope" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Entity" Width="1.5" PointX="3.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.EntityType" Width="1.5" PointX="1.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Hospital" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.HospitalAddress" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.HospitalType" Width="1.5" PointX="0.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Notification" Width="1.5" PointX="3.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.NotificationTag" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Order" Width="1.5" PointX="20.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.OrderDetail" Width="1.5" PointX="15" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.ProductEntity" Width="1.5" PointX="12.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.ProductMaster" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.PurchaseRequest" Width="1.5" PointX="18" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.ReportType" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Request" Width="1.5" PointX="17.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.RequestForQuote" Width="1.5" PointX="15" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Response" Width="1.5" PointX="19.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Role" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.ShippingDetail" Width="1.5" PointX="10.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Source" Width="1.5" PointX="3" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.State" Width="1.5" PointX="1.5" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.Status" Width="1.5" PointX="12.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.TaggedNotification" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.TissueBank" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.TissueBankProduct" Width="1.5" PointX="5.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.User" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AllocatDbModel.UserRole" Width="1.5" PointX="8.25" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="AllocatDbModel.FK_City_State" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Hospital_City" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_HospitalAddress_City" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_TissueBank_City" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Hospital_DomainScope" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_ProductMaster_DomainScope" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_User_DomainScope" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Entity_EntityType" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_User_Entity" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Notification_EntityType" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_UserRole_EntityType" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Hospital_HospitalType" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_HospitalAddress_Hospital" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_ProductEntity_Hospital" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Request_Hospital" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_ShippingDetail_ShippingDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_TaggedNotification_Notification" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_TaggedNotification_NotificationTag" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Order_PurchaseRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Order_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_OrderDetail_ProductEntity" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_ProductEntity_ShippingDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_ProductEntity_TissueBank" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_ProductEntity_TissueBankProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_PurchaseRequest_ProductEntity" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_RequestForQuote_ProductEntity" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_ProductMaster_ProductMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_TissueBankProduct_ProductMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Purchaserequest_RequestForQuote" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_PurchaseRequest_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Status_ReportType" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Request_RequestForQuote" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Response_Request" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_RequestForQuote_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_Response_TissueBank" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_UserRoleID_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_TissueBankProduct_Source" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_TissueBankProduct_TissueBank" ManuallyRouted="false" />
+        <AssociationConnector Association="AllocatDbModel.FK_UserRoleID_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

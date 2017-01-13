@@ -1,0 +1,422 @@
+﻿
+@{
+    ViewBag.Title = "SubmitResponse";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+
+}
+<script src="~/Assets/js/customJs/TissueBank/TissueBankController.js"></script>
+<script src="~/Assets/js/customJs/TissueBank/TissueBankService.js"></script>
+<link href="~/Assets/css/trix.css" rel="stylesheet" />
+<style>
+    .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        font-size: 18px;
+        color: #fff;
+        line-height: 30px;
+        text-align: center;
+        background: #5bc0de;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+</style>
+
+<div ng-controller="RFQDetailController">
+    @if (@ViewBag.user.InfoId != null)
+    {
+        <input type="hidden" for="RequestForQuoteId" id="RequestForQuoteId" value="@ViewBag.RequestForQuoteId" />
+        <input type="hidden" for="TissueBankId" id="TissueBankId" value="@ViewBag.user.InfoId" />
+        <input type="hidden" for="UserId" id="UserId" value="@ViewBag.user.UserId" />
+        <input type="hidden" for="editMode" id="editMode" value="@ViewBag.editMode" />
+    }
+    else
+    {
+        <input type="hidden" for="ProductMasterId" id="ProductMasterId" value="" />
+    }
+
+    <div style="float:left">
+        <a href="@Url.Action("Index", "RequestForQuote", new { Area = "TissueBank" })" style="text-decoration:underline"><i class="fa fa-arrow-left"></i>&nbsp; Back</a>
+    </div><br /><br />
+    <div class="panel">
+        <div class="panel-body">
+            <div class="modal-header">
+                <h4 class="modal-title" style="text-align:center"><b>Manage RFQ</b></h4>
+            </div>
+            <div class="modal-body">
+                <form name="form_ConfirmOnExit" confirm-on-exit ng-submit="submitResponse()">
+                    @*<h3 style="text-align:center;">RFQ</h3>*@
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel colourable" id="from">
+                                <div class="panel-body panel-padding">
+                                    <ul>
+                                        <b>From : </b>
+                                    </ul>
+                                    <ul>
+                                        <span ng-if="RFQDetail.StatusName=='Placed PR'|| RFQDetail.StatusName=='Placed PO'">{{RFQDetail.HospitalName}},</span>
+                                        <span ng-if="RFQDetail.StatusName!='Placed PR' && RFQDetail.StatusName!='Placed PO'">XXXXXXXXX Hospital</span>
+                                        <br />{{RFQDetail.CityName}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul><b>RFQ ID :</b> {{RFQDetail.RequestForQuoteId}}</ul>
+                            <ul><b>Submitted Date :</b> {{RFQDetail.CreatedDate | date : 'yyyy-MM-dd HH:mm:ss'}}</ul>
+                            <ul><b>Last Modified Date :</b> {{RFQDetail.LastModifiedDate | date : 'yyyy-MM-dd HH:mm:ss'}}</ul>
+                            <ul>
+                                <b>Status : </b>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'Sent to TissueBank'">
+                                    Received
+                                </div>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'Sent to Hospital'">
+                                    Sent
+                                </div>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'In-Negotiation'">
+                                    In-Negotiation
+                                </div>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'Declined By TissueBank'">
+                                    Declined By TissueBank
+                                </div>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'Declined By Hospital'">
+                                    Declined By Hospital
+                                </div>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'Declined By AllocatStaff'">
+                                    Declined By AllocatStaff
+                                </div>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'Placed PR'">
+                                    Closed<br />
+                                    Placed PR
+                                </div>
+                                <div class="ack" ng-if="RFQDetail.StatusName == 'Placed PO'">
+                                    Closed<br />
+                                    Placed PO
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- $PANEL_BODY ================================================================================ -->
+                    @*<div class="panel colourable" id="tblist">
+                            <div class="panel-body panel-padding">
+                                <p>
+                                    From:
+                                    <br /><span ng-if="RFQDetail.StatusName=='Placed PR'|| RFQDetail.StatusName=='Placed PO'">{{RFQDetail.HospitalName}},</span>
+                                    <span ng-if="RFQDetail.StatusName!='Placed PR' && RFQDetail.StatusName!='Placed PO'">XXXXXXXXX Hospital</span>
+                                    <br />{{RFQDetail.CityName}}
+                                </p>
+                                <h4 style="text-align:center; color:#64bed8;">
+                                    STATUS:
+                                    <div class="warning-tag" ng-if="RFQDetail.StatusName == 'Sent to TissueBank'">
+                                        Received
+                                    </div>
+                                    <div class="sucess-tag" ng-if="RFQDetail.StatusName == 'Sent to Hospital'">
+                                        Sent
+                                    </div>
+                                    <div class="on-going-tag" ng-if="RFQDetail.StatusName == 'In-Negotiation'">
+                                        In-Negotiation
+                                    </div>
+                                    <div class="closed-tag" ng-if="RFQDetail.StatusName == 'Declined By TissueBank'">
+                                        Declined By TissueBank
+                                    </div>
+                                    <div class="closed-tag" ng-if="RFQDetail.StatusName == 'Declined By Hospital'">
+                                        Declined By Hospital
+                                    </div>
+                                    <div class="closed-tag" ng-if="RFQDetail.StatusName == 'Declined By AllocatStaff'">
+                                        Declined By AllocatStaff
+                                    </div>
+                                    <div class="sucess-tag" ng-if="RFQDetail.StatusName == 'Placed PR'">
+                                        Closed<br />
+                                        Placed PR
+                                    </div>
+                                    <div class="sucess-tag" ng-if="RFQDetail.StatusName == 'Placed PO'">
+                                        Closed<br />
+                                        Placed PO
+                                    </div>
+                                </h4>
+                            </div>
+                        </div>*@
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-primary table-bordered table-hover" id="table">
+                                <thead>
+                                <th colspan="2">Product Requested</th>
+                                </thead>
+                                <tr>
+                                    <td><b>Quantity</b></td>
+                                    <td style="font-size:15px"><i>{{RFQDetail.Quantity}}</i></td>
+                                </tr>
+                                <tr>
+                                    <td><b>TB Product Code</b></td>
+                                    <td style="font-size:15px"><i>{{RFQDetail.ProductCode}}</i></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Product Name</b></td>
+                                    <td style="font-size:15px"><i>{{RFQDetail.ProductMasterName}}</i></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Needed By Date</b></td>
+                                    <td style="font-size:15px"><i>{{RFQDetail.NeedByDate==null ? 'N/A' : RFQDetail.NeedByDate | date:'yyyy-MM-dd'}}</i></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel">
+                                <div class="panel-heading" style="text-align:center; background-color: #2175ac;">
+                                    <span class="panel-title" style="color:#ffffff"><b>Pricing and Shipment</b></span>
+                                </div>
+                                <div class="panel-body">
+                                    <ul>
+                                        <li style="margin-bottom:5px">
+                                            <label id="datepicker" style="display:inline">How soon can you ship this product? :</label>
+                                            <i ng-if="!editMode">{{RFQDetail.TissueBankSendByDate==null ? 'N/A' : RFQDetail.TissueBankSendByDate | date:'yyyy-MM-dd'}}</i>
+                                            <i ng-if="editMode" class="input-group date" id="bs-datepicker-component">
+                                                <input ng-model="RFQDetail.TissueBankSendByDate" datetime-picker="" date-format="yyyy-MM-dd" close-on-select="false" size="30" class="ng-pristine ng-valid ng-valid-date ng-touched">
+                                            </i>
+                                        </li>
+                                        <li>
+                                            <label>Unit Price :</label>
+                                            $<i ng-if="!editMode">{{RFQDetail.UnitPrice==null ? 'N/A' : RFQDetail.UnitPrice}}</i>
+                                            <input type="number" ng-if="editMode" ng-change="CalculateTotal()" ng-model="RFQDetail.UnitPrice" />
+                                        </li>
+                                        <li>
+                                            <label>Line Total :</label>
+                                            <i> {{RFQDetail.LineTotal==null ? 'N/A' : RFQDetail.LineTotal}}</i>
+                                        </li>
+                                        <li>
+                                            <label>Sales Tax :</label>
+                                            <i> {{RFQDetail.SalesTax==null ? 'N/A' : RFQDetail.SalesTax}}</i>
+                                        </li>
+                                        <li>
+                                            <label>Total Amount :</label>
+                                            <i> {{RFQDetail.Total==null ? 'N/A' : RFQDetail.Total}}</i>
+                                        </li>
+                                        <li>
+                                            <label>Shipping Method :</label>
+                                            <i ng-if="!editMode">{{RFQDetail.ShippingMethod==null ? 'N/A' : RFQDetail.ShippingMethod}}</i>
+                                            <i ng-if="editMode" type="text" ng-model="RFQDetail.ShippingMethod"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<p><b>Product Requested</b></p>
+                        <div class="table-responsive table-primary">
+                            <table class="table table-bordered table-hover" id="table">
+                                <thead>
+                                    <tr>
+                                        <th>Quantity</th>
+                                        <th>TB Product Code</th>
+                                        <th>Product Name</th>
+                                        <th>Needed By Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{RFQDetail.Quantity}}</td>
+                                        <td>{{RFQDetail.ProductCode}}</td>
+                                        <td>{{RFQDetail.ProductMasterName}}</td>
+                                        <td>{{RFQDetail.NeedByDate==null ? 'N/A' : RFQDetail.NeedByDate | date:'yyyy-MM-dd'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>*@
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <span class="glyphicon glyphicon-comment"></span> Clinical Question
+                                </div>
+                                <div class="c-body" style="overflow-y:auto; height:100px !important;">
+                                    <ul class="chat" ng-if="RequestResponses.length>0">
+                                        <span ng-repeat="item in RequestResponses">
+                                            <li class="left clearfix" ng-if="item.BodyType=='Request'" style="width:100%;text-align: left;">
+                                                <span class="chat-img pull-left">
+                                                    <div class="circle chat-img pull-left">{{item.Initial}}</div>
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <small class="pull-left text-muted">
+                                                            <span class="glyphicon glyphicon-time"></span>{{item.LastModifiedDate | date : 'yyyy-MM-dd HH:mm:ss' }}
+                                                        </small>
+                                                    </div><br />
+                                                    <p>
+                                                        {{item.Body}}
+                                                        <div ng-if="item.AttachmentName!=null">
+                                                            <img src="~/Assets/image/attachmentIcon.png" />  <a target="_blank" href="http://allocat.net/Webapi/Content/AttachmentFiles/{{item.AttachmentName}}">{{item.AttachmentName}}</a>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix" ng-if="item.BodyType=='Response'" style="width:100%;text-align: right;">
+                                                <span class="chat-img pull-right">
+                                                    <div class="circle chat-img pull-right">{{item.Initial}}</div>
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <small class="text-muted">
+                                                            <span class="glyphicon glyphicon-time">
+                                                            </span>{{item.LastModifiedDate | date : 'yyyy-MM-dd HH:mm:ss' }}
+                                                        </small>
+                                                    </div>
+                                                    <p>
+                                                        {{item.Body}}
+                                                        <div ng-if="item.AttachmentName!=null">
+                                                            <img src="~/Assets/image/attachmentIcon.png" />  <a target="_blank" href="http://allocat.net/Webapi/Content/AttachmentFiles/{{item.AttachmentName}}">{{item.AttachmentName}}</a>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </span>
+                                    </ul>
+                                    <div ng-if="RequestResponses.length<1">
+                                        No Clinical questions asked for this RFQ yet.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <div class="col-md-12" ng-if="!editMode">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-12" ng-if="editMode">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <span class="panel-title"><b>Reply</b></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <trix-editor style="height: 176px;overflow: auto;" spellcheck="true" class="trix-content" ng-model="trix" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" placeholder="Write something.."></trix-editor>
+                                            {{UploadedAttachmentName}}
+                                            <span ng-if="!UploadedAttachmentName">{{UploadedAttachmentName}}</span>
+                                            <eg-photo-uploader></eg-photo-uploader>
+                                            <div class="col-md-3 hidden-sm hidden-xs" style="width: 150px; margin-bottom: 5px;">
+                                                <img ng-src="album/{{vm.previewPhoto.name}}" style="max-height: 150px" ng-show="vm.previewPhoto" class="img-responsive" alt="vm.previewPhoto.name" />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <eg-app-status></eg-app-status>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    @*<div class="panel">
+                        <div class="row" style="padding:10px">
+                            <div class="col-md-12">
+                                <div class="col-md-6" ng-if="!editMode">
+                                    &nbsp;
+                                </div>
+                                <div class="col-md-6" ng-if="editMode">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <span class="panel-title"><b>Reply</b></span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <trix-editor style="height: 176px;overflow: auto;" spellcheck="true" class="trix-content" ng-model="trix" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" placeholder="Write something.."></trix-editor>
+                                            {{UploadedAttachmentName}}
+                                            <span ng-if="!UploadedAttachmentName">{{UploadedAttachmentName}}</span>
+                                            <eg-photo-uploader></eg-photo-uploader>
+                                            <div class="col-md-3 hidden-sm hidden-xs" style="width: 150px; margin-bottom: 5px;">
+                                                <img ng-src="album/{{vm.previewPhoto.name}}" style="max-height: 150px" ng-show="vm.previewPhoto" class="img-responsive" alt="vm.previewPhoto.name" />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <eg-app-status></eg-app-status>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-6">
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <span class="panel-title"><b>Pricing and Shipment</b></span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div id="datepicker">
+                                                    <label>How soon can you ship this product? :</label>
+                                                    <label ng-if="!editMode">{{RFQDetail.TissueBankSendByDate==null ? 'N/A' : RFQDetail.TissueBankSendByDate | date:'yyyy-MM-dd'}}</label>
+                                                    <div ng-if="editMode" class="input-group date" id="bs-datepicker-component">
+                                                        <input ng-model="RFQDetail.TissueBankSendByDate" datetime-picker="" date-format="yyyy-MM-dd" close-on-select="false" size="30" class="ng-pristine ng-valid ng-valid-date ng-touched">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <label>Unit Price :</label>
+                                                    $<label ng-if="!editMode">{{RFQDetail.UnitPrice==null ? 'N/A' : RFQDetail.UnitPrice}}</label>
+                                                    <input type="number" ng-if="editMode" ng-change="CalculateTotal()" ng-model="RFQDetail.UnitPrice" />
+                                                    <br /><label>Line Total :</label>
+                                                    <label> {{RFQDetail.LineTotal==null ? 'N/A' : RFQDetail.LineTotal}}</label>
+                                                    <br /><label>Sales Tax :</label>
+                                                    <label> {{RFQDetail.SalesTax==null ? 'N/A' : RFQDetail.SalesTax}}</label>
+                                                    <br /><label>Total Amount :</label>
+                                                    <label> {{RFQDetail.Total==null ? 'N/A' : RFQDetail.Total}}</label>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label>Shipping Method :</label>
+
+                                                    <label ng-if="!editMode">{{RFQDetail.ShippingMethod==null ? 'N/A' : RFQDetail.ShippingMethod}}</label>
+                                                    <input ng-if="editMode" type="text" ng-model="RFQDetail.ShippingMethod" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                    <div class="col-md-12" ng-if="RFQDetail.StatusName.indexOf('Declined')<0">
+                        <div class="col-md-6">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" ng-click="Edit_Cancel()" class="btn btn-primary" ng-if="!editMode && RFQDetail.StatusName.indexOf('Declined')<0">Reply/Edit</button>
+                            <button type="button" ng-click="Edit_Cancel()" class="btn btn-warning" ng-if="editMode">Cancel</button>
+                            <button type="submit" ng-if="editMode" class="btn btn-primary">Submit Response</button>
+                            <button type="button" ng-if="!editMode" data-toggle="modal" data-target="#modal-remark" class="btn btn-danger" id="btn">Decline RFQ</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="notifies" notifybar></div>
+    <div id="modal-remark" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Decline RFQ</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="formDecline" ng-submit="DeclineRFQ()">
+                        Please enter remark for declining RFQ.
+                        <br />
+                        <textarea required style="width: 100%;" ng-model="RFQDetail.DeclineRemark" id="Remark"></textarea>
+                        <br />
+                        <button type="submit" class="btn btn-primary">Decline RFQ</button>
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-danger">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <modal2 id="modal-Ack" class="modal fade" role="dialog" visible="showModal">
+        <div class="modal-header">
+            <h4 class="modal-title">Attachment Alert!</h4>
+        </div>
+        <div class="modal-body">
+            <div class="bootbox-body">
+                <p style="color:red">To send an attachment in response, you need to write something in reply box.</p>
+                You have an attachment attached right now.Do you want to discard the attachment and update this request for quote?
+                <button type="button" class="btn btn-primary" ng-click="ConfirmSubmit()">ConfirmAcknowledge</button>
+                <button type="button" ng-click="CancelSubmit()" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </modal2>
+</div>
