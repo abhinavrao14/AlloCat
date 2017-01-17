@@ -1,0 +1,17 @@
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\obj\Debug\MailSenderLibrary.csprojResolveAssemblyReference.cache
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\MailSenderLibrary.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\MailSenderLibrary.pdb
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\Netmester.Mail.Serialization.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\bin\Debug\Netmester.Mail.Serialization.pdb
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\obj\Debug\MailSenderLibrary.dll
+D:\Bhasker\PersonalProjects\MyProjects\MSMQMailService\MailSenderLibrary\obj\Debug\MailSenderLibrary.pdb
+D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MailSenderLibrary\bin\Debug\MailSenderLibrary.dll
+D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MailSenderLibrary\bin\Debug\MailSenderLibrary.pdb
+D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MailSenderLibrary\obj\Debug\MailSenderLibrary.csprojResolveAssemblyReference.cache
+D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MailSenderLibrary\obj\Debug\MailSenderLibrary.dll
+D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MailSenderLibrary\obj\Debug\MailSenderLibrary.pdb
