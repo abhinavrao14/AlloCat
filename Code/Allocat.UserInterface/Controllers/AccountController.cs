@@ -27,7 +27,7 @@ namespace Allocat.UserInterface.Controllers
             if (ModelState.IsValid)
             {
                 var demo = Context.UserRole.ToList();
-                var user = Context.User.Where(u => u.UserName == model.Username && u.Password == model.Password).FirstOrDefault();
+                var user = Context.User.Where(u => u.UserName == model.Username && u.Password == model.Password && u.AllowLogin==true).FirstOrDefault();
                 if (user != null)
                 {
                     //var roles=user.Roles.Select(m => m.RoleName).ToArray();

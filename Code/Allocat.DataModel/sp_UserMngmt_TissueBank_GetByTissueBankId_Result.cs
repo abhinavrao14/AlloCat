@@ -11,7 +11,7 @@ namespace Allocat.DataModel
 {
     using System;
     
-    public partial class sp_User_Get_Result
+    public partial class sp_UserMngmt_TissueBank_GetByTissueBankId_Result
     {
         public Nullable<long> Sno { get; set; }
         public int UserId { get; set; }
@@ -22,8 +22,8 @@ namespace Allocat.DataModel
         public string IsLockedOut { get; set; }
         public System.DateTime LastLoginDate { get; set; }
         public string IsActive { get; set; }
+        public string AllowLogin { get; set; }
         public string UserRoles { get; set; }
         public string DomainName { get; set; }
-        public string InfoType { get; set; }
     }
 }

@@ -25,16 +25,16 @@ namespace Allocat.DataModel
         public Nullable<System.DateTime> OrderDate { get; set; }
         public Nullable<decimal> OrderLineTotal { get; set; }
         public Nullable<int> PurchaseRequestId { get; set; }
+        public Nullable<int> RFQId { get; set; }
         public string AlloCATFees { get; set; }
+        public string HospitalPoNumber { get; set; }
         public Nullable<int> StatusId { get; set; }
+        public string DeclineRemark { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
         public Nullable<int> LastModifiedBy { get; set; }
-        public Nullable<int> RFQId { get; set; }
-        public string HospitalPoNumber { get; set; }
-        public string DeclineRemark { get; set; }
     
         public virtual PurchaseRequest PurchaseRequest { get; set; }
         public virtual Status Status { get; set; }

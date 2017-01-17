@@ -164,6 +164,7 @@
     <Compile Include="Areas\TissueBank\Controllers\ProductController.cs" />
     <Compile Include="Areas\TissueBank\Controllers\OrderController.cs" />
     <Compile Include="Areas\TissueBank\Controllers\RequestForQuoteController.cs" />
+    <Compile Include="Areas\TissueBank\Controllers\UserController.cs" />
     <Compile Include="Areas\TissueBank\TissueBankAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -300,6 +301,8 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\TissueBank\Views\Order\Index.cshtml" />
     <Content Include="Areas\TissueBank\Views\Order\Manage.cshtml" />
+    <Content Include="Areas\TissueBank\Views\User\Index.cshtml" />
+    <Content Include="Areas\TissueBank\Views\User\Manage.cshtml" />
     <None Include="Assets\js\lib\_references.js" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />

@@ -10,6 +10,8 @@ namespace Allocat.Utility
 {
     public static class Utilities
     {
+        public static Random random = new Random();
+
         public static int CalculateTotalPages(long numberOfRecords, Int32 pageSize)
         {
             long result;
@@ -180,6 +182,13 @@ namespace Allocat.Utility
         public static string GetString(string inValue)
         {
             return (inValue != null) ? (inValue) : String.Empty;
+        }
+
+        public static string RandomAlphaNumeric(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

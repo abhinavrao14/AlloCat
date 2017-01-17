@@ -16,7 +16,7 @@ namespace Allocat.DataModel
         public int RequestForQuoteId { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public int Quantity { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
         public Nullable<decimal> LineTotal { get; set; }
         public Nullable<decimal> SalesTax { get; set; }

@@ -69,6 +69,9 @@
     <Compile Include="City.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataGridPagingInformation.cs" />
     <Compile Include="DomainScope.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
@@ -153,7 +156,25 @@
     <Compile Include="sp_TissueBankProduct_TissueBank_GetTissueBankProductsByProductMasterId_Result.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_UserDetail_GetByUserId_Result.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_UserMngmt_GetUserRoleByUserId_Result.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_UserMngmt_TissueBank_GetByTissueBankId_Result.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_UserMngmt_TissueBank_GetByUserId_Result.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_UserProfileDetail_TissueBank_GetByUserId_Result.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_User_GetEntityInfoByUserName_Result.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_User_GetUserRoleByUserId_Result.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_User_Get_Result.cs">
@@ -174,6 +195,7 @@
     <Compile Include="TissueBankProduct.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="TissueBankRoles_TissueBank.cs" />
     <Compile Include="TransactionalInformation.cs" />
     <Compile Include="User.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>

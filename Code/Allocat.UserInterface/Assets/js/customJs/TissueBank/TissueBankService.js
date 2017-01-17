@@ -172,3 +172,59 @@ app.service("OrderService", function ($http) {
     };
 
 });
+
+
+app.service("UserService", function ($http) {
+
+    this.GetUsers = function (user_DTO) {
+        var response = $http({
+            method: "Get",
+            url: "http://localhost:63744/api/User",
+            params: user_DTO
+        });
+        return response;
+    };
+});
+
+app.service("UserDetailService", function ($http) {
+
+    this.GetUserDetail = function (UserId, type) {
+        var response = $http({
+            method: "Get",
+            url: "http://localhost:63744/api/User",
+            params: { UserId: UserId, type: type }
+        });
+        return response;
+    };
+
+    this.GetUserRoles = function (UserId, type) {
+        var response = $http({
+            method: "Get",
+            url: "http://localhost:63744/api/User",
+            params: { UserId: UserId, type: type }
+        });
+        return response;
+    };
+
+    this.GetTissueBankRoles = function (type) {
+        var response = $http({
+            method: "Get",
+            url: "http://localhost:63744/api/Role",
+            params: { type: type }
+        });
+        return response;
+    };
+
+    this.SubmitUser = function (user_CUD_DTO) {
+        var response = $http({
+            url: "http://localhost:63744/api/User",
+            dataType: 'json',
+            method: 'POST',
+            data: user_CUD_DTO,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        return response;
+    };
+});

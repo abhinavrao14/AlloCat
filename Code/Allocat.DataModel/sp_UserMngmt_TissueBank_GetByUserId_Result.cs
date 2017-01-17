@@ -10,22 +10,12 @@
 namespace Allocat.DataModel
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class User
+    public partial class sp_UserMngmt_TissueBank_GetByUserId_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.UserRole = new HashSet<UserRole>();
-        }
-    
         public int UserId { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
         public string FullName { get; set; }
-        public Nullable<int> EntityID { get; set; }
-        public Nullable<int> DomainScopeID { get; set; }
         public string MobileNumber { get; set; }
         public string EmailId { get; set; }
         public Nullable<bool> IsMobileVerified { get; set; }
@@ -40,16 +30,9 @@ namespace Allocat.DataModel
         public string PasswordAnswer { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
-        public Nullable<int> LastModifiedBy { get; set; }
         public Nullable<bool> AllowLogin { get; set; }
-    
-        public virtual DomainScope DomainScope { get; set; }
-        public virtual Entity Entity { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserRole> UserRole { get; set; }
+        public Nullable<int> InfoId { get; set; }
+        public string DomainName { get; set; }
     }
 }

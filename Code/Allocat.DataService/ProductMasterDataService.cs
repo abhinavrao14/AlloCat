@@ -40,7 +40,7 @@ namespace Allocat.DataService
                                                                      DomainName = ds.DomainName,
                                                                      FamilyProductMasterName = rt1.ProductMasterName
 
-                                                                 }).First(); ;
+                                                                 }).First(); 
 
             transaction.ReturnStatus = true;
             transaction.ReturnMessage.Add("1 Product Master found.");

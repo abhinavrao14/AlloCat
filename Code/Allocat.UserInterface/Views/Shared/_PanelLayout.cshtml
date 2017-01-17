@@ -236,8 +236,11 @@
 
                                         <li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Account Settings</a></li>
 
-                                        <li><a href="#"><i class="dropdown-icon fa fa-user-plus"></i>&nbsp;&nbsp;User Management</a></li>
-
+                                        <li>
+                                            <a href="@Url.Action("Index", "User", new { Area = "TissueBank" })">
+                                                <i class="dropdown-icon fa fa-user-plus"></i>
+                                                &nbsp;&nbsp;User Management
+                                            </a>
                                         <li>
                                             <a href="@Url.Action("LogOut", "Account", new { Area = "" })">
                                                 <i class="dropdown-icon fa fa-power-off"></i>
@@ -246,12 +249,12 @@
                                         </li>
                                     </ul>
                                 </li>
-                            </ul> 
-                        </div> 
+                            </ul>
+                        </div>
                     </div>
-                </div> 
+                </div>
             </div>
-        </div> 
+        </div>
         <div id="main-menu" role="navigation">
 
             <div style="position: relative; overflow: hidden; width: auto; height: 100%;" class="slimScrollDiv">

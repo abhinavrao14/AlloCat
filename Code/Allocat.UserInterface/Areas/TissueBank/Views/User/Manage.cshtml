@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+<script src="~/Assets/js/customJs/TissueBank/TissueBankController.js"></script>
+<script src="~/Assets/js/customJs/TissueBank/TissueBankService.js"></script>
+<div ng-controller="UserDetailController">
+    <input type="hidden" for="InfoId" id="InfoId" value="@ViewBag.user.InfoId" />
+    <input type="hidden" for="S_UserId" id="S_UserId" value="@ViewBag.S_UserId" />
+    <input type="hidden" for="LoggedUserId" id="LoggedUserId" value="@ViewBag.user.UserId" />
+    <ul class="breadcrumb breadcrumb-page">
+        <div class="breadcrumb-label text-light-gray">You are here: </div>
+        <li>
+            <a href="@Url.Action("Index", "Home", new { Area = "TissueBank" })">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "User", new { Area = "TissueBank" })">
+                User Management
+            </a>
+        </li>
+        <li class="active"><a href="#">{{Operation}}</a></li>
+    </ul>
+    <div class="page-header">
+        <div class="row">
+            <!-- Page header, center on small screens -->
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;{{Operation}}</h1>
+        </div>
+    </div>
+    <div class="panel" style="width:85%; margin:auto">
+        <div class="panel-body">
+            <div>
+                <h4 style="font-weight:bold; margin-bottom:30px">Profile Information</h4>
+            </div>
+
+            <!--  $FORM ======================================================================  -->
+            <form class="form-horizontal" novalidate ng-submit="Submit()" name="FormUser">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="asdasdas" class="col-sm-2 control-label">Full Name </label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="FullName" ng-model="UserDetail.FullName" ng-pattern="validateFullName" ng-required="true">
+                            <span class="error-msg" ng-show="FormUser.FullName.$error.required">*</span>
+                            <span class="error-msg" ng-show="FormUser.FullName.$error.pattern">Only Alphabets With Spaces Allowed</span>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="asdasdas" class="col-sm-2 control-label">User Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="UserName" ng-model="UserDetail.UserName" ng-required="true">
+                            <span class="error-msg" ng-show="FormUser.UserName.$error.required">*</span>
+                            <span class="error-msg" ng-show="FormUser.UserName.$error.pattern">Only Alphabets With Spaces Allowed</span>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">User Role</label>
+                        <div class="col-sm-6">
+                            <label ng-repeat="tbRole in TissueBankRoles track by tbRole.RoleId">
+                                <input type="checkbox"
+                                       value="{{tbRole.RoleId}}"
+                                       ng-checked="isChecked(tbRole)"
+                                       ng-click="Check(tbRole)" /> {{tbRole.RoleName}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail2" class="col-sm-2 control-label">Email <span class="error" ng-show="myForm.EmailId.$error.required" style="color:red">*</span></label>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" name="EmailId" ng-model="UserDetail.EmailId" ng-pattern="validateEmail" ng-required="true">
+                            <span class="error-msg" ng-show="FormUser.EmailId.$error.required">*</span>
+                            <span class="error-msg" ng-show="FormUser.EmailId.$error.pattern">Please Enter Valid Format :abc@example.com </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail2" class="col-sm-2 control-label">Mobile Number</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="MobileNumber" ng-model="UserDetail.MobileNumber" ng-required="true" ng-pattern="validateNumber" />
+                            <span class="error-msg" ng-show="FormUser.MobileNumber.$error.required">*</span>
+                            <span class="error-msg" ng-show="FormUser.MobileNumber.$error.pattern">Please Enter Valid format: 1234567890</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail2" class="col-sm-2 control-label">Allow Login</label>
+                        <div class="col-sm-6">
+                            <input type="checkbox" ng-checked="UserDetail.AllowLogin" ng-model="UserDetail.AllowLogin">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <p class="help-block"><b>Note: </b>Password will be sent to entered email id.</p>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <input type="submit" class="btn btn-primary" value="Submit" ng-disabled="FormUser.$invalid" />
+
+                        @{
+                            var ViewUrl = Url.Action("Index", "User", new { Area = "TissueBank" });
+                            ViewUrl = HttpUtility.UrlDecode(ViewUrl);
+                        }
+                        <a data-ng-href="@ViewUrl"><button type="button" class="btn btn-primary">Cancel</button></a>
+                    </div>
+                </div>
+            </form>
+            <!-- /. $END_FORM -->
+
+        </div>
+    </div>
+    <div class="notifies" notifybar></div>
+
+</div>
+

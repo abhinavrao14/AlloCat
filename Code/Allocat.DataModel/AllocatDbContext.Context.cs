@@ -293,7 +293,6 @@
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Order_TissueBank_Ack_Decline", orderIdParameter, statusIdParameter, declineRemarkParameter, shippingMethodParameter, tissueBankSendByDateParameter, lastModifiedByParameter);
         }
 
-
         public virtual int sp_User_CUD(Nullable<int> userId, string userName, string password, string fullName, Nullable<int> entityID, Nullable<int> domainScopeID, string mobileNumber, string emailId, Nullable<bool> isMobileVerified, Nullable<bool> isEmailVerified, Nullable<bool> isLockedOut, Nullable<System.DateTime> lastLoginDate, Nullable<System.DateTime> lastPasswordChangedDate, Nullable<System.DateTime> lastLockoutDate, Nullable<int> failedPasswordAttemptCount, Nullable<int> failedPasswordAnswerAttemptCount, string passwordQuestion, string passwordAnswer, string securityQuestion, string securityAnswer, Nullable<bool> isActive, Nullable<int> createdBy, Nullable<int> lastModifiedBy, Nullable<int> entityTypeId, Nullable<int> infoId, string operationType)
         {
             var userIdParameter = userId.HasValue ?
@@ -403,7 +402,29 @@
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_User_CUD", userIdParameter, userNameParameter, passwordParameter, fullNameParameter, entityIDParameter, domainScopeIDParameter, mobileNumberParameter, emailIdParameter, isMobileVerifiedParameter, isEmailVerifiedParameter, isLockedOutParameter, lastLoginDateParameter, lastPasswordChangedDateParameter, lastLockoutDateParameter, failedPasswordAttemptCountParameter, failedPasswordAnswerAttemptCountParameter, passwordQuestionParameter, passwordAnswerParameter, securityQuestionParameter, securityAnswerParameter, isActiveParameter, createdByParameter, lastModifiedByParameter, entityTypeIdParameter, infoIdParameter, operationTypeParameter);
         }
 
-        public virtual ObjectResult<sp_User_Get_Result> sp_User_Get(string roleName, string getType)
+        public virtual ObjectResult<sp_User_GetUserRoleByUserId_Result> sp_User_GetUserRoleByUserId(Nullable<int> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new SqlParameter("UserId", userId) :
+                new SqlParameter("UserId", typeof(int));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_User_GetUserRoleByUserId_Result>("sp_User_GetUserRoleByUserId @UserId", userIdParameter);
+        }
+
+        public virtual ObjectResult<sp_UserDetail_GetByUserId_Result> sp_UseDetail_GetByUserId(Nullable<int> userId, string infoType)
+        {
+            var userIdParameter = userId.HasValue ?
+                new SqlParameter("UserId", userId) :
+                new SqlParameter("UserId", typeof(int));
+
+            var infoTypeParameter = infoType != null ?
+                new SqlParameter("InfoType", infoType) :
+                new SqlParameter("InfoType", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_UserDetail_GetByUserId_Result>("sp_UserDetail_GetByUserId @UserId , @InfoType", userIdParameter, infoTypeParameter);
+        }
+
+        public virtual ObjectResult<sp_User_Get_Result> sp_User_Get(string roleName, string getType, string searchBy, Nullable<int> currentPage, Nullable<int> pageSize, string sortDirection, string sortExpression)
         {
             var roleNameParameter = roleName != null ?
                 new SqlParameter("RoleName", roleName) :
@@ -413,7 +434,198 @@
                 new SqlParameter("GetType", getType) :
                 new SqlParameter("GetType", typeof(string));
 
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_User_Get_Result>("sp_User_Get @RoleName ,@GetType", roleNameParameter, getTypeParameter);
+            var searchByParameter = searchBy != null ?
+                new SqlParameter("SearchBy", searchBy) :
+                new SqlParameter("SearchBy", typeof(string));
+
+            var currentPageParameter = currentPage.HasValue ?
+                new SqlParameter("CurrentPage", currentPage) :
+                new SqlParameter("CurrentPage", typeof(int));
+
+            var pageSizeParameter = pageSize.HasValue ?
+                new SqlParameter("PageSize", pageSize) :
+                new SqlParameter("PageSize", typeof(int));
+
+            var sortDirectionParameter = sortDirection != null ?
+                new SqlParameter("SortDirection", sortDirection) :
+                new SqlParameter("SortDirection", typeof(string));
+
+            var sortExpressionParameter = sortExpression != null ?
+                new SqlParameter("SortExpression", sortExpression) :
+                new SqlParameter("SortExpression", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_User_Get_Result>("sp_User_Get @RoleName, @GetType, @SearchBy , @CurrentPage,@PageSize, @SortDirection, @SortExpression", roleNameParameter, getTypeParameter, searchByParameter, currentPageParameter, pageSizeParameter, sortDirectionParameter, sortExpressionParameter);
+        }
+
+        public virtual ObjectResult<sp_UserMngmt_GetUserRoleByUserId_Result> sp_UserMngmt_GetUserRoleByUserId(Nullable<int> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new SqlParameter("UserId", userId) :
+                new SqlParameter("UserId", typeof(int));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_UserMngmt_GetUserRoleByUserId_Result>("sp_UserMngmt_GetUserRoleByUserId @UserId", userIdParameter);
+        }
+
+        public virtual int sp_UserProfile_TissueBank_UpdateByUserId(Nullable<int> userId, string userName, string fullName, string mobileNumber, string emailId, Nullable<bool> isMobileVerified, Nullable<bool> isEmailVerified, Nullable<System.DateTime> lastLoginDate, string passwordQuestion, string passwordAnswer, string securityQuestion, string securityAnswer)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+
+            var fullNameParameter = fullName != null ?
+                new ObjectParameter("FullName", fullName) :
+                new ObjectParameter("FullName", typeof(string));
+
+            var mobileNumberParameter = mobileNumber != null ?
+                new ObjectParameter("MobileNumber", mobileNumber) :
+                new ObjectParameter("MobileNumber", typeof(string));
+
+            var emailIdParameter = emailId != null ?
+                new ObjectParameter("EmailId", emailId) :
+                new ObjectParameter("EmailId", typeof(string));
+
+            var isMobileVerifiedParameter = isMobileVerified.HasValue ?
+                new ObjectParameter("IsMobileVerified", isMobileVerified) :
+                new ObjectParameter("IsMobileVerified", typeof(bool));
+
+            var isEmailVerifiedParameter = isEmailVerified.HasValue ?
+                new ObjectParameter("IsEmailVerified", isEmailVerified) :
+                new ObjectParameter("IsEmailVerified", typeof(bool));
+
+            var lastLoginDateParameter = lastLoginDate.HasValue ?
+                new ObjectParameter("LastLoginDate", lastLoginDate) :
+                new ObjectParameter("LastLoginDate", typeof(System.DateTime));
+
+            var passwordQuestionParameter = passwordQuestion != null ?
+                new ObjectParameter("PasswordQuestion", passwordQuestion) :
+                new ObjectParameter("PasswordQuestion", typeof(string));
+
+            var passwordAnswerParameter = passwordAnswer != null ?
+                new ObjectParameter("PasswordAnswer", passwordAnswer) :
+                new ObjectParameter("PasswordAnswer", typeof(string));
+
+            var securityQuestionParameter = securityQuestion != null ?
+                new ObjectParameter("SecurityQuestion", securityQuestion) :
+                new ObjectParameter("SecurityQuestion", typeof(string));
+
+            var securityAnswerParameter = securityAnswer != null ?
+                new ObjectParameter("SecurityAnswer", securityAnswer) :
+                new ObjectParameter("SecurityAnswer", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UserProfile_TissueBank_UpdateByUserId", userIdParameter, userNameParameter, fullNameParameter, mobileNumberParameter, emailIdParameter, isMobileVerifiedParameter, isEmailVerifiedParameter, lastLoginDateParameter, passwordQuestionParameter, passwordAnswerParameter, securityQuestionParameter, securityAnswerParameter);
+        }
+
+        public virtual ObjectResult<sp_UserProfileDetail_TissueBank_GetByUserId_Result> sp_UserProfileDetail_TissueBank_GetByUserId(Nullable<int> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new SqlParameter("UserId", userId) :
+                new SqlParameter("UserId", typeof(int));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_UserProfileDetail_TissueBank_GetByUserId_Result>("sp_UserProfileDetail_TissueBank_GetByUserId @UserId", userIdParameter);
+        }
+
+        public virtual int sp_UserMngmt_TissueBank_CreateUpdateDelete(Nullable<int> userId, string userName, string password, string fullName, string mobileNumber, string emailId, Nullable<int> createdBy, Nullable<int> lastModifiedBy, Nullable<int> infoId, Nullable<bool> allowLogin, string operationType)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+
+            var fullNameParameter = fullName != null ?
+                new ObjectParameter("FullName", fullName) :
+                new ObjectParameter("FullName", typeof(string));
+
+            var mobileNumberParameter = mobileNumber != null ?
+                new ObjectParameter("MobileNumber", mobileNumber) :
+                new ObjectParameter("MobileNumber", typeof(string));
+
+            var emailIdParameter = emailId != null ?
+                new ObjectParameter("EmailId", emailId) :
+                new ObjectParameter("EmailId", typeof(string));
+
+            var createdByParameter = createdBy.HasValue ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(int));
+
+            var lastModifiedByParameter = lastModifiedBy.HasValue ?
+                new ObjectParameter("LastModifiedBy", lastModifiedBy) :
+                new ObjectParameter("LastModifiedBy", typeof(int));
+
+            var infoIdParameter = infoId.HasValue ?
+                new ObjectParameter("InfoId", infoId) :
+                new ObjectParameter("InfoId", typeof(int));
+
+            var allowLoginParameter = allowLogin.HasValue ?
+                new ObjectParameter("AllowLogin", allowLogin) :
+                new ObjectParameter("AllowLogin", typeof(bool));
+
+            var operationTypeParameter = operationType != null ?
+                new ObjectParameter("OperationType", operationType) :
+                new ObjectParameter("OperationType", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UserMngmt_TissueBank_CreateUpdateDelete", userIdParameter, userNameParameter, passwordParameter, fullNameParameter, mobileNumberParameter, emailIdParameter, createdByParameter, lastModifiedByParameter, infoIdParameter, allowLoginParameter, operationTypeParameter);
+        }
+
+        public virtual ObjectResult<sp_UserMngmt_TissueBank_GetByTissueBankId_Result> sp_UserMngmt_TissueBank_GetByTissueBankId(Nullable<int> tissueBankId, string searchBy, Nullable<int> currentPage, Nullable<int> pageSize, string sortDirection, string sortExpression)
+        {
+            var tissueBankIdParameter = tissueBankId.HasValue ?
+                new SqlParameter("TissueBankId", tissueBankId) :
+                new SqlParameter("TissueBankId", typeof(int));
+
+            var searchByParameter = searchBy != null ?
+                new SqlParameter("SearchBy", searchBy) :
+                new SqlParameter("SearchBy", typeof(string));
+
+            var currentPageParameter = currentPage.HasValue ?
+                new SqlParameter("CurrentPage", currentPage) :
+                new SqlParameter("CurrentPage", typeof(int));
+
+            var pageSizeParameter = pageSize.HasValue ?
+                new SqlParameter("PageSize", pageSize) :
+                new SqlParameter("PageSize", typeof(int));
+
+            var sortDirectionParameter = sortDirection != null ?
+                new SqlParameter("SortDirection", sortDirection) :
+                new SqlParameter("SortDirection", typeof(string));
+
+            var sortExpressionParameter = sortExpression != null ?
+                new SqlParameter("SortExpression", sortExpression) :
+                new SqlParameter("SortExpression", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_UserMngmt_TissueBank_GetByTissueBankId_Result>("sp_UserMngmt_TissueBank_GetByTissueBankId @TissueBankId, @SearchBy , @CurrentPage,@PageSize, @SortDirection, @SortExpression", tissueBankIdParameter, searchByParameter, currentPageParameter, pageSizeParameter, sortDirectionParameter, sortExpressionParameter);
+        }
+
+        public virtual ObjectResult<sp_UserMngmt_TissueBank_GetByUserId_Result> sp_UserMngmt_TissueBank_GetByUserId(Nullable<int> userId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new SqlParameter("UserId", userId) :
+                new SqlParameter("UserId", typeof(int));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_UserMngmt_TissueBank_GetByUserId_Result>("sp_UserMngmt_TissueBank_GetByUserId @UserId", userIdParameter);
+        }
+
+        public virtual ObjectResult<Nullable<int>> sp_UserMngmt_TissueBank_GetCountByTissueBankId(Nullable<int> tissueBankId, string searchBy)
+        {
+            var tissueBankIdParameter = tissueBankId.HasValue ?
+                new SqlParameter("TissueBankId", tissueBankId) :
+                new SqlParameter("TissueBankId", typeof(int));
+
+            var searchByParameter = searchBy != null ?
+                new SqlParameter("SearchBy", searchBy) :
+                new SqlParameter("SearchBy", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<Nullable<int>>("sp_UserMngmt_TissueBank_GetCountByTissueBankId @TissueBankId, @SearchBy", tissueBankIdParameter, searchByParameter);
         }
     }
 }

@@ -240,4 +240,9 @@ textarea {
     height: 40px;
 }
 
+.error-msg
+{
+    color:red;
+}
+
 

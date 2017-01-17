@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OrderBusinessRule.cs" />
+    <Compile Include="UserBusinessRule.cs" />
+    <Compile Include="UserBusinessService.cs" />
     <Compile Include="RFQBusinessRule.cs" />
     <Compile Include="ProductBusinessRule.cs" />
     <Compile Include="ProductBusinessService.cs" />
