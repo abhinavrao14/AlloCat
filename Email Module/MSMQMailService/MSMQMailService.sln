@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSMQMailService", "MSMQMailService\MSMQMailService.csproj", "{59DEA82B-2347-4773-A31A-6FE187443CE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netmester.Mail.Serialization", "..\..\EmailSettings\codeproject\source\source\Netmester.Mail.Serialization\Netmester.Mail.Serialization.csproj", "{E7EF59FE-4968-4D89-828D-B9888C47BE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSenderLibrary", "MailSenderLibrary\MailSenderLibrary.csproj", "{B432F3BB-8A84-48E1-8714-007420CBCC9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestApplication\TestApplication.csproj", "{FF6F13B9-249A-45E9-81E5-BB6C487E20A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59DEA82B-2347-4773-A31A-6FE187443CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59DEA82B-2347-4773-A31A-6FE187443CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59DEA82B-2347-4773-A31A-6FE187443CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59DEA82B-2347-4773-A31A-6FE187443CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7EF59FE-4968-4D89-828D-B9888C47BE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7EF59FE-4968-4D89-828D-B9888C47BE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7EF59FE-4968-4D89-828D-B9888C47BE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7EF59FE-4968-4D89-828D-B9888C47BE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B432F3BB-8A84-48E1-8714-007420CBCC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B432F3BB-8A84-48E1-8714-007420CBCC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B432F3BB-8A84-48E1-8714-007420CBCC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B432F3BB-8A84-48E1-8714-007420CBCC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF6F13B9-249A-45E9-81E5-BB6C487E20A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF6F13B9-249A-45E9-81E5-BB6C487E20A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF6F13B9-249A-45E9-81E5-BB6C487E20A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF6F13B9-249A-45E9-81E5-BB6C487E20A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

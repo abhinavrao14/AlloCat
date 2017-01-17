@@ -1,0 +1,73 @@
+﻿Installing assembly 'D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing service Custom.MSMQEmailService...
+Service Custom.MSMQEmailService has been successfully installed.
+Creating EventLog source Custom.MSMQEmailService in log Application...
+Committing assembly 'D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing service Custom.MSMQEmailService...
+Creating EventLog source Custom.MSMQEmailService in log Application...
+Rolling back assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Restoring event log to previous state for source Custom.MSMQEmailService.
+Uninstalling assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Removing EventLog source Custom.MSMQEmailService.
+Service Custom.MSMQEmailService is being removed from the system...
+Service Custom.MSMQEmailService was successfully removed from the system.
+Installing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing service Custom.MSMQEmailService...
+Service Custom.MSMQEmailService has been successfully installed.
+Creating EventLog source Custom.MSMQEmailService in log Application...
+Committing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing service Custom.MSMQEmailService...
+Creating EventLog source Custom.MSMQEmailService in log Application...
+Rolling back assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Restoring event log to previous state for source Custom.MSMQEmailService.
+Installing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing service Custom.MSMQEmailService...
+Service Custom.MSMQEmailService has been successfully installed.
+Creating EventLog source Custom.MSMQEmailService in log Application...
+Committing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
