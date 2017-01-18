@@ -1134,7 +1134,6 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
         console.log($scope.UserRoles)
     };
 
-
     $scope.Submit = function () {
         if ($scope.UserRoles.length > 0) {
             var user_CUD_DTO = {};

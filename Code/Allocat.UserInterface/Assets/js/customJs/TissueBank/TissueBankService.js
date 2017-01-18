@@ -179,7 +179,7 @@ app.service("UserService", function ($http) {
     this.GetUsers = function (user_DTO) {
         var response = $http({
             method: "Get",
-            url: "http://localhost:63744/api/User",
+            url: "http://allocat.net/Webapi/api/User",
             params: user_DTO
         });
         return response;
@@ -191,7 +191,7 @@ app.service("UserDetailService", function ($http) {
     this.GetUserDetail = function (UserId, type) {
         var response = $http({
             method: "Get",
-            url: "http://localhost:63744/api/User",
+            url: "http://allocat.net/Webapi/api/User",
             params: { UserId: UserId, type: type }
         });
         return response;
@@ -200,7 +200,7 @@ app.service("UserDetailService", function ($http) {
     this.GetUserRoles = function (UserId, type) {
         var response = $http({
             method: "Get",
-            url: "http://localhost:63744/api/User",
+            url: "http://allocat.net/Webapi/api/User",
             params: { UserId: UserId, type: type }
         });
         return response;
@@ -209,7 +209,7 @@ app.service("UserDetailService", function ($http) {
     this.GetTissueBankRoles = function (type) {
         var response = $http({
             method: "Get",
-            url: "http://localhost:63744/api/Role",
+            url: "http://allocat.net/Webapi/api/Role",
             params: { type: type }
         });
         return response;
@@ -217,7 +217,7 @@ app.service("UserDetailService", function ($http) {
 
     this.SubmitUser = function (user_CUD_DTO) {
         var response = $http({
-            url: "http://localhost:63744/api/User",
+            url: "http://allocat.net/Webapi/api/User",
             dataType: 'json',
             method: 'POST',
             data: user_CUD_DTO,
