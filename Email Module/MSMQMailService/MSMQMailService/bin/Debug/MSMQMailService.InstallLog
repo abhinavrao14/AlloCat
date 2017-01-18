@@ -71,3 +71,29 @@ Affected parameters are:
    logtoconsole = 
    assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
    logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing service Custom.MSMQEmailService...
+Service Custom.MSMQEmailService has been successfully installed.
+Creating EventLog source Custom.MSMQEmailService in log Application...
+Committing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
+Installing service Custom.MSMQEmailService...
+Service Custom.MSMQEmailService has been successfully installed.
+Creating EventLog source Custom.MSMQEmailService in log Application...
+Committing assembly 'D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.exe
+   logfile = D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\MSMQMailService\bin\Debug\MSMQMailService.InstallLog
