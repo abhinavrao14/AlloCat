@@ -1066,7 +1066,7 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
     if (S_UserId != "") {
         $scope.S_UserId = S_UserId;
         GetUserDetail($scope.S_UserId);
-        $scope.Operation='Manage User';
+        $scope.Operation = 'Manage User';
     }
 
     function GetUserDetail(UserId) {
@@ -1134,7 +1134,6 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
         console.log($scope.UserRoles)
     };
 
-
     $scope.Submit = function () {
         if ($scope.UserRoles.length > 0) {
             var user_CUD_DTO = {};
@@ -1158,23 +1157,22 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
 
             console.log(user_CUD_DTO);
 
-             var response = UserDetailService.SubmitUser(user_CUD_DTO);
+            var response = UserDetailService.SubmitUser(user_CUD_DTO);
 
-             response
-            .success(function (data, status, headers, config) {
-                var Message = MsgService.makeMessage(data.ReturnMessage)
-                message('success', 'Success!', Message);
-                //default values
-                GetUserDetail($scope.S_UserId);
-            })
-            .error(function (data, status, headers, config) {
-                var Message = MsgService.makeMessage(data.ReturnMessage)
-                message('error', 'Error!', Message);
-            });
+            response
+           .success(function (data, status, headers, config) {
+               var Message = MsgService.makeMessage(data.ReturnMessage)
+               message('success', 'Success!', Message);
+               //default values
+               GetUserDetail($scope.S_UserId);
+           })
+           .error(function (data, status, headers, config) {
+               var Message = MsgService.makeMessage(data.ReturnMessage)
+               message('error', 'Error!', Message);
+           });
         }
-        else
-        {
-            message('error', 'Error!','Please select a role for this user!');
+        else {
+            message('error', 'Error!', 'Please select a role for this user!');
         }
     }
 
@@ -1188,6 +1186,159 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
     };
 
 
+});
+
+app.controller("TissueBankController", function ($scope, TissueBankService, StateService, CityService, $window, MsgService) {
+
+    //$scope.InfoId = document.getElementById("InfoId").value;
+    //$scope.CreatedBy = document.getElementById("LoggedUserId").value;
+    //$scope.LastModifiedBy = document.getElementById("LoggedUserId").value;
+
+    //angular validation
+    $scope.phoneNumber = /^\d{3}\d{3}\d{4}/;
+    $scope.validateEmail = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/
+    $scope.tbNameValidate = /^[A-Za-z\s]+$/;
+    $scope.personName = /^[a-zA-Z]*$/;
+    $scope.dateOptions = {
+        'starting-day': 1
+    };
+    $scope.url = /(http(s)?:\\)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?/;
+
+    $scope.stateList = null;
+
+    StateService.GetStates()
+       .success(function (data, status, headers, config) {
+           $scope.States = data.States;
+       })
+       .error(function (data, status, headers, config) {
+           var Message = MsgService.makeMessage(data.ReturnMessage)
+           message('error', 'Error!', Message);
+       });
+
+    $scope.GetCities = function (stateId) {
+        GetCities(stateId);
+    };
+
+    $scope.AddTb = function () {
+        var err = '';
+        err = ValidateAddTb();
+
+        if (ValidateAddTb() == '') {
+            var tissueBank_DTO = {
+                TissueBankName: $scope.TissueBankName,
+                ContactPersonName: $scope.ContactPersonName,
+                ContactPersonNumber: $scope.ContactPersonNumber,
+                TissueBankEmailId: $scope.TissueBankEmailId,
+                BusinessURL: $scope.BusinessURL,
+                TissueBankAddress: $scope.TissueBankAddress,
+                CityId: $scope.city.CityID,
+                TissueBankStateLicense: $scope.TissueBankStateLicense,
+                AATBAccredationDate: $scope.AATBAccredationDate,
+                AATBLicenseNumber: $scope.AATBLicenseNumber,
+                AATBExpirationDate: $scope.AATBExpirationDate,
+            };
+
+            console.log(tissueBank_DTO);
+
+            var response = TissueBankService.AddTb(tissueBank_DTO);
+            response.success(function (data, status, headers, config) {
+                var Message = MsgService.makeMessage(data.ReturnMessage)
+                message('success', 'Success!', Message);
+
+               // ClearFields();
+            }).error(function (data, status, headers, config) {
+                var Message = MsgService.makeMessage(data.ReturnMessage)
+                message('error', 'Error!', Message);
+            });
+        }
+        else {
+            message('error', 'Error!', err);
+        }
+
+    };
+
+    function ValidateAddTb() {
+        var err = '';
+
+        if (Object.prototype.toString.call($scope.AATBAccredationDate) !== '[object Date]') {
+            err = 'Invalid AATB Accredation Date';
+        }
+        if (Object.prototype.toString.call($scope.AATBExpirationDate) !== '[object Date]') {
+            if (err == '') {
+                err = 'Invalid AATB Expiration Date';
+            }
+            else {
+
+                err = err + '<br/> Invalid AATB Expiration Date';
+            }
+        }
+        if (err == '') {
+            var AATBAccredationDate = new Date($scope.AATBAccredationDate);
+            var AATBExpirationDate = new Date($scope.AATBExpirationDate);
+
+            if (AATBExpirationDate < AATBAccredationDate) {
+                err = 'AATB Expiration Date must be greated than AATB Accredation Date';
+            }
+        }
+
+        return err;
+    }
+
+    GetCities = function (stateId) {
+        //$scope.GetCities = function (stateId) {
+        if ($scope.state != null) {
+            if (stateId) {
+                CityService.GetCities(stateId)
+                    .success(function (data, status, headers, config) {
+                        if (data.Cities == "") {
+                            var Message = MsgService.makeMessage(data.ReturnMessage)
+                            message('error', 'Error!', Message);
+                            //message('info', 'Not available!', 'Cities are not available for state : <b>' + state.StateName + '</b>');
+                            $scope.Cities = null;
+                        }
+                        else {
+                            $scope.Cities = data.Cities;
+                        }
+                    }).error(function (data, status, headers, config) {
+                        var Message = MsgService.makeMessage(data.ReturnMessage)
+                        message('error', 'Error!', Message);
+                        $scope.Cities = null;
+                    });
+            }
+            else {
+                $scope.Cities = null;
+            }
+        }
+        else {
+            $scope.Cities = null;
+        }
+    }
+
+    function ClearFields() {
+        $scope.TissueBankName = "";
+        $scope.ContactPersonName = "";
+        $scope.ContactPersonNumber = "";
+        $scope.TissueBankEmailId = "";
+        $scope.BusinessURL = "";
+        $scope.TissueBankAddress = "";
+        $scope.CityId = "";
+        $scope.TissueBankStateLicense = "";
+        $scope.AATBLicenseNumber = "";
+        $scope.AATBExpirationDate = "";
+        $scope.AATBAccredationDate = "";
+
+        $scope.city = null;
+        $scope.state = { StateId: 0 };
+    }
+
+    function message(type, title, content) {
+        var notify = {
+            type: type,
+            title: title,
+            content: content
+        };
+        $scope.$emit('notify', notify);
+    }
 });
 
 app.filter('updateById', function () {

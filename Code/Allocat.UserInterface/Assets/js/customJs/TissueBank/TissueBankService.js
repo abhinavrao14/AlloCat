@@ -10,7 +10,6 @@
     };
 });
 
-
 app.service("ProductDetailService", function ($http) {
 
     this.GetTissueBankProductsByProductMasterId = function (TissueBankId, ProductMasterId) {
@@ -136,8 +135,6 @@ app.service("RFQService", function ($http) {
 
 });
 
-
-
 app.service("OrderService", function ($http) {
 
     this.GetOrders = function (order_TissueBank_DTO) {
@@ -172,7 +169,6 @@ app.service("OrderService", function ($http) {
     };
 
 });
-
 
 app.service("UserService", function ($http) {
 
@@ -221,6 +217,22 @@ app.service("UserDetailService", function ($http) {
             dataType: 'json',
             method: 'POST',
             data: user_CUD_DTO,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        return response;
+    };
+});
+
+app.service("TissueBankService", function ($http) {
+
+    this.AddTb = function (tissueBank_DTO) {
+        var response = $http({
+            url: "http://localhost:63744/api/TissueBank",
+            dataType: 'json',
+            method: 'POST',
+            data: tissueBank_DTO,
             headers: {
                 "Content-Type": "application/json"
             }

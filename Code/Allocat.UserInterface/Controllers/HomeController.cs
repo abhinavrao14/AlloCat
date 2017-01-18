@@ -26,5 +26,12 @@ namespace Allocat.UserInterface.Controllers
 
             return View();
         }
+        public ActionResult TB_Registration()
+        {
+            ViewBag.Message = "TB Regsitration";
+
+            return View();
+        }
+
     }
 }

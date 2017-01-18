@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFrameworkDataService.cs" />
+    <Compile Include="CityDataService.cs" />
+    <Compile Include="TissueBankDataService.cs" />
+    <Compile Include="StateDataService.cs" />
     <Compile Include="UserDataService.cs" />
     <Compile Include="ProductDataService.cs" />
     <Compile Include="ProductMasterDataService.cs" />

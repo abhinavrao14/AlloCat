@@ -2,11 +2,8 @@
 using Allocat.DataModel;
 using Allocat.DataService;
 using Allocat.DataServiceInterface;
-using Allocat.Utility;
 using Allocat.WebApi.WebApiModel;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;

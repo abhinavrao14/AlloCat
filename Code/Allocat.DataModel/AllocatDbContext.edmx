@@ -919,6 +919,20 @@
         <Function Name="sp_RequestResponse_TissueBank_GetByTissueBankId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RequestForQuoteId" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_TissueBank_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TissueBankName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ContactPersonName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ContactPersonNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="TissueBankEmailId" Type="nvarchar" Mode="In" />
+          <Parameter Name="BusinessURL" Type="nvarchar" Mode="In" />
+          <Parameter Name="TissueBankAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="CityId" Type="int" Mode="In" />
+          <Parameter Name="TissueBankStateLicense" Type="nvarchar" Mode="In" />
+          <Parameter Name="AATBLicenseNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="AATBExpirationDate" Type="date" Mode="In" />
+          <Parameter Name="AATBAccredationDate" Type="date" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="sp_TissueBankProduct_TissueBank_AddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_TissueBankProduct_TissueBank_GetByTissueBankId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TissueBankId" Type="int" Mode="In" />
@@ -2517,6 +2531,20 @@
             <Parameter Name="TissueBankId" Mode="In" Type="Int32" />
             <Parameter Name="SearchBy" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_TissueBank_Add">
+            <Parameter Name="TissueBankName" Mode="In" Type="String" />
+            <Parameter Name="ContactPersonName" Mode="In" Type="String" />
+            <Parameter Name="ContactPersonNumber" Mode="In" Type="String" />
+            <Parameter Name="TissueBankEmailId" Mode="In" Type="String" />
+            <Parameter Name="BusinessURL" Mode="In" Type="String" />
+            <Parameter Name="TissueBankAddress" Mode="In" Type="String" />
+            <Parameter Name="CityId" Mode="In" Type="Int32" />
+            <Parameter Name="TissueBankStateLicense" Mode="In" Type="String" />
+            <Parameter Name="AATBLicenseNumber" Mode="In" Type="String" />
+            <Parameter Name="AATBExpirationDate" Mode="In" Type="DateTime" />
+            <Parameter Name="AATBAccredationDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_Order_TissueBank_GetByTissueBankId_Result">
           <Property Type="Int64" Name="Sno" Nullable="true" />
@@ -3473,6 +3501,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_UserMngmt_TissueBank_GetCountByTissueBankId" FunctionName="AllocatDbModel.Store.sp_UserMngmt_TissueBank_GetCountByTissueBankId" />
+          <FunctionImportMapping FunctionImportName="sp_TissueBank_Add" FunctionName="AllocatDbModel.Store.sp_TissueBank_Add" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

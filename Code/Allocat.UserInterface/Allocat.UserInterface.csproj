@@ -193,6 +193,8 @@
     <Content Include="Assets\image\attachmentIcon.png" />
     <Content Include="Assets\image\Icon.png" />
     <Content Include="Assets\image\product.jpg" />
+    <Content Include="Assets\js\customJs\Common\CommonController.js" />
+    <Content Include="Assets\js\customJs\Common\CommonService.js" />
     <Content Include="Assets\js\customJs\photoModule\appInfo.js" />
     <Content Include="Assets\js\customJs\photoModule\egAppStatus.html" />
     <Content Include="Assets\js\customJs\photoModule\egAppStatus.js" />
@@ -205,6 +207,8 @@
     <Content Include="Assets\js\customJs\photoModule\photoManagerClient.js" />
     <Content Include="Assets\js\customJs\photoModule\photos.html" />
     <Content Include="Assets\js\customJs\photoModule\photos.js" />
+    <Content Include="Assets\js\customJs\UI\UIController.js" />
+    <Content Include="Assets\js\customJs\UI\UIService.js" />
     <Content Include="Assets\js\lib\angular-filter.js" />
     <Content Include="Assets\js\lib\angular-resource.js" />
     <Content Include="Assets\js\lib\angular-trix.js" />
@@ -333,6 +337,8 @@
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Allocat - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\_PanelLayout2.cshtml" />
+    <Content Include="Views\Home\TB_Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

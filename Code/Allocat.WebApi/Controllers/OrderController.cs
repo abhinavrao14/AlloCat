@@ -18,7 +18,11 @@ namespace Allocat.WebApi.Controllers
         {
             orderDataService = new OrderDataService();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="order_TissueBank_DTO"></param>
+        /// <returns></returns>
         public HttpResponseMessage Get([FromUri] Order_TissueBank_DTO order_TissueBank_DTO)
         {
             if (order_TissueBank_DTO.SearchBy == null) order_TissueBank_DTO.SearchBy = string.Empty;

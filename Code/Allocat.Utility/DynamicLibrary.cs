@@ -165,7 +165,9 @@ namespace System.Linq.Dynamic
             get { return type; }
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class DynamicExpression
     {
         public static Expression Parse(Type resultType, string expression, params object[] values)
