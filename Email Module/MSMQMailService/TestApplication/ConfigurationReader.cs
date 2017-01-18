@@ -23,9 +23,7 @@ namespace TestApplication
         public readonly string FailureEmailCC;
         public readonly string FailureEmailBcc;
         public readonly string EmailFrom;
-        public readonly string IpAddress;
-        public readonly string Allocatvm;
-        public readonly string Pass;
+      
 
         public ConfigurationReader()
         {
@@ -34,9 +32,7 @@ namespace TestApplication
                 var emailSection = (System.Collections.Specialized.NameValueCollection)ConfigurationManager.GetSection("EmailSettings");
                 if (emailSection != null)
                 {
-                    //IpAddress = emailSection["IpAddress"];
-                    //Allocatvm = emailSection["Allocatvm"];
-                    //Pass = emailSection["Pass"];
+                    
                     EmailTurnOn = emailSection["EmailTurnOn"];
                     EmailTo = emailSection["EmailTo"];
                     EmailCC = emailSection["EmailCC"];

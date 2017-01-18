@@ -33,6 +33,6 @@ D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\De
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\Debug\MailSenderLibrary.pdb
-D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\Debug\Microsoft.WindowsAzure.ActiveDirectory.Authentication.dll
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\Debug\Microsoft.WindowsAzure.ActiveDirectory.Authentication.xml
+D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
