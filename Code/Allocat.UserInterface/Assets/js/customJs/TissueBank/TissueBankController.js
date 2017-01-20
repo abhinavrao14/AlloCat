@@ -1199,12 +1199,11 @@ app.controller("TissueBankController", function ($scope, TissueBankService, Stat
     $scope.validateEmail = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/
     $scope.tbNameValidate = /^[A-Za-z\s]+$/;
     $scope.personName = /^[a-zA-Z]*$/;
+    $scope.userName = /^\S{3,}$/;
     $scope.dateOptions = {
         'starting-day': 1
     };
     $scope.url = /(http(s)?:\\)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?/;
-
-    $scope.stateList = null;
 
     StateService.GetStates()
        .success(function (data, status, headers, config) {
@@ -1236,6 +1235,7 @@ app.controller("TissueBankController", function ($scope, TissueBankService, Stat
                 AATBAccredationDate: $scope.AATBAccredationDate,
                 AATBLicenseNumber: $scope.AATBLicenseNumber,
                 AATBExpirationDate: $scope.AATBExpirationDate,
+                UserName: $scope.UserName,
             };
 
             console.log(tissueBank_DTO);
@@ -1245,7 +1245,7 @@ app.controller("TissueBankController", function ($scope, TissueBankService, Stat
                 var Message = MsgService.makeMessage(data.ReturnMessage)
                 message('success', 'Success!', Message);
 
-               // ClearFields();
+                ClearFields();
             }).error(function (data, status, headers, config) {
                 var Message = MsgService.makeMessage(data.ReturnMessage)
                 message('error', 'Error!', Message);

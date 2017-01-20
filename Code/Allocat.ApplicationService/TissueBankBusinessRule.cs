@@ -12,12 +12,22 @@ namespace Allocat.ApplicationService
         {
             tbDataService = _tbDataService;
         }
-        public void ValidateAdd(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate)
+        public void ValidateAdd(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate,string UserName)
         {
             ValidateUniqueTissueBankEmailId(TissueBankEmailId);
             ValidateUniqueContactPersonNumber(ContactPersonNumber);
             ValidateUniqueAATBLicenseNumber(AATBLicenseNumber);
             ValidateUniqueTissueBankStateLicense(TissueBankStateLicense);
+            ValidateUniqueUserName(UserName);
+        }
+
+        private void ValidateUniqueUserName(string UserName)
+        {
+            Boolean valid = tbDataService.ValidateUniqueUserName(UserName);
+            if (valid == false)
+            {
+                AddValidationError("UserName", "User Name : " + UserName + " already exists.");
+            }
         }
 
         private void ValidateUniqueTissueBankEmailId(string TissueBankEmailId)

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IDataService.cs" />
     <Compile Include="ICityDataService.cs" />
+    <Compile Include="IHospitalDataService.cs" />
     <Compile Include="ITissueBankDataService.cs" />
     <Compile Include="IStateDataService.cs" />
     <Compile Include="IUserDataService.cs" />

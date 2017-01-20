@@ -24,5 +24,6 @@ namespace Allocat.WebApi.WebApiModel
         public string AATBLicenseNumber { get; set; }
         public DateTime AATBExpirationDate { get; set; }
         public DateTime AATBAccredationDate { get; set; }
+        public string UserName { get; set; }
     }
 }

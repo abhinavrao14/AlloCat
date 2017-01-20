@@ -628,57 +628,61 @@
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<Nullable<int>>("sp_UserMngmt_TissueBank_GetCountByTissueBankId @TissueBankId, @SearchBy", tissueBankIdParameter, searchByParameter);
         }
 
-        public virtual int sp_TissueBank_Add(string tissueBankName, string contactPersonName, string contactPersonNumber, string tissueBankEmailId, string businessURL, string tissueBankAddress, Nullable<int> cityId, string tissueBankStateLicense, string aATBLicenseNumber, Nullable<System.DateTime> aATBExpirationDate, Nullable<System.DateTime> aATBAccredationDate, string password)
+        public virtual int sp_TissueBank_Add(string tissueBankName, string contactPersonName, string contactPersonNumber, string tissueBankEmailId, string businessURL, string tissueBankAddress, Nullable<int> cityId, string tissueBankStateLicense, string aATBLicenseNumber, Nullable<System.DateTime> aATBExpirationDate, Nullable<System.DateTime> aATBAccredationDate, string userName, string password)
         {
             var tissueBankNameParameter = tissueBankName != null ?
                 new ObjectParameter("TissueBankName", tissueBankName) :
                 new ObjectParameter("TissueBankName", typeof(string));
-
+    
             var contactPersonNameParameter = contactPersonName != null ?
                 new ObjectParameter("ContactPersonName", contactPersonName) :
                 new ObjectParameter("ContactPersonName", typeof(string));
-
+    
             var contactPersonNumberParameter = contactPersonNumber != null ?
                 new ObjectParameter("ContactPersonNumber", contactPersonNumber) :
                 new ObjectParameter("ContactPersonNumber", typeof(string));
-
+    
             var tissueBankEmailIdParameter = tissueBankEmailId != null ?
                 new ObjectParameter("TissueBankEmailId", tissueBankEmailId) :
                 new ObjectParameter("TissueBankEmailId", typeof(string));
-
+    
             var businessURLParameter = businessURL != null ?
                 new ObjectParameter("BusinessURL", businessURL) :
                 new ObjectParameter("BusinessURL", typeof(string));
-
+    
             var tissueBankAddressParameter = tissueBankAddress != null ?
                 new ObjectParameter("TissueBankAddress", tissueBankAddress) :
                 new ObjectParameter("TissueBankAddress", typeof(string));
-
+    
             var cityIdParameter = cityId.HasValue ?
                 new ObjectParameter("CityId", cityId) :
                 new ObjectParameter("CityId", typeof(int));
-
+    
             var tissueBankStateLicenseParameter = tissueBankStateLicense != null ?
                 new ObjectParameter("TissueBankStateLicense", tissueBankStateLicense) :
                 new ObjectParameter("TissueBankStateLicense", typeof(string));
-
+    
             var aATBLicenseNumberParameter = aATBLicenseNumber != null ?
                 new ObjectParameter("AATBLicenseNumber", aATBLicenseNumber) :
                 new ObjectParameter("AATBLicenseNumber", typeof(string));
-
+    
             var aATBExpirationDateParameter = aATBExpirationDate.HasValue ?
                 new ObjectParameter("AATBExpirationDate", aATBExpirationDate) :
                 new ObjectParameter("AATBExpirationDate", typeof(System.DateTime));
-
+    
             var aATBAccredationDateParameter = aATBAccredationDate.HasValue ?
                 new ObjectParameter("AATBAccredationDate", aATBAccredationDate) :
                 new ObjectParameter("AATBAccredationDate", typeof(System.DateTime));
-
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
             var passwordParameter = password != null ?
                 new ObjectParameter("Password", password) :
                 new ObjectParameter("Password", typeof(string));
-
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_TissueBank_Add", tissueBankNameParameter, contactPersonNameParameter, contactPersonNumberParameter, tissueBankEmailIdParameter, businessURLParameter, tissueBankAddressParameter, cityIdParameter, tissueBankStateLicenseParameter, aATBLicenseNumberParameter, aATBExpirationDateParameter, aATBAccredationDateParameter, passwordParameter);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_TissueBank_Add", tissueBankNameParameter, contactPersonNameParameter, contactPersonNumberParameter, tissueBankEmailIdParameter, businessURLParameter, tissueBankAddressParameter, cityIdParameter, tissueBankStateLicenseParameter, aATBLicenseNumberParameter, aATBExpirationDateParameter, aATBAccredationDateParameter, userNameParameter, passwordParameter);
         }
     }
 }

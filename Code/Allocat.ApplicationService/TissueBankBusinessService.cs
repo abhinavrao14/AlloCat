@@ -14,7 +14,7 @@ namespace Allocat.ApplicationService
             tbDataService = _tbDataService;
         }
 
-        public void AddTissueBank(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, out TransactionalInformation transaction)
+        public void AddTissueBank(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate,string UserName, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
             TissueBankBusinessRule tbBusinessRule = new TissueBankBusinessRule(tbDataService);
@@ -23,14 +23,14 @@ namespace Allocat.ApplicationService
             {
                 tbDataService.CreateSession();
 
-                tbBusinessRule.ValidateAdd(TissueBankId, TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate);
+                tbBusinessRule.ValidateAdd(TissueBankId, TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate, UserName);
 
                 if (tbBusinessRule.ValidationStatus == true)
                 {
                     //send this password on mail
                     string Password = Utility.Utilities.RandomAlphaNumeric(6);
 
-                   // tbDataService.AddTissueBank(TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate, Password, out transaction);
+                    tbDataService.AddTissueBank(TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate, UserName,Password, out transaction);
                 }
                 else
                 {

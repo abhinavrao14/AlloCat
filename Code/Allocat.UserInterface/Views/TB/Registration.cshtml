@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "TB_Regsitration";
+    ViewBag.Title = "Tissue Bank Regsitration";
     Layout = "~/Views/Shared/_PanelLayout2.cshtml";
 }
 <script src="~/Assets/js/customJs/TissueBank/TissueBankController.js"></script>
@@ -29,6 +29,14 @@
                                 <span class="error error-msg" ng-show="formTissueBank.TissueBankName.$error.required">*</span>
                                 <input type="text" class="form-control" ng-required="true" name="TissueBankName" ng-model="TissueBankName" ng-pattern="tbNameValidate" placeholder="XYZ tissue bank" />
                                 <span class="error error-msg" ng-show="formTissueBank.TissueBankName.$error.pattern">Only Alphabets With Spaces Allowed</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">User Name </label>
+                                <span class="error error-msg" ng-show="formTissueBank.UserName.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="UserName" ng-model="UserName" placeholder="jamesDiamond" ng-pattern="userName" />
+                                <span class="error error-msg" ng-show="formTissueBank.UserName.$error.pattern">Spaces not allowed</span>
                             </div>
                         </div>
                     </div>
