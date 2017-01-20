@@ -931,6 +931,7 @@
           <Parameter Name="AATBLicenseNumber" Type="nvarchar" Mode="In" />
           <Parameter Name="AATBExpirationDate" Type="date" Mode="In" />
           <Parameter Name="AATBAccredationDate" Type="date" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_TissueBankProduct_TissueBank_AddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -2543,6 +2544,7 @@
             <Parameter Name="AATBLicenseNumber" Mode="In" Type="String" />
             <Parameter Name="AATBExpirationDate" Mode="In" Type="DateTime" />
             <Parameter Name="AATBAccredationDate" Mode="In" Type="DateTime" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>

@@ -38,7 +38,7 @@ namespace Allocat.DataService
         //    }
         //}
 
-        public int AddTissueBank(string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string Password, out TransactionalInformation transaction)
+        public int AddTissueBank(string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string UserName, string Password, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
             int rowAffected = 0;
@@ -76,10 +76,13 @@ namespace Allocat.DataService
             var parameterAATBAccredationDate = new SqlParameter("@AATBAccredationDate", SqlDbType.Date);
             parameterAATBAccredationDate.Value = AATBAccredationDate;
 
+            var parameterUserName = new SqlParameter("@UserName", SqlDbType.Date);
+            parameterUserName.Value = UserName;
+
             var parameterPassword = new SqlParameter("@Password", SqlDbType.VarChar);
             parameterPassword.Value = Password;
 
-            rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.sp_TissueBank_Add @TissueBankName, @ContactPersonName, @ContactPersonNumber, @TissueBankEmailId, @BusinessURL, @TissueBankAddress, @CityId, @TissueBankStateLicense, @AATBLicenseNumber, @AATBExpirationDate, @AATBAccredationDate, @Password", parameterTissueBankName, parameterContactPersonName, parameterContactPersonNumber, parameterTissueBankEmailId, parameterBusinessURL, parameterTissueBankAddress, parameterCityId, parameterTissueBankStateLicense, parameterAATBLicenseNumber, parameterAATBExpirationDate, parameterAATBAccredationDate, parameterPassword);
+            rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.sp_TissueBank_Add @TissueBankName, @ContactPersonName, @ContactPersonNumber, @TissueBankEmailId, @BusinessURL, @TissueBankAddress, @CityId, @TissueBankStateLicense, @AATBLicenseNumber, @AATBExpirationDate, @AATBAccredationDate,@UserName, @Password", parameterTissueBankName, parameterContactPersonName, parameterContactPersonNumber, parameterTissueBankEmailId, parameterBusinessURL, parameterTissueBankAddress, parameterCityId, parameterTissueBankStateLicense, parameterAATBLicenseNumber, parameterAATBExpirationDate, parameterAATBAccredationDate, parameterUserName,parameterPassword);
 
             if (rowAffected > 0)
             {
@@ -158,6 +161,16 @@ namespace Allocat.DataService
         {
             TissueBank tissueBank = dbConnection.TissueBank.FirstOrDefault(c => c.TissueBankStateLicense == TissueBankStateLicense);
             if (tissueBank == null)
+                return true;
+
+            return false;
+        }
+
+
+        public bool ValidateUniqueUserName(string UserName)
+        {
+            User user = dbConnection.User.FirstOrDefault(u => u.UserName == UserName);
+            if (user == null)
                 return true;
 
             return false;

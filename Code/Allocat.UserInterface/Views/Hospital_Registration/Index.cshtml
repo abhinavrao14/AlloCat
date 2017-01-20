@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "Tissue Bank Regsitration";
+    Layout = "~/Views/Shared/_PanelLayout2.cshtml";
+}
+<script src="~/Assets/js/customJs/Hospital/HospitalController.js"></script>
+<script src="~/Assets/js/customJs/Hospital/HospitalService.js"></script>
+
+<div ng-controller="HospitalController">
+    <div class="page-header">
+        <div class="row">
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;Registration</h1>
+        </div>
+    </div>
+    <div class="panel" style="width:85%; margin:auto">
+        <div class="panel-body" style="padding:15px">
+            <div>
+                <h4 style="font-weight:bold; margin-bottom:30px">Profile Information</h4>
+            </div>
+            <form class="form-horizontal" name="formHospital" novalidate ng-submit="AddHospital()">
+                <div style="border:1px solid #aaa; box-shadow:0px 2px 2px #888888; margin-bottom:20px">
+                    <div class="col-md-12" style="text-align:center; margin-bottom:20px">
+                        <label class="control-label"><u style="font-size:16px">General Details</u></label>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Hospital Name</label>
+                                <span class="error error-msg" ng-show="formHospital.HospitalName.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="HospitalName" ng-model="HospitalName" ng-pattern="HospitalNameValidate" placeholder="XYZ tissue bank" />
+                                <span class="error error-msg" ng-show="formHospital.HospitalName.$error.pattern">Only Alphabets With Spaces Allowed</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">User Name </label>
+                                <span class="error error-msg" ng-show="formHospital.UserName.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="UserName" ng-model="UserName" placeholder="jamesDiamond" ng-pattern="userName" />
+                                <span class="error error-msg" ng-show="formHospital.UserName.$error.pattern">Spaces not allowed</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Registration Number </label>
+                                <span class="error error-msg" ng-show="formHospital.RegistrationNumber.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="RegistrationNumber" ng-model="RegistrationNumber" placeholder="FJSIK7890890" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Business URL</label>
+                                @*<span class="error error-msg" ng-show="formHospital.BusinessURL.$error.required">*</span>*@
+                                @*<input type="text" class="form-control" ng-required="true" name="BusinessURL" ng-model="BusinessURL" placeholder="http://www.google.com" />*@
+                                <input type="text" class="form-control" name="BusinessURL" ng-model="BusinessURL" placeholder="http://www.google.com" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Hospital Type</label>
+                                <span class="error error-msg" ng-show="formHospital.HospitalTypeID.$error.required">*</span>
+                                <select class="form-control" ng-model="HospitalType" ng-required="true" name="HospitalTypeID" ng-options="HospitalType.HospitalTypeID for HospitalType in HospitalTypes track by HospitalType.HospitalTypeID">
+                                    <option value="">Select Hospital Type</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border:1px solid #aaa; box-shadow:0px 2px 2px #888888; margin-bottom:20px">
+                    <div class="col-md-12" style="text-align:center; margin-bottom:20px">
+                        <label class="control-label"><u style="font-size:16px">Contact Details</u></label>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-12">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Hospital Address </label>
+                                <span class="error error-msg" ng-show="formTissueBank.HospitalAddress.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="HospitalAddress" ng-model="HospitalAddress" placeholder="7th Street" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">State</label>
+                                <span class="error error-msg" ng-show="formTissueBank.stateId.$error.required">*</span>
+                                <select class="form-control" ng-model="state" ng-required="true" name="stateId" data-ng-change="GetCities(state.StateId)" ng-options="state.StateName for state in States track by state.StateId">
+                                    <option value="">Select State</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">City</label>
+                                <span class="error error-msg" ng-show="formHospital.cityId.$error.required">*</span>
+                                <select class="form-control" ng-model="city" ng-required="true" name="cityId" ng-options="city.CityName for city in Cities track by city.CityID">
+                                    <option value="">Select City</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Contact Person Name </label>
+                                <span class="error error-msg" ng-show="formHospital.ContactPersonName.$error.required">*</span>
+                                <input type="text" class="form-control" ng-model="ContactPersonName" name="ContactPersonName" ng-required="true" ng-pattern="personName" placeholder="Contact Person Name" />
+                                <span class="error error-msg" ng-show="formHospital.ContactPersonName.$error.pattern">Only alphabets with spaces allowed</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Contact Number</label>
+                                <span class="error error-msg" ng-show="formHospital.ContactPersonNumber.$error.required">*</span>
+                                <input type="text" class="form-control" ng-model="ContactPersonNumber" name="ContactPersonNumber" ng-pattern="phoneNumber" ng-required="true" placeholder="1234567890" maxlength="10" />
+                                <span class="error error-msg" ng-show="formHospital.ContactPersonNumber.$error.pattern">Please Enter Valid format: 1234567890</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Email ID </label>
+                                <span class="error error-msg" ng-show="formHospital.HospitalEmailId.$error.required">*</span>
+                                <input type="email" class="form-control" ng-model="HospitalEmailId" name="HospitalEmailId" ng-required="true" ng-pattern="validateEmail" placeholder="abc@example.com" />
+                                <span class="error error-msg" ng-show="formHospital.HospitalEmailId.$error.pattern">Please Enter Valid Format :abc@example.com </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer text-center">
+                    <input type="submit" class="btn btn-success" value="Submit" ng-disabled="formHospital.$invalid" />
+                    @{
+                        var ViewUrl = Url.Action("Index", "Home", new { Area = "" });
+                        ViewUrl = HttpUtility.UrlDecode(ViewUrl);
+                    }
+                    <a data-ng-href="@ViewUrl"><button type="button" class="btn btn-primary">Cancel</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="notifies" notifybar></div>
+</div>

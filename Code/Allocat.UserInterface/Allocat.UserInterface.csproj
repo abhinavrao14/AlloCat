@@ -169,6 +169,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Hospital_RegistrationController.cs" />
+    <Compile Include="Controllers\TBController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +197,8 @@
     <Content Include="Assets\image\product.jpg" />
     <Content Include="Assets\js\customJs\Common\CommonController.js" />
     <Content Include="Assets\js\customJs\Common\CommonService.js" />
+    <Content Include="Assets\js\customJs\Hospital\HospitalController.js" />
+    <Content Include="Assets\js\customJs\Hospital\HospitalService.js" />
     <Content Include="Assets\js\customJs\photoModule\appInfo.js" />
     <Content Include="Assets\js\customJs\photoModule\egAppStatus.html" />
     <Content Include="Assets\js\customJs\photoModule\egAppStatus.js" />
@@ -336,7 +340,8 @@
     <Content Include="Views\Account\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Allocat - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_PanelLayout2.cshtml" />
-    <Content Include="Views\Home\TB_Registration.cshtml" />
+    <Content Include="Views\TB\Registration.cshtml" />
+    <Content Include="Views\Hospital_Registration\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
