@@ -68,7 +68,7 @@ namespace Allocat.DataService
             return lstUserRole;
         }
 
-        public int User_CreateUpdateDelete(int UserId, string UserName, string Password, string FullName, string MobileNumber, string EmailId, int CreatedBy, int LastModifiedBy, int InfoId, string OperationType,bool AllowLogin, DataTable TempUser_CUD, out TransactionalInformation transaction)
+        public int User_CreateUpdateDelete(int UserId, string UserName, string Password, string FullName, string MobileNumber, string EmailId, int CreatedBy, int LastModifiedBy, int InfoId, string OperationType, bool AllowLogin, DataTable TempUser_CUD, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
             int rowAffected = 0;
@@ -76,7 +76,10 @@ namespace Allocat.DataService
             parameterUserId.Value = UserId;
 
             var parameterUserName = new SqlParameter("@UserName", SqlDbType.NVarChar);
-            parameterUserName.Value = UserName;
+            if (UserName != null)
+                parameterUserName.Value = UserName;
+            else
+                parameterUserName.Value = DBNull.Value;
 
             var parameterPassword = new SqlParameter("@Password", SqlDbType.NVarChar);
             if (Password != null)
@@ -92,10 +95,16 @@ namespace Allocat.DataService
 
 
             var parameterMobileNumber = new SqlParameter("@MobileNumber", SqlDbType.NVarChar);
-            parameterMobileNumber.Value = MobileNumber;
+            if (MobileNumber != null)
+                parameterMobileNumber.Value = MobileNumber;
+            else
+                parameterMobileNumber.Value = DBNull.Value;
 
             var parameterEmailId = new SqlParameter("@EmailId", SqlDbType.NVarChar);
-            parameterEmailId.Value = EmailId;
+            if (EmailId != null)
+                parameterEmailId.Value = EmailId;
+            else
+                parameterEmailId.Value = DBNull.Value;
 
             var parameterCreatedBy = new SqlParameter("@CreatedBy", SqlDbType.Int);
             parameterCreatedBy.Value = CreatedBy;
@@ -113,10 +122,23 @@ namespace Allocat.DataService
             parameterOperationType.Value = OperationType;
 
             var parameterTempUser_CUD = new SqlParameter("@TempUser_CUD", SqlDbType.Structured);
-            parameterTempUser_CUD.Value = TempUser_CUD;
             parameterTempUser_CUD.TypeName = "dbo.TempUser_CUD";
 
-            rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.sp_UserMngmt_TissueBank_CreateUpdateDelete @UserId, @UserName, @Password, @FullName,  @MobileNumber, @EmailId,@CreatedBy, @LastModifiedBy,@InfoId,@AllowLogin, @OperationType, @TempUser_CUD", parameterUserId, parameterUserName, parameterPassword, parameterFullName, parameterMobileNumber, parameterEmailId, parameterCreatedBy, parameterLastModifiedBy, parameterInfoId,parameterAllowLogin, parameterOperationType, parameterTempUser_CUD);
+            if(TempUser_CUD==null)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("RoleID", typeof(int));
+                dt.Columns.Add("UserID", typeof(int));
+                dt.Rows.Add(0, 0);
+                TempUser_CUD = dt;
+            }
+            else
+            {
+                parameterTempUser_CUD.Value = TempUser_CUD;
+
+            }
+
+            rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.sp_UserMngmt_TissueBank_CreateUpdateDelete @UserId, @UserName, @Password, @FullName,  @MobileNumber, @EmailId,@CreatedBy, @LastModifiedBy,@InfoId,@AllowLogin, @OperationType, @TempUser_CUD", parameterUserId, parameterUserName, parameterPassword, parameterFullName, parameterMobileNumber, parameterEmailId, parameterCreatedBy, parameterLastModifiedBy, parameterInfoId, parameterAllowLogin, parameterOperationType, parameterTempUser_CUD);
 
             if (rowAffected > 0)
             {

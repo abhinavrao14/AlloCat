@@ -97,28 +97,6 @@ namespace Allocat.WebApi.Controllers
 
             UserBusinessService userBusinessService = new UserBusinessService(userDataService);
 
-            #region DefaultValues
-            //for (int i = 0; i < dtProducts.Rows.Count; ++i)
-            //{
-            //    if (dtProducts.Rows[i]["ProductMasterId"] == null)
-            //        dtProducts.Rows[i]["ProductMasterId"] = 0;
-            //    else if (dtProducts.Rows[i]["ProductMasterId"].ToString() == "")
-            //        dtProducts.Rows[i]["ProductMasterId"] = 0;
-
-            //    if (dtProducts.Rows[i]["IsAvailableForSale"] != null)
-            //    {
-            //        if (dtProducts.Rows[i]["IsAvailableForSale"].ToString() == "Yes")
-            //        {
-            //            dtProducts.Rows[i]["IsAvailableForSale"] = 1;
-            //        }
-            //        else if (dtProducts.Rows[i]["IsAvailableForSale"].ToString() == "No")
-            //        {
-            //            dtProducts.Rows[i]["IsAvailableForSale"] = 0;
-            //        }
-            //    }
-            //}
-            #endregion
-
             userBusinessService.User_CreateUpdateDelete(user_CUD_DTO.UserId, user_CUD_DTO.UserName, user_CUD_DTO.Password, user_CUD_DTO.FullName, user_CUD_DTO.MobileNumber, user_CUD_DTO.EmailId,user_CUD_DTO.CreatedBy, user_CUD_DTO.LastModifiedBy,  user_CUD_DTO.InfoId, user_CUD_DTO.OperationType, user_CUD_DTO.AllowLogin, user_CUD_DTO.TempUser_CUD,  out transaction);
 
             userApiModel.ReturnMessage = transaction.ReturnMessage;

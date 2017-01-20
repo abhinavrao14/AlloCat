@@ -3,7 +3,7 @@
     this.getProducts = function (productList_TissueBank_DTO) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/ProductApi",
+            url: "http://localhost:63744/api/ProductApi",
             params: productList_TissueBank_DTO
         });
         return response;
@@ -15,7 +15,7 @@ app.service("ProductDetailService", function ($http) {
     this.GetTissueBankProductsByProductMasterId = function (TissueBankId, ProductMasterId) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/ProductApi",
+            url: "http://localhost:63744/api/ProductApi",
             params: {
                 TissueBankId: TissueBankId,
                 ProductMasterId: ProductMasterId
@@ -27,7 +27,7 @@ app.service("ProductDetailService", function ($http) {
 
     this.saveTissueBankProducts = function (Products) {
         var response = $http({
-            url: "http://allocat.net/Webapi/api/ProductApi",
+            url: "http://localhost:63744/api/ProductApi",
             dataType: 'json',
             method: 'POST',
             data: Products,
@@ -40,7 +40,7 @@ app.service("ProductDetailService", function ($http) {
 
     //this.saveTissueBankProducts = function (mydate) {
     //    var response = $http({
-    //        url: "http://allocat.net/Webapi/api/ProductApi",
+    //        url: "http://localhost:63744/api/ProductApi",
     //        dataType: 'json',
     //        method: 'POST',
     //        params: { mydate: mydate },
@@ -55,7 +55,7 @@ app.service("ProductDetailService", function ($http) {
     this.GetPreservationTypes = function () {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/PreservationType"
+            url: "http://localhost:63744/api/PreservationType"
         });
         return response;
     };
@@ -63,7 +63,7 @@ app.service("ProductDetailService", function ($http) {
     this.GetSources = function () {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/Source"
+            url: "http://localhost:63744/api/Source"
         });
         return response;
     };
@@ -71,7 +71,7 @@ app.service("ProductDetailService", function ($http) {
     this.GetProductSizes = function (ProductMasterId) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/ProductSize",
+            url: "http://localhost:63744/api/ProductSize",
             params: {
                 ProductMasterId: ProductMasterId
             }
@@ -82,7 +82,7 @@ app.service("ProductDetailService", function ($http) {
     this.GetProductTypes = function (ProductMasterId) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/ProductType",
+            url: "http://localhost:63744/api/ProductType",
             params: {
                 ProductMasterId: ProductMasterId
             }
@@ -96,7 +96,7 @@ app.service("RFQService", function ($http) {
     this.getRFQs = function (rfq_TissueBank_DTO) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/RFQ",
+            url: "http://localhost:63744/api/RFQ",
             params: rfq_TissueBank_DTO
         });
         return response;
@@ -105,7 +105,7 @@ app.service("RFQService", function ($http) {
     this.GetRfqDetailByRequestForQuoteId = function (RequestForQuoteId) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/RFQ",
+            url: "http://localhost:63744/api/RFQ",
             params: { RequestForQuoteId: RequestForQuoteId }
         });
         return response;
@@ -114,7 +114,7 @@ app.service("RFQService", function ($http) {
     this.GetRequestResponseByRequestForQuoteId = function (RequestForQuoteId) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/RequestResponse",
+            url: "http://localhost:63744/api/RequestResponse",
             params: { RequestForQuoteId: RequestForQuoteId }
         });
         return response;
@@ -122,7 +122,7 @@ app.service("RFQService", function ($http) {
 
     this.RequestForQuote_Edit = function (RFQ_TissueBank_Edit_DTO) {
         var response = $http({
-            url: "http://allocat.net/Webapi/api/RFQ",
+            url: "http://localhost:63744/api/RFQ",
             dataType: 'json',
             method: 'POST',
             data: RFQ_TissueBank_Edit_DTO,
@@ -140,7 +140,7 @@ app.service("OrderService", function ($http) {
     this.GetOrders = function (order_TissueBank_DTO) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/Order",
+            url: "http://localhost:63744/api/Order",
             params: order_TissueBank_DTO
         });
         return response;
@@ -149,7 +149,7 @@ app.service("OrderService", function ($http) {
     this.GetOrderDetailByOrderId = function (OrderId) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/Order",
+            url: "http://localhost:63744/api/Order",
             params: { OrderId: OrderId }
         });
         return response;
@@ -157,7 +157,7 @@ app.service("OrderService", function ($http) {
 
     this.Order_Ack_Decline = function (order_Ack_Decline_DTO) {
         var response = $http({
-            url: "http://allocat.net/Webapi/api/Order",
+            url: "http://localhost:63744/api/Order",
             dataType: 'json',
             method: 'POST',
             data: order_Ack_Decline_DTO,
@@ -175,7 +175,7 @@ app.service("UserService", function ($http) {
     this.GetUsers = function (user_DTO) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/User",
+            url: "http://localhost:63744/api/User",
             params: user_DTO
         });
         return response;
@@ -187,7 +187,7 @@ app.service("UserDetailService", function ($http) {
     this.GetUserDetail = function (UserId, type) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/User",
+            url: "http://localhost:63744/api/User",
             params: { UserId: UserId, type: type }
         });
         return response;
@@ -196,7 +196,7 @@ app.service("UserDetailService", function ($http) {
     this.GetUserRoles = function (UserId, type) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/User",
+            url: "http://localhost:63744/api/User",
             params: { UserId: UserId, type: type }
         });
         return response;
@@ -205,7 +205,7 @@ app.service("UserDetailService", function ($http) {
     this.GetTissueBankRoles = function (type) {
         var response = $http({
             method: "Get",
-            url: "http://allocat.net/Webapi/api/Role",
+            url: "http://localhost:63744/api/Role",
             params: { type: type }
         });
         return response;
@@ -213,7 +213,7 @@ app.service("UserDetailService", function ($http) {
 
     this.SubmitUser = function (user_CUD_DTO) {
         var response = $http({
-            url: "http://allocat.net/Webapi/api/User",
+            url: "http://localhost:63744/api/User",
             dataType: 'json',
             method: 'POST',
             data: user_CUD_DTO,

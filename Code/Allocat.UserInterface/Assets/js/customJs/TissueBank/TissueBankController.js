@@ -619,7 +619,7 @@ app.controller("RFQDetailController", function ($scope, RFQService, MsgService, 
     $scope.ConfirmSubmit = function () {
 
         //$window.UploadedAttachmentName = null;
-        //$scope.showModal = false;
+        $scope.showModal = false;
         //appInfo.setInfo({ message: "No file selected." });
         //appInfo.setInfo({ busy: false });
 
@@ -1050,6 +1050,7 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
     $scope.UserDetail = {};
     $scope.UserRoles = [];
     $scope.Operation = 'Add User';
+    $scope.Password = '';
 
     $scope.validateFullName = /^[A-Za-z\s]+$/;
     $scope.validateNumber = /^\d{3}\d{3}\d{4}/;
@@ -1175,6 +1176,41 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
             message('error', 'Error!', 'Please select a role for this user!');
         }
     }
+
+    $scope.OpenPasswordModel = function () {
+        $scope.showModal = true;
+    };
+
+    $scope.PasswordSubmit = function () {
+        var user_CUD_DTO = {};
+        user_CUD_DTO.UserId = $scope.S_UserId;
+        user_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
+        user_CUD_DTO.Password = $scope.UserDetail.Password;
+        user_CUD_DTO.OperationType = 'changePass';
+
+        //console.log(user_CUD_DTO);
+
+        var response = UserDetailService.SubmitUser(user_CUD_DTO);
+
+        response
+       .success(function (data, status, headers, config) {
+           var Message = MsgService.makeMessage(data.ReturnMessage)
+           message('success', 'Success!', Message);
+           $scope.showModal = false;
+       })
+       .error(function (data, status, headers, config) {
+           var Message = MsgService.makeMessage(data.ReturnMessage)
+           message('error', 'Error!', Message);
+       });
+    };
+
+    $scope.PasswordCancel = function () {
+        $scope.showModal = false;
+    };
+
+
+
+
 
     function message(type, title, content) {
         var notify = {
@@ -1353,3 +1389,4 @@ app.filter('updateById', function () {
         return null;
     }
 });
+

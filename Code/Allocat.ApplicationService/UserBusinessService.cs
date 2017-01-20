@@ -180,21 +180,24 @@ namespace Allocat.ApplicationService
 
                 if (userBusinessRule.ValidationStatus == true)
                 {
-                    TempUser_CUD.Columns.Remove("RoleName");
-                    TempUser_CUD.Columns.Add("UserId", typeof(int));
-
-                    for (int i=0;i<TempUser_CUD.Rows.Count; ++i)
+                    if (OperationType != "changePass")
                     {
-                        if (OperationType == "insert")
+                        TempUser_CUD.Columns.Remove("RoleName");
+                        TempUser_CUD.Columns.Add("UserId", typeof(int));
+
+                        for (int i = 0; i < TempUser_CUD.Rows.Count; ++i)
                         {
-                            TempUser_CUD.Rows[i]["UserId"] = 0;
-                            
-                            //generating random 6 digit password 
-                            Password = Utility.Utilities.RandomAlphaNumeric(6);
-                        }
-                        else
-                        {
-                            TempUser_CUD.Rows[i]["UserId"] = UserId;
+                            if (OperationType == "insert")
+                            {
+                                TempUser_CUD.Rows[i]["UserId"] = 0;
+
+                                //generating random 6 digit password 
+                                Password = Utility.Utilities.RandomAlphaNumeric(6);
+                            }
+                            else
+                            {
+                                TempUser_CUD.Rows[i]["UserId"] = UserId;
+                            }
                         }
                     }
 
