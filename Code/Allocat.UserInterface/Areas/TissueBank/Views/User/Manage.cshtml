@@ -16,7 +16,7 @@
                 Home
             </a>
         </li>
-        <li>
+        <li class="active">
             <a href="@Url.Action("Index", "User", new { Area = "TissueBank" })">
                 User Management
             </a>
@@ -39,54 +39,49 @@
             <form class="form-horizontal" novalidate ng-submit="Submit()" name="FormUser">
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="asdasdas" class="col-sm-2 control-label">Full Name </label>
+                        <label for="asdasdas" class="col-sm-2 control-label">Full Name <span class="error-msg" ng-show="FormUser.FullName.$error.required">*</span></label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="FullName" ng-model="UserDetail.FullName" ng-pattern="validateFullName" ng-required="true">
-                            <span class="error-msg" ng-show="FormUser.FullName.$error.required">*</span>
                             <span class="error-msg" ng-show="FormUser.FullName.$error.pattern">Only Alphabets With Spaces Allowed</span>
-
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="asdasdas" class="col-sm-2 control-label">User Name</label>
+                        <label for="asdasdas" class="col-sm-2 control-label">User Name <span class="error-msg" ng-show="FormUser.UserName.$error.required">*</span></label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="UserName" ng-model="UserDetail.UserName" ng-required="true">
-                            <span class="error-msg" ng-show="FormUser.UserName.$error.required">*</span>
                             <span class="error-msg" ng-show="FormUser.UserName.$error.pattern">Only Alphabets With Spaces Allowed</span>
-
-                        </div>
+                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">User Role</label>
                         <div class="col-sm-6">
-                            <label ng-repeat="tbRole in TissueBankRoles track by tbRole.RoleId">
+                            <div ng-repeat="tbRole in TissueBankRoles track by tbRole.RoleId">
                                 <input type="checkbox"
                                        value="{{tbRole.RoleId}}"
                                        ng-checked="isChecked(tbRole)"
                                        ng-click="Check(tbRole)" /> {{tbRole.RoleName}}
-                            </label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail2" class="col-sm-2 control-label">Email <span class="error" ng-show="myForm.EmailId.$error.required" style="color:red">*</span></label>
+                        <label for="inputEmail2" class="col-sm-2 control-label">Email <span class="error-msg" ng-show="FormUser.EmailId.$error.required">*</span></label>
                         <div class="col-sm-6">
                             <input type="email" class="form-control" name="EmailId" ng-model="UserDetail.EmailId" ng-pattern="validateEmail" ng-required="true">
-                            <span class="error-msg" ng-show="FormUser.EmailId.$error.required">*</span>
                             <span class="error-msg" ng-show="FormUser.EmailId.$error.pattern">Please Enter Valid Format :abc@example.com </span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail2" class="col-sm-2 control-label">Mobile Number</label>
+                        <label for="inputEmail2" class="col-sm-2 control-label">Mobile Number <span class="error-msg" ng-show="FormUser.MobileNumber.$error.required">*</span></label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="MobileNumber" ng-model="UserDetail.MobileNumber" ng-required="true" ng-pattern="validateNumber" />
-                            <span class="error-msg" ng-show="FormUser.MobileNumber.$error.required">*</span>
                             <span class="error-msg" ng-show="FormUser.MobileNumber.$error.pattern">Please Enter Valid format: 1234567890</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail2" class="col-sm-2 control-label">Allow Login</label>
                         <div class="col-sm-6">
-                            <input type="checkbox" ng-checked="UserDetail.AllowLogin" ng-model="UserDetail.AllowLogin">
+                            <input type="checkbox" ng-checked="UserDetail.AllowLogin" ng-model="UserDetail.AllowLogin" data-toggle="toggle" data-onstyle="success" checked="checked" data-on="Yes" data-off="No">
+                            @*<input type="checkbox" ng-checked="UserDetail.AllowLogin" ng-model="UserDetail.AllowLogin">*@
                         </div>
                     </div>
                     <div class="form-group">
@@ -95,14 +90,17 @@
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                        <input type="submit" class="btn btn-primary" value="Submit" ng-disabled="FormUser.$invalid" />
-
+                        <div style="display:inline-block">
+                            <button type="submit" class="btn btn-primary" ng-disabled="FormUser.$invalid">Submit</button>
+                        </div>
                         @{
                             var ViewUrl = Url.Action("Index", "User", new { Area = "TissueBank" });
                             ViewUrl = HttpUtility.UrlDecode(ViewUrl);
                         }
-                        <a data-ng-href="@ViewUrl"><button type="button" class="btn btn-primary">Cancel</button></a>
-                    </div>
+                        <div style="display:inline-block">
+                            <a data-ng-href="@ViewUrl"><button type="button" class="btn btn-primary">Cancel</button></a>
+                        </div>
+                     </div>
                 </div>
             </form>
             <!-- /. $END_FORM -->

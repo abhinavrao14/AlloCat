@@ -418,13 +418,16 @@
                         var ReplyUrl = Url.Action("Manage", "RequestForQuote", new { RequestForQuoteId = "{{RFQDetail.RequestForQuoteId}}", editMode = "true" });
                         ReplyUrl = HttpUtility.UrlDecode(ReplyUrl);
                     }
-                    <span class="btn btn-info" style="height:35px"><a style="color: #fff;" data-ng-href="@ReplyUrl">Reply</a></span>
-                    @{
+                    <div style="display:inline-block">
+                        <a style="color: #fff;" data-ng-href="@ReplyUrl"><span class="btn btn-info" style="height:35px">Reply</span></a>
+                    </div>
+                  @{
                         var ViewUrl = Url.Action("Manage", "RequestForQuote", new { RequestForQuoteId = "{{RFQDetail.RequestForQuoteId}}", editMode = "false" });
                         ViewUrl = HttpUtility.UrlDecode(ViewUrl);
                     }
-                    <span class="btn btn-info" style="height:35px"><a style="color: #fff;" data-ng-href="@ViewUrl">Manage RFQ</a></span>
-
+                    <div style="display:inline-block">
+                        <a style="color: #fff;" data-ng-href="@ViewUrl"><span class="btn btn-info" style="height:35px">Manage RFQ</span></a>
+                    </div>
                     @*<span type="button" class="btn btn-info" style="height:35px" data-dismiss="modal"><a style="color: #fff;" data-ng-href="@ReplyUrl">Reply</a></span>
                         <span type="button" class="btn btn-info" style="height:35px" data-dismiss="modal"><a style="color: #fff;" data-ng-href="@ViewUrl">Manage RFQ</a></span>*@
                 </div>

@@ -250,6 +250,7 @@
     <Content Include="Assets\js\lib\angular.js" />
     <Content Include="Assets\js\lib\angular.min.js" />
     <Content Include="Assets\js\lib\beautifier.js" />
+    <Content Include="Assets\js\lib\bootstrap-toggle.js" />
     <Content Include="Assets\js\lib\bootstrap.js" />
     <Content Include="Assets\js\lib\bootstrap.min.js" />
     <Content Include="Assets\js\lib\ChatCtrl.js" />
@@ -311,9 +312,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Views\Shared\_PanelLayout.cshtml" />
     <Content Include="Assets\css\ui-grid.ttf" />
     <Content Include="Assets\css\ui-grid.woff" />
