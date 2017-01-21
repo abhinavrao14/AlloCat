@@ -1,0 +1,5 @@
+D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\bin\Debug\TestAppCustomService.exe.config
+D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\bin\Debug\TestAppCustomService.exe
+D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\bin\Debug\TestAppCustomService.pdb
+D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\obj\Debug\TestAppCustomService.exe
+D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\obj\Debug\TestAppCustomService.pdb
