@@ -1,0 +1,7 @@
+D:\Bhasker\PersonalProjects\MyProjects\Authorize.Net\Creations\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Release\Allocat.CustomService.Authorize.Net.dll.config
+D:\Bhasker\PersonalProjects\MyProjects\Authorize.Net\Creations\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Release\Allocat.CustomService.Authorize.Net.dll
+D:\Bhasker\PersonalProjects\MyProjects\Authorize.Net\Creations\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Release\Allocat.CustomService.Authorize.Net.pdb
+D:\Bhasker\PersonalProjects\MyProjects\Authorize.Net\Creations\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Release\AuthorizeNet.dll
+D:\Bhasker\PersonalProjects\MyProjects\Authorize.Net\Creations\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Release\AuthorizeNet.xml
+D:\Bhasker\PersonalProjects\MyProjects\Authorize.Net\Creations\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Release\Allocat.CustomService.Authorize.Net.dll
+D:\Bhasker\PersonalProjects\MyProjects\Authorize.Net\Creations\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Release\Allocat.CustomService.Authorize.Net.pdb
