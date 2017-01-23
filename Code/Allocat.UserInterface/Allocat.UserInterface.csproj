@@ -88,6 +88,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -163,6 +165,7 @@
     <Compile Include="Areas\TissueBank\Controllers\HomeController.cs" />
     <Compile Include="Areas\TissueBank\Controllers\ProductController.cs" />
     <Compile Include="Areas\TissueBank\Controllers\OrderController.cs" />
+    <Compile Include="Areas\TissueBank\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\TissueBank\Controllers\RequestForQuoteController.cs" />
     <Compile Include="Areas\TissueBank\Controllers\UserController.cs" />
     <Compile Include="Areas\TissueBank\TissueBankAreaRegistration.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Hospital_RegistrationController.cs" />
+    <Compile Include="Controllers\ResponseController.cs" />
     <Compile Include="Controllers\TBController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -178,6 +182,7 @@
     <Compile Include="Security\BaseViewPage.cs" />
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Security\CustomPrincipal.cs" />
+    <Compile Include="ViewModel\SignUpViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +317,7 @@
     <Content Include="Areas\TissueBank\Views\Order\Manage.cshtml" />
     <Content Include="Areas\TissueBank\Views\User\Index.cshtml" />
     <Content Include="Areas\TissueBank\Views\User\Manage.cshtml" />
+    <Content Include="Areas\TissueBank\Views\Registration\Index.cshtml" />
     <None Include="Assets\js\lib\_references.js" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -342,6 +348,8 @@
     <Content Include="Views\Shared\_PanelLayout2.cshtml" />
     <Content Include="Views\TB\Registration.cshtml" />
     <Content Include="Views\Hospital_Registration\Index.cshtml" />
+    <Content Include="Views\Account\TissueBankSignUp.cshtml" />
+    <Content Include="Views\Response\Successful.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,9 +365,25 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Allocat.ApplicationService\Allocat.ApplicationService.csproj">
+      <Project>{5EB83154-696C-45FD-8CDF-D51276745CA5}</Project>
+      <Name>Allocat.ApplicationService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Allocat.DataModel\Allocat.DataModel.csproj">
       <Project>{DE7DE002-15FF-4738-8410-A44F9B45FF4B}</Project>
       <Name>Allocat.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Allocat.DataServiceInterface\Allocat.DataServiceInterface.csproj">
+      <Project>{55EC7051-83CC-49AB-AD54-C1AEB06BBC07}</Project>
+      <Name>Allocat.DataServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Allocat.DataService\Allocat.DataService.csproj">
+      <Project>{95436E91-7AB4-4601-B487-D7CB3C2073EC}</Project>
+      <Name>Allocat.DataService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Allocat.WebApi\Allocat.WebApi.csproj">
+      <Project>{F2B58162-F0E9-4F50-B516-54DFE81A1FAC}</Project>
+      <Name>Allocat.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

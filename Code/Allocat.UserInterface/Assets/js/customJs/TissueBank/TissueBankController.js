@@ -1267,11 +1267,17 @@ app.controller("TissueBankController", function ($scope, TissueBankService, Stat
                 BusinessURL: $scope.BusinessURL,
                 TissueBankAddress: $scope.TissueBankAddress,
                 CityId: $scope.city.CityID,
+                ZipCode: $scope.ZipCode,
                 TissueBankStateLicense: $scope.TissueBankStateLicense,
                 AATBAccredationDate: $scope.AATBAccredationDate,
                 AATBLicenseNumber: $scope.AATBLicenseNumber,
                 AATBExpirationDate: $scope.AATBExpirationDate,
                 UserName: $scope.UserName,
+
+                CreditCardNumber: $scope.CreditCardNumber,
+                CreditCardType: 0,
+                ExpiryDate: $scope.ExpiryDate,
+                City: $scope.city.CityName
             };
 
             console.log(tissueBank_DTO);

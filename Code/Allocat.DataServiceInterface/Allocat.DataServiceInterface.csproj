@@ -52,6 +52,9 @@
     <Compile Include="IDataService.cs" />
     <Compile Include="ICityDataService.cs" />
     <Compile Include="IHospitalDataService.cs" />
+    <Compile Include="IHospitalTypeDataService.cs" />
+    <Compile Include="IKeyValueDataService.cs" />
+    <Compile Include="ITransactionDataService.cs" />
     <Compile Include="ITissueBankDataService.cs" />
     <Compile Include="IStateDataService.cs" />
     <Compile Include="IUserDataService.cs" />

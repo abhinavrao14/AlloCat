@@ -38,7 +38,7 @@ namespace Allocat.DataService
         //    }
         //}
 
-        public int AddTissueBank(string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string UserName, string Password, out TransactionalInformation transaction)
+        public int AddTissueBank(string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string UserName, string Password, string ZipCode, string CreditCardNumber, int CreditCardType, string ExpiryDate, string City, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
             int rowAffected = 0;
@@ -82,7 +82,7 @@ namespace Allocat.DataService
             var parameterPassword = new SqlParameter("@Password", SqlDbType.VarChar);
             parameterPassword.Value = Password;
 
-            rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.sp_TissueBank_Add @TissueBankName, @ContactPersonName, @ContactPersonNumber, @TissueBankEmailId, @BusinessURL, @TissueBankAddress, @CityId, @TissueBankStateLicense, @AATBLicenseNumber, @AATBExpirationDate, @AATBAccredationDate,@UserName, @Password", parameterTissueBankName, parameterContactPersonName, parameterContactPersonNumber, parameterTissueBankEmailId, parameterBusinessURL, parameterTissueBankAddress, parameterCityId, parameterTissueBankStateLicense, parameterAATBLicenseNumber, parameterAATBExpirationDate, parameterAATBAccredationDate, parameterUserName,parameterPassword);
+            rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.sp_TissueBank_Add @TissueBankName, @ContactPersonName, @ContactPersonNumber, @TissueBankEmailId, @BusinessURL, @TissueBankAddress, @CityId, @TissueBankStateLicense, @AATBLicenseNumber, @AATBExpirationDate, @AATBAccredationDate,@UserName, @Password", parameterTissueBankName, parameterContactPersonName, parameterContactPersonNumber, parameterTissueBankEmailId, parameterBusinessURL, parameterTissueBankAddress, parameterCityId, parameterTissueBankStateLicense, parameterAATBLicenseNumber, parameterAATBExpirationDate, parameterAATBAccredationDate, parameterUserName, parameterPassword);
 
             if (rowAffected > 0)
             {
@@ -166,7 +166,6 @@ namespace Allocat.DataService
             return false;
         }
 
-
         public bool ValidateUniqueUserName(string UserName)
         {
             User user = dbConnection.User.FirstOrDefault(u => u.UserName == UserName);
@@ -174,6 +173,55 @@ namespace Allocat.DataService
                 return true;
 
             return false;
+        }
+
+        public bool ValidateUniqueEmailId(string EmailId)
+        {
+            User user = dbConnection.User.FirstOrDefault(u => u.EmailId == EmailId);
+            if (user == null)
+                return true;
+
+            return false;
+        }
+
+        public int RegisterTissueBankUser(string FullName, string UserName, string EmailId, string SecurityQuestion, string SecurityAnswer, string Password, out TransactionalInformation transaction)
+        {
+            transaction = new TransactionalInformation();
+            int rowAffected = 0;
+
+            var parameterFullName = new SqlParameter("@FullName", SqlDbType.VarChar);
+            parameterFullName.Value = FullName;
+
+            var parameterUserName = new SqlParameter("@UserName", SqlDbType.NVarChar);
+            parameterUserName.Value = UserName;
+
+            var parameterEmailId = new SqlParameter("@EmailId", SqlDbType.NVarChar);
+            parameterEmailId.Value = EmailId;
+
+            var parameterSecurityQuestion = new SqlParameter("@SecurityQuestion", SqlDbType.VarChar);
+            parameterSecurityQuestion.Value = SecurityQuestion;
+
+            var parameterSecurityAnswer = new SqlParameter("@SecurityAnswer", SqlDbType.VarChar);
+            parameterSecurityAnswer.Value = SecurityAnswer;
+
+            var parameterPassword = new SqlParameter("@Password", SqlDbType.VarChar);
+            parameterPassword.Value = Password;
+
+            rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.usp_TissueBank_Registration @FullName, @UserName, @EmailId, @SecurityQuestion, @SecurityAnswer, @Password", parameterFullName, parameterUserName, parameterEmailId, parameterSecurityQuestion, parameterSecurityAnswer, parameterPassword);
+
+            if (rowAffected > 0)
+            {
+                transaction.ReturnStatus = true;
+                transaction.ReturnMessage.Add("Operation Successfull.");
+            }
+            else
+            {
+                transaction.ReturnStatus = false;
+                transaction.ReturnMessage.Add("Database Error");
+            }
+
+            return rowAffected;
+
         }
 
         //public string UpdateTb(TissueBank tissueBank)

@@ -7,7 +7,7 @@ namespace Allocat.DataServiceInterface
 {
     public interface IHospitalDataService : IDataService, IDisposable
     {
-        int AddHospital(string HospitalName, string ContactPersonName, string ContactPersonNumber, string HospitalEmailId, string BusinessURL, string HospitalAddress, int CityId, string HospitalStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate,string UserName, string Password,out TransactionalInformation transaction);
+        int AddHospital(int HospitalId, string HospitalName, string ContactPersonName, string ContactPersonNumber, string HospitalEmailId, string BusinessURL, string HospitalAddress, int CityId, string RegistrationNumber, string UserName,string Password, int HospitalTypeID, out TransactionalInformation transaction);
         bool ValidateUniqueHospitalEmailId(string HospitalEmailId);
         bool ValidateUniqueContactPersonNumber(string ContactPersonNumber);
         bool ValidateUniqueAATBLicenseNumber(string AATBLicenseNumber);

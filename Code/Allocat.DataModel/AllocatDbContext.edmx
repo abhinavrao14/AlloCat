@@ -53,6 +53,7 @@
           <Property Name="HospitalTypeID" Type="int" />
           <Property Name="HospitalAddress" Type="nvarchar" MaxLength="300" />
           <Property Name="HospitalCityId" Type="int" />
+          <Property Name="BusinessURL" Type="nvarchar" MaxLength="100" />
           <Property Name="FaxNumber" Type="nvarchar" MaxLength="20" />
           <Property Name="HospitalLandLineNo" Type="nvarchar" MaxLength="20" />
           <Property Name="RegistrationNumber" Type="nvarchar" MaxLength="20" />
@@ -200,6 +201,13 @@
           <Property Name="LastModifiedDate" Type="datetime" />
           <Property Name="LastModifiedBy" Type="int" />
         </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="QuestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionBody" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="ReportType">
           <Key>
             <PropertyRef Name="ReportTypeId" />
@@ -311,6 +319,7 @@
           <Property Name="IsEmailVerified" Type="bit" />
           <Property Name="TissueBankAddress" Type="nvarchar" MaxLength="300" />
           <Property Name="CityId" Type="int" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" />
           <Property Name="TissueBankStateLicense" Type="nvarchar" MaxLength="50" />
           <Property Name="CustomerServiceLandLineNumber" Type="nvarchar" MaxLength="30" />
           <Property Name="FaxNumber" Type="nvarchar" MaxLength="50" />
@@ -318,6 +327,7 @@
           <Property Name="AATBLicenseNumber" Type="nvarchar" MaxLength="30" />
           <Property Name="AATBExpirationDate" Type="date" />
           <Property Name="AATBAccredationDate" Type="date" />
+          <Property Name="CustomerProfileId" Type="int" />
           <Property Name="IsAllocatMember" Type="bit" />
           <Property Name="IsAccountVerified" Type="bit" />
           <Property Name="IsActive" Type="bit" />
@@ -1042,6 +1052,14 @@
         <Function Name="sp_UserProfileDetail_TissueBank_GetByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserId" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_TissueBank_Registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmailId" Type="nvarchar" Mode="In" />
+          <Parameter Name="SecurityQuestion" Type="nvarchar" Mode="In" />
+          <Parameter Name="SecurityAnswer" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="AllocatDbModelStoreContainer">
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
@@ -1058,6 +1076,7 @@
           <EntitySet Name="ProductEntity" EntityType="Self.ProductEntity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseRequest" EntityType="Self.PurchaseRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReportType" EntityType="Self.ReportType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RequestForQuote" EntityType="Self.RequestForQuote" Schema="dbo" store:Type="Tables" />
@@ -1316,6 +1335,7 @@
           <NavigationProperty Name="HospitalAddress1" Relationship="Self.FK_HospitalAddress_Hospital" FromRole="Hospital" ToRole="HospitalAddress" />
           <NavigationProperty Name="ProductEntity" Relationship="Self.FK_ProductEntity_Hospital" FromRole="Hospital" ToRole="ProductEntity" />
           <NavigationProperty Name="Request" Relationship="Self.FK_Request_Hospital" FromRole="Hospital" ToRole="Request" />
+          <Property Name="BusinessURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="HospitalAddress">
           <Key>
@@ -1628,6 +1648,8 @@
           <NavigationProperty Name="ProductEntity" Relationship="Self.FK_ProductEntity_TissueBank" FromRole="TissueBank" ToRole="ProductEntity" />
           <NavigationProperty Name="Response" Relationship="Self.FK_Response_TissueBank" FromRole="TissueBank" ToRole="Response" />
           <NavigationProperty Name="TissueBankProduct" Relationship="Self.FK_TissueBankProduct_TissueBank" FromRole="TissueBank" ToRole="TissueBankProduct" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerProfileId" Type="Int32" />
         </EntityType>
         <EntityType Name="TissueBankProduct">
           <Key>
@@ -2547,6 +2569,15 @@
             <Parameter Name="UserName" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Question" EntityType="AllocatDbModel.Question" />
+          <FunctionImport Name="usp_TissueBank_Registration">
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="EmailId" Mode="In" Type="String" />
+            <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+            <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_Order_TissueBank_GetByTissueBankId_Result">
           <Property Type="Int64" Name="Sno" Nullable="true" />
@@ -2786,6 +2817,13 @@
           <Property Type="Int32" Name="InfoId" Nullable="true" />
           <Property Type="String" Name="DomainName" Nullable="true" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="QuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionBody" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2838,6 +2876,7 @@
           <EntitySetMapping Name="Hospital">
             <EntityTypeMapping TypeName="AllocatDbModel.Hospital">
               <MappingFragment StoreEntitySet="Hospital">
+                <ScalarProperty Name="BusinessURL" ColumnName="BusinessURL" />
                 <ScalarProperty Name="HospitalId" ColumnName="HospitalId" />
                 <ScalarProperty Name="HospitalName" ColumnName="HospitalName" />
                 <ScalarProperty Name="DomainScopeID" ColumnName="DomainScopeID" />
@@ -3112,6 +3151,8 @@
           <EntitySetMapping Name="TissueBank">
             <EntityTypeMapping TypeName="AllocatDbModel.TissueBank">
               <MappingFragment StoreEntitySet="TissueBank">
+                <ScalarProperty Name="CustomerProfileId" ColumnName="CustomerProfileId" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
                 <ScalarProperty Name="TissueBankId" ColumnName="TissueBankId" />
                 <ScalarProperty Name="TissueBankName" ColumnName="TissueBankName" />
                 <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
@@ -3504,6 +3545,15 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_UserMngmt_TissueBank_GetCountByTissueBankId" FunctionName="AllocatDbModel.Store.sp_UserMngmt_TissueBank_GetCountByTissueBankId" />
           <FunctionImportMapping FunctionImportName="sp_TissueBank_Add" FunctionName="AllocatDbModel.Store.sp_TissueBank_Add" />
+          <EntitySetMapping Name="Question">
+            <EntityTypeMapping TypeName="AllocatDbModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="QuestionBody" ColumnName="QuestionBody" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_TissueBank_Registration" FunctionName="AllocatDbModel.Store.usp_TissueBank_Registration" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -46,6 +46,8 @@ namespace Allocat.DataModel
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
         public Nullable<int> LastModifiedBy { get; set; }
+        public string ZipCode { get; set; }
+        public Nullable<int> CustomerProfileId { get; set; }
     
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -12,7 +12,8 @@ namespace Allocat.ApplicationService
         {
             tbDataService = _tbDataService;
         }
-        public void ValidateAdd(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate,string UserName)
+
+        public void ValidateAdd(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string UserName, string ZipCode, string CreditCardNumber, int CreditCardType, string ExpiryDate, string City)
         {
             ValidateUniqueTissueBankEmailId(TissueBankEmailId);
             ValidateUniqueContactPersonNumber(ContactPersonNumber);
@@ -64,6 +65,21 @@ namespace Allocat.ApplicationService
             {
                 AddValidationError("ContactPersonNumber", "Contact Person Number : " + ContactPersonNumber + " already exists.");
             }
+        }
+
+        private void ValidateUniqueEmailId(string EmailId)
+        {
+            Boolean valid = tbDataService.ValidateUniqueEmailId(EmailId);
+            if (valid == false)
+            {
+                AddValidationError("EmailId", "Email Id : " + EmailId + " already exists.");
+            }
+        }
+
+        public void ValidateTissueBankUserRegistration(string FullName, string UserName, string EmailId, string SecurityQuestion, string SecurityAnswer)
+        {
+            ValidateUniqueEmailId(EmailId);
+            ValidateUniqueUserName(UserName);
         }
     }
 }

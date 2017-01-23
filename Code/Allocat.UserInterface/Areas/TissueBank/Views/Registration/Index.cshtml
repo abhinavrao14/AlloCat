@@ -1,0 +1,203 @@
+﻿
+@{
+    ViewBag.Title = "Tissue Bank Regsitration";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+<script src="~/Assets/js/customJs/TissueBank/TissueBankController.js"></script>
+<script src="~/Assets/js/customJs/TissueBank/TissueBankService.js"></script>
+
+<div ng-controller="TissueBankController">
+    <div class="page-header">
+        <div class="row">
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;Registration</h1>
+        </div>
+    </div>
+    <div class="panel" style="width:85%; margin:auto">
+        <div class="panel-body" style="padding:15px">
+            <div>
+                <h4 style="font-weight:bold; margin-bottom:30px">Profile Information</h4>
+            </div>
+            <form class="form-horizontal" name="formTissueBank" novalidate ng-submit="AddTb()">
+                <div style="border:1px solid #aaa; box-shadow:0px 2px 2px #888888; margin-bottom:20px">
+                    <div class="col-md-12" style="text-align:center; margin-bottom:20px">
+                        <label class="control-label"><u style="font-size:16px">General Details</u></label>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">TissueBank Name</label>
+                                <span class="error error-msg" ng-show="formTissueBank.TissueBankName.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="TissueBankName" ng-model="TissueBankName" ng-pattern="tbNameValidate" placeholder="XYZ tissue bank" />
+                                <span class="error error-msg" ng-show="formTissueBank.TissueBankName.$error.pattern">Only Alphabets With Spaces Allowed</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">User Name </label>
+                                <span class="error error-msg" ng-show="formTissueBank.UserName.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="UserName" ng-model="UserName" placeholder="jamesDiamond" ng-pattern="userName" />
+                                <span class="error error-msg" ng-show="formTissueBank.UserName.$error.pattern">Spaces not allowed</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">TissueBank Address </label>
+                                <span class="error error-msg" ng-show="formTissueBank.TissueBankAddress.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="TissueBankAddress" ng-model="TissueBankAddress" placeholder="7th Street" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Business URL</label>
+                                @*<span class="error error-msg" ng-show="formTissueBank.BusinessURL.$error.required">*</span>*@
+                                @*<input type="text" class="form-control" ng-required="true" name="BusinessURL" ng-model="BusinessURL" placeholder="http://www.google.com" />*@
+                                <input type="text" class="form-control" name="BusinessURL" ng-model="BusinessURL" placeholder="http://www.google.com" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">State</label>
+                                <span class="error error-msg" ng-show="formTissueBank.stateId.$error.required">*</span>
+                                <select class="form-control" ng-model="state" ng-required="true" name="stateId" data-ng-change="GetCities(state.StateId)" ng-options="state.StateName for state in States track by state.StateId">
+                                    <option value="">Select State</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">City</label>
+                                <span class="error error-msg" ng-show="formTissueBank.cityId.$error.required">*</span>
+                                <select class="form-control" ng-model="city" ng-required="true" name="cityId" ng-options="city.CityName for city in Cities track by city.CityID">
+                                    <option value="">Select City</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Zip Code</label>
+                                <span class="error error-msg" ng-show="formTissueBank.ZipCode.$error.required">*</span>
+                                <input type="number" class="form-control" ng-model="ZipCode" name="ZipCode" ng-required="true" placeholder="12345" maxlength="5" />
+                                @*<span class="error error-msg" ng-show="formTissueBank.ZipCode.$error.pattern">Please Enter Valid format: 1234567890</span>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Contact Person Name </label>
+                                <span class="error error-msg" ng-show="formTissueBank.ContactPersonName.$error.required">*</span>
+                                <input type="text" class="form-control" ng-model="ContactPersonName" name="ContactPersonName" ng-required="true" ng-pattern="personName" placeholder="Contact Person Name" />
+                                <span class="error error-msg" ng-show="formTissueBank.ContactPersonName.$error.pattern">Only alphabets with spaces allowed</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Contact Number</label>
+                                <span class="error error-msg" ng-show="formTissueBank.ContactPersonNumber.$error.required">*</span>
+                                <input type="text" class="form-control" ng-model="ContactPersonNumber" name="ContactPersonNumber" ng-pattern="phoneNumber" ng-required="true" placeholder="1234567890" maxlength="10" />
+                                <span class="error error-msg" ng-show="formTissueBank.ContactPersonNumber.$error.pattern">Please Enter Valid format: 1234567890</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Email ID </label>
+                                <span class="error error-msg" ng-show="formTissueBank.TissueBankEmailId.$error.required">*</span>
+                                <input type="email" class="form-control" ng-model="TissueBankEmailId" name="TissueBankEmailId" ng-required="true" ng-pattern="validateEmail" placeholder="abc@example.com" />
+                                <span class="error error-msg" ng-show="formTissueBank.TissueBankEmailId.$error.pattern">Please Enter Valid Format :abc@example.com </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border:1px solid #aaa; box-shadow:0px 2px 2px #888888; margin-bottom:20px">
+                    <div class="col-md-12" style="text-align:center; margin-bottom:20px">
+                        <label class="control-label"><u style="font-size:16px">License Details</u></label>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">TissueBank State License</label>
+                                <span class="error error-msg" ng-show="formTissueBank.TissueBankStateLicense.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="TissueBankStateLicense" ng-model="TissueBankStateLicense" placeholder="State License No" />
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">AATB License Number</label>
+                                <span class="error error-msg" ng-show="formTissueBank.AATBLicenseNumber.$error.required">*</span>
+                                <input type="text" class="form-control" ng-required="true" name="AATBLicenseNumber" ng-model="AATBLicenseNumber" placeholder="AATB License No" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">AATB Expiration Date</label>
+                                <span class="error error-msg" ng-show="formTissueBank.AATBExpirationDate.$error.required">*</span><br />
+                                <input type="text" class="form-control" ng-required="true" name="AATBExpirationDate" ng-model="AATBExpirationDate" placeholder="2018/12/23" datepicker-popup="yyyy/MM/dd" date-disabled="" datepicker-options="dateOptions" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">AATB Accredation Date</label>
+                                <span class="error error-msg" ng-show="formTissueBank.AATBAccredationDate.$error.required">*</span><br />
+                                <input type="text" class="form-control" ng-required="true" name="AATBAccredationDate" ng-model="AATBAccredationDate" placeholder="2018/12/23" datepicker-popup="yyyy/MM/dd" date-disabled="" datepicker-options="dateOptions" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="border:1px solid #aaa; box-shadow:0px 2px 2px #888888; margin-bottom:20px">
+                    <div class="col-md-12" style="text-align:center; margin-bottom:20px">
+                        <label class="control-label"><u style="font-size:16px">Credit Card Details</u></label>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Credit Card Number</label>
+                                <span class="error error-msg" ng-show="formTissueBank.CreditCardNumber.$error.required">*</span><br />
+                                <input type="text" class="form-control" ng-required="true" name="CreditCardNumber" ng-model="CreditCardNumber" placeholder="4111111111111111"  />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">Credit Card Type</label>
+                                @*<span class="error error-msg" ng-show="formTissueBank.AATBAccredationDate.$error.required">*</span><br />
+                                <input type="text" class="form-control" ng-required="true" name="AATBAccredationDate" ng-model="AATBAccredationDate" placeholder="2018/12/23" datepicker-popup="yyyy/MM/dd" date-disabled="" datepicker-options="dateOptions" />*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding:10px">
+                        <div class="col-sm-6">
+                            <div class="form-group no-margin-hr">
+                                <label class="control-label">ExpiryDate</label>
+                                <span class="error error-msg" ng-show="formTissueBank.ExpiryDate.$error.required">*</span><br />
+                                <input type="text" class="form-control" ng-required="true" name="ExpiryDate" ng-model="ExpiryDate" placeholder="0819"   />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer text-center">
+                    <input type="submit" class="btn btn-success" value="Submit" ng-disabled="formTissueBank.$invalid" />
+                    @{
+                        var ViewUrl = Url.Action("Index", "Home", new { Area = "" });
+                        ViewUrl = HttpUtility.UrlDecode(ViewUrl);
+                    }
+                    <a data-ng-href="@ViewUrl"><button type="button" class="btn btn-primary">Cancel</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="notifies" notifybar></div>
+</div>

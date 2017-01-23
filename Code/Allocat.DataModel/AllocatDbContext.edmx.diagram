@@ -74,6 +74,7 @@
         <AssociationConnector Association="AllocatDbModel.FK_TissueBankProduct_Source" ManuallyRouted="false" />
         <AssociationConnector Association="AllocatDbModel.FK_TissueBankProduct_TissueBank" ManuallyRouted="false" />
         <AssociationConnector Association="AllocatDbModel.FK_UserRoleID_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AllocatDbModel.Question" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

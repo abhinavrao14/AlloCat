@@ -91,6 +91,7 @@
     <Compile Include="HospitalType.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="KeyValue.cs" />
     <Compile Include="Notification.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
@@ -112,6 +113,9 @@
     <Compile Include="ProductMaster_TissueBank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseRequest.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Question.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="ReportType.cs">

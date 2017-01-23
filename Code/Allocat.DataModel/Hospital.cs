@@ -41,6 +41,7 @@ namespace Allocat.DataModel
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> LastModifiedDate { get; set; }
         public Nullable<int> LastModifiedBy { get; set; }
+        public string BusinessURL { get; set; }
     
         public virtual City City { get; set; }
         public virtual DomainScope DomainScope { get; set; }

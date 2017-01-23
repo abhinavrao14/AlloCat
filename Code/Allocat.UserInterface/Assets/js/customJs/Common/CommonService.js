@@ -20,6 +20,15 @@ app.service("CityService", function ($http) {
         });
         return response;
     };
+});
 
+app.service("HospitalTypeService", function ($http) {
 
+    this.GetHospitalTypes = function () {
+        var response = $http({
+            method: 'Get',
+            url: 'http://localhost:63744/api/HospitalType'
+        });
+        return response;
+    };
 });

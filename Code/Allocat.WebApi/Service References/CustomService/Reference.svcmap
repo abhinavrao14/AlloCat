@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ccc348ee-1e78-4ab5-8250-c4bd887c4fe6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="74ec2d7b-154a-4397-bd78-ed69d8022460" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c40faab5-62af-4574-b2ce-287d190261fa" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="cff4a442-959e-4dbd-8eae-a69f5d6768b9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
+    <MetadataFile FileName="Allocat.CustomService.Authorize.Net.BusinessEntities.xsd" MetadataType="Schema" ID="0d77672f-6c04-44d2-9aba-38e4de30c10e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
+    <MetadataFile FileName="Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities.xsd" MetadataType="Schema" ID="a6e7d3c3-de58-41c2-b7f0-3bfaefe3647c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="beda1ecf-aa57-4a2b-8d49-f7cf025a1ec3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -51,9 +51,15 @@
   <ItemGroup>
     <Compile Include="OrderBusinessRule.cs" />
     <Compile Include="CityBusinessRule.cs" />
+    <Compile Include="HospitalTypeBusinessRule.cs" />
+    <Compile Include="KeyValueBusinessRule.cs" />
     <Compile Include="StateBusinessRule.cs" />
     <Compile Include="CityBusinessService.cs" />
+    <Compile Include="HospitalTypeBusinessService.cs" />
+    <Compile Include="HospitalBusinessRule.cs" />
+    <Compile Include="KeyValueBusinessService.cs" />
     <Compile Include="TissueBankBusinessRule.cs" />
+    <Compile Include="HospitalBusinessService.cs" />
     <Compile Include="TissueBankBusinessService.cs" />
     <Compile Include="UserBusinessRule.cs" />
     <Compile Include="StateBusinessService.cs" />

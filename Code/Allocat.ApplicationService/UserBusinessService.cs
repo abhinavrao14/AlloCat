@@ -180,7 +180,18 @@ namespace Allocat.ApplicationService
 
                 if (userBusinessRule.ValidationStatus == true)
                 {
-                    if (OperationType != "changePass")
+                    if (OperationType == "changePass")
+                    {
+                        if (TempUser_CUD == null)
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Columns.Add("RoleID", typeof(int));
+                            dt.Columns.Add("UserID", typeof(int));
+                            dt.Rows.Add(0, 0);
+                            TempUser_CUD = dt;
+                        }
+                    }
+                    else
                     {
                         TempUser_CUD.Columns.Remove("RoleName");
                         TempUser_CUD.Columns.Add("UserId", typeof(int));

@@ -63,7 +63,7 @@
                             <div class="form-group no-margin-hr">
                                 <label class="control-label">Hospital Type</label>
                                 <span class="error error-msg" ng-show="formHospital.HospitalTypeID.$error.required">*</span>
-                                <select class="form-control" ng-model="HospitalType" ng-required="true" name="HospitalTypeID" ng-options="HospitalType.HospitalTypeID for HospitalType in HospitalTypes track by HospitalType.HospitalTypeID">
+                                <select class="form-control" ng-model="HospitalType" ng-required="true" name="HospitalTypeID" ng-options="HospitalType.HospitalTypeName for HospitalType in HospitalTypes track by HospitalType.HospitalTypeID">
                                     <option value="">Select Hospital Type</option>
                                 </select>
                             </div>
