@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ccc348ee-1e78-4ab5-8250-c4bd887c4fe6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="860673d3-daf6-4857-bd8a-558bbd2b7e0f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,15 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="74ec2d7b-154a-4397-bd78-ed69d8022460" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c40faab5-62af-4574-b2ce-287d190261fa" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="cff4a442-959e-4dbd-8eae-a69f5d6768b9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
-    <MetadataFile FileName="Allocat.CustomService.Authorize.Net.BusinessEntities.xsd" MetadataType="Schema" ID="0d77672f-6c04-44d2-9aba-38e4de30c10e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
-    <MetadataFile FileName="Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities.xsd" MetadataType="Schema" ID="a6e7d3c3-de58-41c2-b7f0-3bfaefe3647c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="beda1ecf-aa57-4a2b-8d49-f7cf025a1ec3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Allocat.CustomService.Authorize.Net/Service1/mex" />
+    <MetadataFile FileName="APICalls.xsd" MetadataType="Schema" ID="60a3280b-57ef-4a05-a74c-5780168d2914" SourceId="1" SourceUrl="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd2" />
+    <MetadataFile FileName="APICalls1.xsd" MetadataType="Schema" ID="3c7c78ef-700e-4caf-973d-899589197ecd" SourceId="1" SourceUrl="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd3" />
+    <MetadataFile FileName="APICalls2.xsd" MetadataType="Schema" ID="0622988c-e739-426a-b2a8-afd994c0d621" SourceId="1" SourceUrl="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd4" />
+    <MetadataFile FileName="APICalls.disco" MetadataType="Disco" ID="c2bfc33d-9f5b-4a14-ad20-0e9ac7f2ecb4" SourceId="1" SourceUrl="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?disco" />
+    <MetadataFile FileName="APICalls.wsdl" MetadataType="Wsdl" ID="eac4137c-04a7-4c52-8216-d6ccba37f014" SourceId="1" SourceUrl="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?wsdl" />
+    <MetadataFile FileName="APICalls3.xsd" MetadataType="Schema" ID="87ec1638-ac5b-4df5-ad2a-0401ffd12b10" SourceId="1" SourceUrl="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd0" />
+    <MetadataFile FileName="APICalls4.xsd" MetadataType="Schema" ID="10acbd54-4eee-4d34-88bf-a4ed185eb5df" SourceId="1" SourceUrl="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

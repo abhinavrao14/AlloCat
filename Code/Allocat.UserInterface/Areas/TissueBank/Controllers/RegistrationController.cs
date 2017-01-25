@@ -10,6 +10,7 @@ namespace Allocat.UserInterface.Areas.TissueBank.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.user = System.Web.HttpContext.Current.User;
             return View();
         }
     }

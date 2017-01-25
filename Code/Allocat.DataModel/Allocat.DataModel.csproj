@@ -82,6 +82,9 @@
     <Compile Include="EntityType.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Error.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Hospital.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
@@ -178,9 +181,6 @@
     <Compile Include="sp_User_GetEntityInfoByUserName_Result.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="sp_User_GetUserRoleByUserId_Result.cs">
-      <DependentUpon>AllocatDbContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="sp_User_Get_Result.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
@@ -196,10 +196,16 @@
     <Compile Include="TissueBank.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="TissueBankCreditCard.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="TissueBankProduct.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="TissueBankRoles_TissueBank.cs" />
+    <Compile Include="Transaction.cs">
+      <DependentUpon>AllocatDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="TransactionalInformation.cs" />
     <Compile Include="User.cs">
       <DependentUpon>AllocatDbContext.tt</DependentUpon>

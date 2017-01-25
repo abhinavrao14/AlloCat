@@ -10,7 +10,7 @@ namespace Allocat.WebApi.WebApiModel
     {
     }
 
-    public class TissueBankRegisteration_DTO
+    public class TissueBankAdd_DTO
     {
         public string TissueBankName { get; set; }
         public string ContactPersonName { get; set; }
@@ -23,6 +23,8 @@ namespace Allocat.WebApi.WebApiModel
         public string AATBLicenseNumber { get; set; }
         public DateTime AATBExpirationDate { get; set; }
         public DateTime AATBAccredationDate { get; set; }
+        public string CustomerProfileId { get; set; }
+        public string CustomerPaymentProfileIds { get; set; }
 
         public string City { get; set; }
         public string ZipCode { get; set; }
@@ -35,6 +37,10 @@ namespace Allocat.WebApi.WebApiModel
         public string CreditCardNumber { get; set; }
         public int CreditCardType { get; set; }
         public string ExpiryDate { get; set; }
+        public string CardCode { get; set; }
+
+        public int UserId { get; set; }
+        public int TissueBankId { get; set; }
     }
 
     public class TissueBankSignUp_DTO

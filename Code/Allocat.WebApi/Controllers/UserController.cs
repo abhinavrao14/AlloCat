@@ -89,7 +89,7 @@ namespace Allocat.WebApi.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage POST(User_CUD_DTO user_CUD_DTO)
+        public HttpResponseMessage POST(UserMngmnt_User_CUD_DTO userMngmnt_User_CUD_DTO)
         {
             TransactionalInformation transaction = new TransactionalInformation();
 
@@ -97,7 +97,7 @@ namespace Allocat.WebApi.Controllers
 
             UserBusinessService userBusinessService = new UserBusinessService(userDataService);
 
-            userBusinessService.User_CreateUpdateDelete(user_CUD_DTO.UserId, user_CUD_DTO.UserName, user_CUD_DTO.Password, user_CUD_DTO.FullName, user_CUD_DTO.MobileNumber, user_CUD_DTO.EmailId,user_CUD_DTO.CreatedBy, user_CUD_DTO.LastModifiedBy,  user_CUD_DTO.InfoId, user_CUD_DTO.OperationType, user_CUD_DTO.AllowLogin, user_CUD_DTO.TempUser_CUD,  out transaction);
+            userBusinessService.User_CreateUpdateDelete(userMngmnt_User_CUD_DTO.UserId, userMngmnt_User_CUD_DTO.UserName, userMngmnt_User_CUD_DTO.Password, userMngmnt_User_CUD_DTO.FullName, userMngmnt_User_CUD_DTO.MobileNumber, userMngmnt_User_CUD_DTO.EmailId,userMngmnt_User_CUD_DTO.CreatedBy, userMngmnt_User_CUD_DTO.LastModifiedBy,  userMngmnt_User_CUD_DTO.InfoId, userMngmnt_User_CUD_DTO.OperationType, userMngmnt_User_CUD_DTO.AllowLogin, userMngmnt_User_CUD_DTO.TempUser_CUD,  out transaction);
 
             userApiModel.ReturnMessage = transaction.ReturnMessage;
             userApiModel.ReturnStatus = transaction.ReturnStatus;

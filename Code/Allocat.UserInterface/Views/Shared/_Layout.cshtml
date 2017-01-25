@@ -33,6 +33,8 @@
 
             </div>
             <div class="navbar-collapse collapse">
+               
+
                 <span style="float:right;padding:14px;color:#428bca">
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -40,10 +42,20 @@
                     }
                     else
                     {
-                        @Html.ActionLink("Click here to login", "Index", "Account", new { Area = "" }, new { })
+                        @Html.ActionLink("Login", "Index", "Account", new { Area = "" }, new { })
                         @*<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Open Modal</button>*@
                     }
                 </span>
+
+                <span style="float:right;padding:14px;color:#428bca">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Tissue Bank Sign-Up", "TissueBankSignUp", "Account", new { Area = "" }, new { })
+                        @*<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Open Modal</button>*@
+                    }
+                </span>
+
+               
             </div>
         </div>
         <div class="container body-content">

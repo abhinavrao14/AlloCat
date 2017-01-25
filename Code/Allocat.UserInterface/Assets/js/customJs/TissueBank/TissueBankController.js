@@ -1137,28 +1137,28 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
 
     $scope.Submit = function () {
         if ($scope.UserRoles.length > 0) {
-            var user_CUD_DTO = {};
-            user_CUD_DTO.UserId = $scope.S_UserId;
-            user_CUD_DTO.UserName = $scope.UserDetail.UserName;
-            user_CUD_DTO.FullName = $scope.UserDetail.FullName;
-            user_CUD_DTO.MobileNumber = $scope.UserDetail.MobileNumber;
-            user_CUD_DTO.EmailId = $scope.UserDetail.EmailId;
-            user_CUD_DTO.CreatedBy = $scope.CreatedBy;
-            user_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
-            user_CUD_DTO.InfoId = $scope.InfoId;
-            user_CUD_DTO.AllowLogin = $scope.UserDetail.AllowLogin;
-            user_CUD_DTO.TempUser_CUD = $scope.UserRoles;
+            var userMngmnt_User_CUD_DTO = {};
+            userMngmnt_User_CUD_DTO.UserId = $scope.S_UserId;
+            userMngmnt_User_CUD_DTO.UserName = $scope.UserDetail.UserName;
+            userMngmnt_User_CUD_DTO.FullName = $scope.UserDetail.FullName;
+            userMngmnt_User_CUD_DTO.MobileNumber = $scope.UserDetail.MobileNumber;
+            userMngmnt_User_CUD_DTO.EmailId = $scope.UserDetail.EmailId;
+            userMngmnt_User_CUD_DTO.CreatedBy = $scope.CreatedBy;
+            userMngmnt_User_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
+            userMngmnt_User_CUD_DTO.InfoId = $scope.InfoId;
+            userMngmnt_User_CUD_DTO.AllowLogin = $scope.UserDetail.AllowLogin;
+            userMngmnt_User_CUD_DTO.TempUser_CUD = $scope.UserRoles;
 
             if ($scope.S_UserId == '') {
-                user_CUD_DTO.OperationType = 'insert';
+                userMngmnt_User_CUD_DTO.OperationType = 'insert';
             }
             else {
-                user_CUD_DTO.OperationType = 'update';
+                userMngmnt_User_CUD_DTO.OperationType = 'update';
             }
 
-            console.log(user_CUD_DTO);
+            console.log(userMngmnt_User_CUD_DTO);
 
-            var response = UserDetailService.SubmitUser(user_CUD_DTO);
+            var response = UserDetailService.SubmitUser(userMngmnt_User_CUD_DTO);
 
             response
            .success(function (data, status, headers, config) {
@@ -1182,15 +1182,15 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
     };
 
     $scope.PasswordSubmit = function () {
-        var user_CUD_DTO = {};
-        user_CUD_DTO.UserId = $scope.S_UserId;
-        user_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
-        user_CUD_DTO.Password = $scope.UserDetail.Password;
-        user_CUD_DTO.OperationType = 'changePass';
+        var userMngmnt_User_CUD_DTO = {};
+        userMngmnt_User_CUD_DTO.UserId = $scope.S_UserId;
+        userMngmnt_User_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
+        userMngmnt_User_CUD_DTO.Password = $scope.UserDetail.Password;
+        userMngmnt_User_CUD_DTO.OperationType = 'changePass';
 
-        //console.log(user_CUD_DTO);
+        //console.log(userMngmnt_User_CUD_DTO);
 
-        var response = UserDetailService.SubmitUser(user_CUD_DTO);
+        var response = UserDetailService.SubmitUser(userMngmnt_User_CUD_DTO);
 
         response
        .success(function (data, status, headers, config) {
@@ -1226,15 +1226,14 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
 
 app.controller("TissueBankController", function ($scope, TissueBankService, StateService, CityService, $window, MsgService) {
 
-    //$scope.InfoId = document.getElementById("InfoId").value;
-    //$scope.CreatedBy = document.getElementById("LoggedUserId").value;
-    //$scope.LastModifiedBy = document.getElementById("LoggedUserId").value;
+    $scope.TissueBankId = document.getElementById("TissueBankId").value;
+    $scope.LoggedUserId = document.getElementById("LoggedUserId").value;
 
     //angular validation
     $scope.phoneNumber = /^\d{3}\d{3}\d{4}/;
     $scope.validateEmail = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/
     $scope.tbNameValidate = /^[A-Za-z\s]+$/;
-    $scope.personName = /^[a-zA-Z]*$/;
+    $scope.personName = /^[A-Za-z\s]+$/;
     $scope.userName = /^\S{3,}$/;
     $scope.dateOptions = {
         'starting-day': 1
@@ -1255,48 +1254,54 @@ app.controller("TissueBankController", function ($scope, TissueBankService, Stat
     };
 
     $scope.AddTb = function () {
-        var err = '';
-        err = ValidateAddTb();
+        if ($window.confirm("We will charge $25 as Registration-Fees. Are you agreed with this?")) {
+            var err = '';
+            err = ValidateAddTb();
 
-        if (ValidateAddTb() == '') {
-            var tissueBank_DTO = {
-                TissueBankName: $scope.TissueBankName,
-                ContactPersonName: $scope.ContactPersonName,
-                ContactPersonNumber: $scope.ContactPersonNumber,
-                TissueBankEmailId: $scope.TissueBankEmailId,
-                BusinessURL: $scope.BusinessURL,
-                TissueBankAddress: $scope.TissueBankAddress,
-                CityId: $scope.city.CityID,
-                ZipCode: $scope.ZipCode,
-                TissueBankStateLicense: $scope.TissueBankStateLicense,
-                AATBAccredationDate: $scope.AATBAccredationDate,
-                AATBLicenseNumber: $scope.AATBLicenseNumber,
-                AATBExpirationDate: $scope.AATBExpirationDate,
-                UserName: $scope.UserName,
+            if (ValidateAddTb() == '') {
+                var tissueBankAdd_DTO = {
+                    TissueBankName: $scope.TissueBankName,
+                    ContactPersonName: $scope.ContactPersonName,
+                    ContactPersonNumber: $scope.ContactPersonNumber,
+                    TissueBankEmailId: $scope.TissueBankEmailId,
+                    BusinessURL: $scope.BusinessURL,
+                    TissueBankAddress: $scope.TissueBankAddress,
+                    CityId: $scope.city.CityID,
+                    ZipCode: $scope.ZipCode,
+                    TissueBankStateLicense: $scope.TissueBankStateLicense,
+                    AATBAccredationDate: $scope.AATBAccredationDate,
+                    AATBLicenseNumber: $scope.AATBLicenseNumber,
+                    AATBExpirationDate: $scope.AATBExpirationDate,
+                    UserName: $scope.UserName,
 
-                CreditCardNumber: $scope.CreditCardNumber,
-                CreditCardType: 0,
-                ExpiryDate: $scope.ExpiryDate,
-                City: $scope.city.CityName
-            };
+                    CreditCardNumber: $scope.CreditCardNumber,
+                    CreditCardType: 0,
+                    ExpiryDate: $scope.ExpiryDate,
+                    City: $scope.city.CityName,
+                    CardCode: $scope.CardCode,
+                    UserId: $scope.LoggedUserId,
+                    TissueBankId: $scope.TissueBankId
+                };
 
-            console.log(tissueBank_DTO);
+                console.log(tissueBankAdd_DTO);
 
-            var response = TissueBankService.AddTb(tissueBank_DTO);
-            response.success(function (data, status, headers, config) {
-                var Message = MsgService.makeMessage(data.ReturnMessage)
-                message('success', 'Success!', Message);
+                var response = TissueBankService.AddTb(tissueBankAdd_DTO);
+                response.success(function (data, status, headers, config) {
+                    $window.location.href = '/Response/TissueBank_Registration_Successful';
 
-                ClearFields();
-            }).error(function (data, status, headers, config) {
-                var Message = MsgService.makeMessage(data.ReturnMessage)
-                message('error', 'Error!', Message);
-            });
+                    //var Message = MsgService.makeMessage(data.ReturnMessage)
+                    //message('success', 'Success!', Message);
+                    //  ClearFields();
+                }).error(function (data, status, headers, config) {
+                    console.log(data.ReturnMessage);
+                    var Message = MsgService.makeMessage(data.ReturnMessage)
+                    message('error', 'Error!', Message);
+                });
+            }
+            else {
+                message('error', 'Error!', err);
+            }
         }
-        else {
-            message('error', 'Error!', err);
-        }
-
     };
 
     function ValidateAddTb() {

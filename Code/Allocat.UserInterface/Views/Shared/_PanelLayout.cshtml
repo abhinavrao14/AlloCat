@@ -244,103 +244,112 @@
                                     <ul class="dropdown-menu">
 
                                         <li><a href="#"><i class="fa fa-user"></i>&nbsp;&nbsp;@User.Identity.Name <text>'s Profile</text></a></li>
-
-                                        <li class="divider"></li>
-
-                                        <li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Account Settings</a></li>
                                         <li>
-                                            @if (ViewBag.user.InfoId > 0)
-                                            {
-                                                <a href="@Url.Action("Index", "User", new { Area = "TissueBank" })">
-                                                    <i class="dropdown-icon fa fa-user-plus"></i>
-                                                    &nbsp;&nbsp;User Management
-                                                </a>
-                                            }
-                                        <li>
-                                            <a href="@Url.Action("LogOut", "Account", new { Area = "" })">
-                                                <i class="dropdown-icon fa fa-power-off"></i>
-                                                &nbsp;&nbsp;Log Out
+                                            @if (ViewBag.user.InfoId == 0)
+                                        {
+                                            <a href="@Url.Action("Index", "Registration", new { Area = "TissueBank" })">
+                                                <i class="dropdown-icon fa fa-user-plus"></i>
+                                                &nbsp;&nbsp;Add Tissue Bank
                                             </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                                        }
+                                    </li>
+
+                                    <li class="divider"></li>
+
+                                    <li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Account Settings</a></li>
+                                    <li>
+                                        @if (ViewBag.user.InfoId > 0)
+                                        {
+                                            <a href="@Url.Action("Index", "User", new { Area = "TissueBank" })">
+                                                <i class="dropdown-icon fa fa-user-plus"></i>
+                                                &nbsp;&nbsp;User Management
+                                            </a>
+                                        }
+                                    <li>
+                                        <a href="@Url.Action("LogOut", "Account", new { Area = "" })">
+                                            <i class="dropdown-icon fa fa-power-off"></i>
+                                            &nbsp;&nbsp;Log Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-
-        @if (ViewBag.user.InfoId > 0)
-            {
-
-            <div id="main-menu" role="navigation">
-
-                <div style="position: relative; overflow: hidden; width: auto; height: 100%;" class="slimScrollDiv">
-                    <div style="overflow: hidden; width: auto; height: 100%;" id="main-menu-inner">
-
-                        <div class="menu-content top animated fadeIn" id="menu-content-demo">
-                            <div>
-                                <div class="text-bg"><i class="fa fa-user fa-lg" aria-hidden="true" style="padding-right:5px;"></i>  <span class="text-slim">Welcome,</span> <span class="text-semibold">@User.Identity.Name</span></div>
-                            </div>
-
-                        </div>
-
-                        <ul class="navigation">
-
-                            <li class=" active">
-
-                                <a href="#"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Dashboard</span></a>
-
-                            </li>
-
-                            <li class="mm-dropdown mm-dropdown-root">
-
-                                <a href="#"><i class="menu-icon fa fa-list-alt"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Reports Panel</span></a>
-
-                                <ul class="mmc-dropdown-delay animated fadeInLeft">
-                                    <li>
-                                        <a href="@Url.Action("Index", "RequestForQuote", new { Area = "TissueBank" })"><span class="mm-text mmc-dropdown-delay animated fadeIn">RFQ</span></a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Order", new { Area = "TissueBank" })"><span class="mm-text">Purchase Order</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Product", new { Area = "TissueBank" })"><i class="menu-icon fa fa-cog"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Product Management</span></a>
-                            </li>
-                        </ul> <!-- / .navigation -->
-                    </div>
-                    <div style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 741px;" class="slimScrollBar"></div><div style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;" class="slimScrollRail"></div>
-                </div> <!-- / #main-menu-inner -->
-
-            </div> <!-- / #main-menu -->
-        <!-- /4. $MAIN_MENU -->
-        }
-
-        <div id="content-wrapper">
-
-
-
-            @RenderBody()
-
-        </div>
-        <div id="main-menu-bg"></div>
     </div>
 
+    @if (ViewBag.user.InfoId > 0)
+            {
+
+        <div id="main-menu" role="navigation">
+
+            <div style="position: relative; overflow: hidden; width: auto; height: 100%;" class="slimScrollDiv">
+                <div style="overflow: hidden; width: auto; height: 100%;" id="main-menu-inner">
+
+                    <div class="menu-content top animated fadeIn" id="menu-content-demo">
+                        <div>
+                            <div class="text-bg"><i class="fa fa-user fa-lg" aria-hidden="true" style="padding-right:5px;"></i>  <span class="text-slim">Welcome,</span> <span class="text-semibold">@User.Identity.Name</span></div>
+                        </div>
+
+                    </div>
+
+                    <ul class="navigation">
+
+                        <li class=" active">
+
+                            <a href="#"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Dashboard</span></a>
+
+                        </li>
+
+                        <li class="mm-dropdown mm-dropdown-root">
+
+                            <a href="#"><i class="menu-icon fa fa-list-alt"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Reports Panel</span></a>
+
+                            <ul class="mmc-dropdown-delay animated fadeInLeft">
+                                <li>
+                                    <a href="@Url.Action("Index", "RequestForQuote", new { Area = "TissueBank" })"><span class="mm-text mmc-dropdown-delay animated fadeIn">RFQ</span></a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="@Url.Action("Index", "Order", new { Area = "TissueBank" })"><span class="mm-text">Purchase Order</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "Product", new { Area = "TissueBank" })"><i class="menu-icon fa fa-cog"></i><span class="mm-text mmc-dropdown-delay animated fadeIn">Product Management</span></a>
+                        </li>
+                    </ul> <!-- / .navigation -->
+                </div>
+                <div style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 741px;" class="slimScrollBar"></div><div style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;" class="slimScrollRail"></div>
+            </div> <!-- / #main-menu-inner -->
+
+        </div> <!-- / #main-menu -->
+        <!-- /4. $MAIN_MENU -->
+    }
+
+    <div id="content-wrapper">
 
 
 
-    <script type="text/javascript">
+        @RenderBody()
 
-        init.push(function () {
-            // Javascript code here
-        })
-        window.PixelAdmin.start(init);
-    </script>
-    @RenderSection("scripts", required: false)
-    @*@Styles.Render("~/Content/css")*@
-    @Scripts.Render("~/bundles/app")
+    </div>
+    <div id="main-menu-bg"></div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    init.push(function () {
+        // Javascript code here
+    })
+    window.PixelAdmin.start(init);
+</script>
+@RenderSection("scripts", required: false)
+@*@Styles.Render("~/Content/css")*@
+@Scripts.Render("~/bundles/app")
 </body>
 </html>

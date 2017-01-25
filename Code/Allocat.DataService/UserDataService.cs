@@ -141,5 +141,24 @@ namespace Allocat.DataService
 
             return rowAffected;
         }
+
+        public bool ValidateUniqueEmailId(string EmailId)
+        {
+            User user = dbConnection.User.FirstOrDefault(u => u.EmailId == EmailId);
+            if (user == null)
+                return true;
+
+            return false;
+        }
+
+        public bool ValidateUniqueUserName(string UserName)
+        {
+            User user = dbConnection.User.FirstOrDefault(u => u.UserName == UserName);
+            if (user == null)
+                return true;
+
+            return false;
+        }
+
     }
 }

@@ -236,9 +236,19 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Service References\CustomService\Allocat.WebApi.CustomService.ResCreateCustomerProfile.datasource">
+    <Content Include="Service References\CustomService\Allocat.WebApi.CustomService.ResCustomerProfile.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\CustomService\Allocat.WebApi.CustomService.ResCustomerProfileDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomService\Allocat.WebApi.CustomService.ResTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomService\Allocat.WebApi.CustomService.ResTransactionDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\CustomService\APICalls.disco" />
     <None Include="Service References\CustomService\configuration91.svcinfo" />
     <None Include="Service References\CustomService\configuration.svcinfo" />
     <None Include="Service References\CustomService\Reference.svcmap">
@@ -260,6 +270,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Service References\CustomService\APICalls3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomService\APICalls4.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Allocat.ApplicationService\Allocat.ApplicationService.csproj">
@@ -289,20 +305,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <None Include="Service References\CustomService\Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities.xsd">
+    <None Include="Service References\CustomService\APICalls.wsdl" />
+    <None Include="Service References\CustomService\APICalls.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CustomService\Allocat.CustomService.Authorize.Net.BusinessEntities.xsd">
+    <None Include="Service References\CustomService\APICalls1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CustomService\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CustomService\service.wsdl" />
-    <None Include="Service References\CustomService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CustomService\service1.xsd">
+    <None Include="Service References\CustomService\APICalls2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

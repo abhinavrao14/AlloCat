@@ -30,8 +30,9 @@ namespace Allocat.UserInterface.Controllers
 
 
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(string Status)
         {
+            ViewBag.Status = Status;
             return View();
         }
 
@@ -154,10 +155,9 @@ namespace Allocat.UserInterface.Controllers
                 TransactionalInformation transaction = new TransactionalInformation();
 
                 TissueBankApiModel tbApiModel = new TissueBankApiModel();
-
                 TissueBankBusinessService tissueBankBusinessService = new TissueBankBusinessService(tbDataService);
 
-                tissueBankBusinessService.RegisterTissueBankUser(model.FullName, model.UserName, model.EmailId, model.SecurityQuestion, model.SecurityAnswer, out transaction);
+                tissueBankBusinessService.TissueBank_User_Registration(model.FullName, model.UserName, model.EmailId, model.SecurityQuestion, model.SecurityAnswer, out transaction);
 
                 tbApiModel.ReturnMessage = transaction.ReturnMessage;
                 tbApiModel.ReturnStatus = transaction.ReturnStatus;
@@ -183,7 +183,7 @@ namespace Allocat.UserInterface.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Successful", "Response", new { area = "" });
+                    return RedirectToAction("TissueBankUser_SignUp_Successful", "Response", new { area = "" });
                 }
             }
             else

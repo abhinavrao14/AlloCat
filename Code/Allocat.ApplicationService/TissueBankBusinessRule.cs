@@ -1,30 +1,32 @@
 ﻿using System;
 using Allocat.DataModel;
 using Allocat.DataServiceInterface;
+using Allocat.DataService;
 
 namespace Allocat.ApplicationService
 {
     public class TissueBankBusinessRule : ValidationRules
     {
         ITissueBankDataService tbDataService;
+        IUserDataService userDataService;
 
         public TissueBankBusinessRule(ITissueBankDataService _tbDataService)
         {
             tbDataService = _tbDataService;
+            userDataService = new UserDataService();
         }
 
-        public void ValidateAdd(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string UserName, string ZipCode, string CreditCardNumber, int CreditCardType, string ExpiryDate, string City)
+        public void ValidateTissueBank_Add(string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string ZipCode, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string CustomerProfileId, string CustomerPaymentProfileIds, int UserId, int TissueBankId, int TransactionId, string AuthTransactionId, string AuthCode, int StatusId, DateTime TransactionCompleteDate, string ResponseBody)
         {
             ValidateUniqueTissueBankEmailId(TissueBankEmailId);
             ValidateUniqueContactPersonNumber(ContactPersonNumber);
             ValidateUniqueAATBLicenseNumber(AATBLicenseNumber);
             ValidateUniqueTissueBankStateLicense(TissueBankStateLicense);
-            ValidateUniqueUserName(UserName);
         }
 
         private void ValidateUniqueUserName(string UserName)
         {
-            Boolean valid = tbDataService.ValidateUniqueUserName(UserName);
+            Boolean valid = userDataService.ValidateUniqueUserName(UserName);
             if (valid == false)
             {
                 AddValidationError("UserName", "User Name : " + UserName + " already exists.");
@@ -69,7 +71,7 @@ namespace Allocat.ApplicationService
 
         private void ValidateUniqueEmailId(string EmailId)
         {
-            Boolean valid = tbDataService.ValidateUniqueEmailId(EmailId);
+            Boolean valid = userDataService.ValidateUniqueEmailId(EmailId);
             if (valid == false)
             {
                 AddValidationError("EmailId", "Email Id : " + EmailId + " already exists.");
@@ -78,6 +80,7 @@ namespace Allocat.ApplicationService
 
         public void ValidateTissueBankUserRegistration(string FullName, string UserName, string EmailId, string SecurityQuestion, string SecurityAnswer)
         {
+            userDataService.CreateSession();
             ValidateUniqueEmailId(EmailId);
             ValidateUniqueUserName(UserName);
         }

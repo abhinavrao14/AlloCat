@@ -10,10 +10,14 @@
 namespace Allocat.DataModel
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_User_GetUserRoleByUserId_Result
+    public partial class TissueBankCreditCard
     {
-        public Nullable<int> RoleId { get; set; }
-        public string RoleName { get; set; }
+        public int TissueBankCreditCardId { get; set; }
+        public Nullable<int> TissueBankId { get; set; }
+        public string CreditCardNumber { get; set; }
+    
+        public virtual TissueBank TissueBank { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Allocat.ApplicationService
             tbDataService = _tbDataService;
         }
 
-        public void AddTissueBank(int TissueBankId, string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string UserName, string ZipCode, string CreditCardNumber, int CreditCardType, string ExpiryDate, string City, out TransactionalInformation transaction)
+        public void TissueBank_Add(string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string ZipCode, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string CustomerProfileId, string CustomerPaymentProfileIds, int UserId, int TissueBankId, int TransactionId, string AuthTransactionId, string AuthCode, int StatusId, DateTime TransactionCompleteDate, string ResponseBody, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
             TissueBankBusinessRule tbBusinessRule = new TissueBankBusinessRule(tbDataService);
@@ -24,14 +24,14 @@ namespace Allocat.ApplicationService
             {
                 tbDataService.CreateSession();
 
-                tbBusinessRule.ValidateAdd(TissueBankId, TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate, UserName, ZipCode, CreditCardNumber, CreditCardType, ExpiryDate, City);
+                tbBusinessRule.ValidateTissueBank_Add(TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, ZipCode, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate, CustomerProfileId, CustomerPaymentProfileIds, UserId, TissueBankId, TransactionId, AuthTransactionId, AuthCode, StatusId, TransactionCompleteDate, ResponseBody);
 
                 if (tbBusinessRule.ValidationStatus == true)
                 {
                     //send this password on mail
                     string Password = Utility.Utilities.RandomAlphaNumeric(6);
 
-                    tbDataService.AddTissueBank(TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate, UserName, Password, ZipCode, CreditCardNumber, CreditCardType, ExpiryDate, City, out transaction);
+                    tbDataService.TissueBank_Add(TissueBankName, ContactPersonName, ContactPersonNumber, TissueBankEmailId, BusinessURL, TissueBankAddress, CityId, ZipCode, TissueBankStateLicense, AATBLicenseNumber, AATBExpirationDate, AATBAccredationDate, CustomerProfileId, CustomerPaymentProfileIds, UserId, TissueBankId, TransactionId, AuthTransactionId, AuthCode, StatusId, TransactionCompleteDate, ResponseBody, out transaction);
                 }
                 else
                 {
@@ -54,7 +54,7 @@ namespace Allocat.ApplicationService
             }
         }
 
-        public void RegisterTissueBankUser(string FullName, string UserName, string EmailId, string SecurityQuestion, string SecurityAnswer, out TransactionalInformation transaction)
+        public void TissueBank_User_Registration(string FullName, string UserName, string EmailId, string SecurityQuestion, string SecurityAnswer, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
             TissueBankBusinessRule tbBusinessRule = new TissueBankBusinessRule(tbDataService);
@@ -69,9 +69,12 @@ namespace Allocat.ApplicationService
                 {
                     string Password = Utilities.RandomAlphaNumeric(6);
 
-                    tbDataService.RegisterTissueBankUser(FullName, UserName, EmailId, SecurityQuestion, SecurityAnswer,Password, out transaction);
+                    tbDataService.TissueBank_User_Registration(FullName, UserName, EmailId, SecurityQuestion, SecurityAnswer, Password, out transaction);
 
-                    //Send an email with generated Password --BHASKAR SIR EMAIL SERVICE--
+                    if (transaction.ReturnStatus == true)
+                    {
+                        //Send an email with generated Password --BHASKAR SIR EMAIL SERVICE--
+                    }
                 }
                 else
                 {

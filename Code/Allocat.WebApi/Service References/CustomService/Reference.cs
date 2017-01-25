@@ -15,8 +15,7 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net")]
     [System.SerializableAttribute()]
     public partial class Customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -34,6 +33,9 @@ namespace Allocat.WebApi.CustomService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CustomerPaymentProfileIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Allocat.WebApi.CustomService.CustomerType CustomerTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailIdField;
@@ -111,6 +113,19 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.CustomerPaymentProfileIdField, value) != true)) {
                     this.CustomerPaymentProfileIdField = value;
                     this.RaisePropertyChanged("CustomerPaymentProfileId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Allocat.WebApi.CustomService.CustomerType CustomerType {
+            get {
+                return this.CustomerTypeField;
+            }
+            set {
+                if ((this.CustomerTypeField.Equals(value) != true)) {
+                    this.CustomerTypeField = value;
+                    this.RaisePropertyChanged("CustomerType");
                 }
             }
         }
@@ -205,8 +220,7 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BankAccount", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BankAccount", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net")]
     [System.SerializableAttribute()]
     public partial class BankAccount : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -331,13 +345,15 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CreditCard", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CreditCard", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net")]
     [System.SerializableAttribute()]
     public partial class CreditCard : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CardCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CreditCardNumberField;
@@ -355,6 +371,19 @@ namespace Allocat.WebApi.CustomService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CardCode {
+            get {
+                return this.CardCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CardCodeField, value) != true)) {
+                    this.CardCodeField = value;
+                    this.RaisePropertyChanged("CardCode");
+                }
             }
         }
         
@@ -409,8 +438,7 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AddressInfo", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AddressInfo", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net")]
     [System.SerializableAttribute()]
     public partial class AddressInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -422,6 +450,30 @@ namespace Allocat.WebApi.CustomService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FaxNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ZipCodeField;
@@ -463,6 +515,110 @@ namespace Allocat.WebApi.CustomService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Company {
+            get {
+                return this.CompanyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyField, value) != true)) {
+                    this.CompanyField = value;
+                    this.RaisePropertyChanged("Company");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Country {
+            get {
+                return this.CountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryField, value) != true)) {
+                    this.CountryField = value;
+                    this.RaisePropertyChanged("Country");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FaxNumber {
+            get {
+                return this.FaxNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaxNumberField, value) != true)) {
+                    this.FaxNumberField = value;
+                    this.RaisePropertyChanged("FaxNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateField, value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string ZipCode {
             get {
                 return this.ZipCodeField;
@@ -486,8 +642,18 @@ namespace Allocat.WebApi.CustomService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentType", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerType", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net")]
+    public enum CustomerType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Individual = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Business = 1,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentType", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net")]
     public enum PaymentType : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -499,10 +665,10 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResCreateCustomerProfile", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResCustomerProfile", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
         "essEntities.ResponseEntities")]
     [System.SerializableAttribute()]
-    public partial class ResCreateCustomerProfile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ResCustomerProfile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -797,42 +963,794 @@ namespace Allocat.WebApi.CustomService {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomService.AllocatCustomService")]
-    public interface AllocatCustomService {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResCustomerProfileDetails", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
+        "essEntities.ResponseEntities")]
+    [System.SerializableAttribute()]
+    public partial class ResCustomerProfileDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/RegisterCustomerAndChargeProfile", ReplyAction="http://tempuri.org/AllocatCustomService/RegisterCustomerAndChargeProfileResponse")]
-        Allocat.WebApi.CustomService.ResCreateCustomerProfile RegisterCustomerAndChargeProfile(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged);
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/RegisterCustomerAndChargeProfile", ReplyAction="http://tempuri.org/AllocatCustomService/RegisterCustomerAndChargeProfileResponse")]
-        System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCreateCustomerProfile> RegisterCustomerAndChargeProfileAsync(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CustomerProfileIdField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/CreateCustomerPaymentProfile", ReplyAction="http://tempuri.org/AllocatCustomService/CreateCustomerPaymentProfileResponse")]
-        string CreateCustomerPaymentProfile(string ApiLoginID, string ApiTransactionKey, Allocat.WebApi.CustomService.Customer objCustomer);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/CreateCustomerPaymentProfile", ReplyAction="http://tempuri.org/AllocatCustomService/CreateCustomerPaymentProfileResponse")]
-        System.Threading.Tasks.Task<string> CreateCustomerPaymentProfileAsync(string ApiLoginID, string ApiTransactionKey, Allocat.WebApi.CustomService.Customer objCustomer);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailIdField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/GetCustomerProfile", ReplyAction="http://tempuri.org/AllocatCustomService/GetCustomerProfileResponse")]
-        void GetCustomerProfile(string ApiLoginID, string ApiTransactionKey, string customerProfileId);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MerchantCustomerIdField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/GetCustomerProfile", ReplyAction="http://tempuri.org/AllocatCustomService/GetCustomerProfileResponse")]
-        System.Threading.Tasks.Task GetCustomerProfileAsync(string ApiLoginID, string ApiTransactionKey, string customerProfileId);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/UpdateCustomerProfile", ReplyAction="http://tempuri.org/AllocatCustomService/UpdateCustomerProfileResponse")]
-        void UpdateCustomerProfile(string ApiLoginID, string ApiTransactionKey, string customerProfileId, string merchantCustomerId, string description, string newEmailId);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageCodeField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AllocatCustomService/UpdateCustomerProfile", ReplyAction="http://tempuri.org/AllocatCustomService/UpdateCustomerProfileResponse")]
-        System.Threading.Tasks.Task UpdateCustomerProfileAsync(string ApiLoginID, string ApiTransactionKey, string customerProfileId, string merchantCustomerId, string description, string newEmailId);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Allocat.WebApi.CustomService.PaymentProfile[] PaymentPField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RefIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SessionTokenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Allocat.WebApi.CustomService.ShippingAddress[] ShippingProfilesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] SubscriptionIdsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CustomerProfileId {
+            get {
+                return this.CustomerProfileIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerProfileIdField, value) != true)) {
+                    this.CustomerProfileIdField = value;
+                    this.RaisePropertyChanged("CustomerProfileId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailId {
+            get {
+                return this.EmailIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailIdField, value) != true)) {
+                    this.EmailIdField = value;
+                    this.RaisePropertyChanged("EmailId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MerchantCustomerId {
+            get {
+                return this.MerchantCustomerIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MerchantCustomerIdField, value) != true)) {
+                    this.MerchantCustomerIdField = value;
+                    this.RaisePropertyChanged("MerchantCustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MessageCode {
+            get {
+                return this.MessageCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageCodeField, value) != true)) {
+                    this.MessageCodeField = value;
+                    this.RaisePropertyChanged("MessageCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Allocat.WebApi.CustomService.PaymentProfile[] PaymentP {
+            get {
+                return this.PaymentPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaymentPField, value) != true)) {
+                    this.PaymentPField = value;
+                    this.RaisePropertyChanged("PaymentP");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RefId {
+            get {
+                return this.RefIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RefIdField, value) != true)) {
+                    this.RefIdField = value;
+                    this.RaisePropertyChanged("RefId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SessionToken {
+            get {
+                return this.SessionTokenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SessionTokenField, value) != true)) {
+                    this.SessionTokenField = value;
+                    this.RaisePropertyChanged("SessionToken");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Allocat.WebApi.CustomService.ShippingAddress[] ShippingProfiles {
+            get {
+                return this.ShippingProfilesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShippingProfilesField, value) != true)) {
+                    this.ShippingProfilesField = value;
+                    this.RaisePropertyChanged("ShippingProfiles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] SubscriptionIds {
+            get {
+                return this.SubscriptionIdsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SubscriptionIdsField, value) != true)) {
+                    this.SubscriptionIdsField = value;
+                    this.RaisePropertyChanged("SubscriptionIds");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentProfile", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
+        "essEntities.ResponseEntities")]
+    [System.SerializableAttribute()]
+    public partial class PaymentProfile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Allocat.WebApi.CustomService.ShippingAddress BillToField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CustomerTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DefaultPaymentProfileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaymentItemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaymentProfileIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Allocat.WebApi.CustomService.ShippingAddress BillTo {
+            get {
+                return this.BillToField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BillToField, value) != true)) {
+                    this.BillToField = value;
+                    this.RaisePropertyChanged("BillTo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CustomerType {
+            get {
+                return this.CustomerTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerTypeField, value) != true)) {
+                    this.CustomerTypeField = value;
+                    this.RaisePropertyChanged("CustomerType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DefaultPaymentProfile {
+            get {
+                return this.DefaultPaymentProfileField;
+            }
+            set {
+                if ((this.DefaultPaymentProfileField.Equals(value) != true)) {
+                    this.DefaultPaymentProfileField = value;
+                    this.RaisePropertyChanged("DefaultPaymentProfile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PaymentItem {
+            get {
+                return this.PaymentItemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaymentItemField, value) != true)) {
+                    this.PaymentItemField = value;
+                    this.RaisePropertyChanged("PaymentItem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PaymentProfileId {
+            get {
+                return this.PaymentProfileIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaymentProfileIdField, value) != true)) {
+                    this.PaymentProfileIdField = value;
+                    this.RaisePropertyChanged("PaymentProfileId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ShippingAddress", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
+        "essEntities.ResponseEntities")]
+    [System.SerializableAttribute()]
+    public partial class ShippingAddress : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CustomerAddressIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FaxNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ZipField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Company {
+            get {
+                return this.CompanyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyField, value) != true)) {
+                    this.CompanyField = value;
+                    this.RaisePropertyChanged("Company");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Country {
+            get {
+                return this.CountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryField, value) != true)) {
+                    this.CountryField = value;
+                    this.RaisePropertyChanged("Country");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CustomerAddressId {
+            get {
+                return this.CustomerAddressIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerAddressIdField, value) != true)) {
+                    this.CustomerAddressIdField = value;
+                    this.RaisePropertyChanged("CustomerAddressId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FaxNumber {
+            get {
+                return this.FaxNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FaxNumberField, value) != true)) {
+                    this.FaxNumberField = value;
+                    this.RaisePropertyChanged("FaxNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateField, value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Zip {
+            get {
+                return this.ZipField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZipField, value) != true)) {
+                    this.ZipField = value;
+                    this.RaisePropertyChanged("Zip");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResTransactionDetails", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
+        "essEntities.ResponseEntities")]
+    [System.SerializableAttribute()]
+    public partial class ResTransactionDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal AuthAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorTextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageDescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResponseCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SettleAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime SubmitTimeLocalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TransactionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TransactionStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TransactionTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal AuthAmount {
+            get {
+                return this.AuthAmountField;
+            }
+            set {
+                if ((this.AuthAmountField.Equals(value) != true)) {
+                    this.AuthAmountField = value;
+                    this.RaisePropertyChanged("AuthAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorCode {
+            get {
+                return this.ErrorCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true)) {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorText {
+            get {
+                return this.ErrorTextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorTextField, value) != true)) {
+                    this.ErrorTextField = value;
+                    this.RaisePropertyChanged("ErrorText");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MessageCode {
+            get {
+                return this.MessageCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageCodeField, value) != true)) {
+                    this.MessageCodeField = value;
+                    this.RaisePropertyChanged("MessageCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MessageDescription {
+            get {
+                return this.MessageDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageDescriptionField, value) != true)) {
+                    this.MessageDescriptionField = value;
+                    this.RaisePropertyChanged("MessageDescription");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ResponseCode {
+            get {
+                return this.ResponseCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResponseCodeField, value) != true)) {
+                    this.ResponseCodeField = value;
+                    this.RaisePropertyChanged("ResponseCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SettleAmount {
+            get {
+                return this.SettleAmountField;
+            }
+            set {
+                if ((this.SettleAmountField.Equals(value) != true)) {
+                    this.SettleAmountField = value;
+                    this.RaisePropertyChanged("SettleAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime SubmitTimeLocal {
+            get {
+                return this.SubmitTimeLocalField;
+            }
+            set {
+                if ((this.SubmitTimeLocalField.Equals(value) != true)) {
+                    this.SubmitTimeLocalField = value;
+                    this.RaisePropertyChanged("SubmitTimeLocal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TransactionId {
+            get {
+                return this.TransactionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TransactionIdField, value) != true)) {
+                    this.TransactionIdField = value;
+                    this.RaisePropertyChanged("TransactionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TransactionStatus {
+            get {
+                return this.TransactionStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TransactionStatusField, value) != true)) {
+                    this.TransactionStatusField = value;
+                    this.RaisePropertyChanged("TransactionStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TransactionType {
+            get {
+                return this.TransactionTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TransactionTypeField, value) != true)) {
+                    this.TransactionTypeField = value;
+                    this.RaisePropertyChanged("TransactionType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface AllocatCustomServiceChannel : Allocat.WebApi.CustomService.AllocatCustomService, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomService.IAllocatCustomService")]
+    public interface IAllocatCustomService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfileResponse" +
+            "")]
+        Allocat.WebApi.CustomService.ResCustomerProfile RegisterCustomerAndChargeProfile(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfileResponse" +
+            "")]
+        System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCustomerProfile> RegisterCustomerAndChargeProfileAsync(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfileResponse")]
+        Allocat.WebApi.CustomService.ResTransaction ChargeCustomerProfile(string CustomerProfileId, string CustomerPaymentProfileId, decimal AmountToBeCharged);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfileResponse")]
+        System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResTransaction> ChargeCustomerProfileAsync(string CustomerProfileId, string CustomerPaymentProfileId, decimal AmountToBeCharged);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfileResponse")]
+        void UpdateCustomerProfile(string customerProfileId, string merchantCustomerId, string description, string newEmailId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfileResponse")]
+        System.Threading.Tasks.Task UpdateCustomerProfileAsync(string customerProfileId, string merchantCustomerId, string description, string newEmailId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfileResponse")]
+        Allocat.WebApi.CustomService.ResCustomerProfileDetails RetrieveCustomerProfile(string customerProfileId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfileResponse")]
+        System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCustomerProfileDetails> RetrieveCustomerProfileAsync(string customerProfileId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetails", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetailsResponse")]
+        Allocat.WebApi.CustomService.ResTransactionDetails RetrieveTransactionDetails(string transactionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetails", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetailsResponse")]
+        System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResTransactionDetails> RetrieveTransactionDetailsAsync(string transactionId);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAllocatCustomServiceChannel : Allocat.WebApi.CustomService.IAllocatCustomService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AllocatCustomServiceClient : System.ServiceModel.ClientBase<Allocat.WebApi.CustomService.AllocatCustomService>, Allocat.WebApi.CustomService.AllocatCustomService {
+    public partial class AllocatCustomServiceClient : System.ServiceModel.ClientBase<Allocat.WebApi.CustomService.IAllocatCustomService>, Allocat.WebApi.CustomService.IAllocatCustomService {
         
         public AllocatCustomServiceClient() {
         }
@@ -853,36 +1771,44 @@ namespace Allocat.WebApi.CustomService {
                 base(binding, remoteAddress) {
         }
         
-        public Allocat.WebApi.CustomService.ResCreateCustomerProfile RegisterCustomerAndChargeProfile(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged) {
+        public Allocat.WebApi.CustomService.ResCustomerProfile RegisterCustomerAndChargeProfile(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged) {
             return base.Channel.RegisterCustomerAndChargeProfile(objCustomer, AmountToBeCharged);
         }
         
-        public System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCreateCustomerProfile> RegisterCustomerAndChargeProfileAsync(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged) {
+        public System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCustomerProfile> RegisterCustomerAndChargeProfileAsync(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged) {
             return base.Channel.RegisterCustomerAndChargeProfileAsync(objCustomer, AmountToBeCharged);
         }
         
-        public string CreateCustomerPaymentProfile(string ApiLoginID, string ApiTransactionKey, Allocat.WebApi.CustomService.Customer objCustomer) {
-            return base.Channel.CreateCustomerPaymentProfile(ApiLoginID, ApiTransactionKey, objCustomer);
+        public Allocat.WebApi.CustomService.ResTransaction ChargeCustomerProfile(string CustomerProfileId, string CustomerPaymentProfileId, decimal AmountToBeCharged) {
+            return base.Channel.ChargeCustomerProfile(CustomerProfileId, CustomerPaymentProfileId, AmountToBeCharged);
         }
         
-        public System.Threading.Tasks.Task<string> CreateCustomerPaymentProfileAsync(string ApiLoginID, string ApiTransactionKey, Allocat.WebApi.CustomService.Customer objCustomer) {
-            return base.Channel.CreateCustomerPaymentProfileAsync(ApiLoginID, ApiTransactionKey, objCustomer);
+        public System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResTransaction> ChargeCustomerProfileAsync(string CustomerProfileId, string CustomerPaymentProfileId, decimal AmountToBeCharged) {
+            return base.Channel.ChargeCustomerProfileAsync(CustomerProfileId, CustomerPaymentProfileId, AmountToBeCharged);
         }
         
-        public void GetCustomerProfile(string ApiLoginID, string ApiTransactionKey, string customerProfileId) {
-            base.Channel.GetCustomerProfile(ApiLoginID, ApiTransactionKey, customerProfileId);
+        public void UpdateCustomerProfile(string customerProfileId, string merchantCustomerId, string description, string newEmailId) {
+            base.Channel.UpdateCustomerProfile(customerProfileId, merchantCustomerId, description, newEmailId);
         }
         
-        public System.Threading.Tasks.Task GetCustomerProfileAsync(string ApiLoginID, string ApiTransactionKey, string customerProfileId) {
-            return base.Channel.GetCustomerProfileAsync(ApiLoginID, ApiTransactionKey, customerProfileId);
+        public System.Threading.Tasks.Task UpdateCustomerProfileAsync(string customerProfileId, string merchantCustomerId, string description, string newEmailId) {
+            return base.Channel.UpdateCustomerProfileAsync(customerProfileId, merchantCustomerId, description, newEmailId);
         }
         
-        public void UpdateCustomerProfile(string ApiLoginID, string ApiTransactionKey, string customerProfileId, string merchantCustomerId, string description, string newEmailId) {
-            base.Channel.UpdateCustomerProfile(ApiLoginID, ApiTransactionKey, customerProfileId, merchantCustomerId, description, newEmailId);
+        public Allocat.WebApi.CustomService.ResCustomerProfileDetails RetrieveCustomerProfile(string customerProfileId) {
+            return base.Channel.RetrieveCustomerProfile(customerProfileId);
         }
         
-        public System.Threading.Tasks.Task UpdateCustomerProfileAsync(string ApiLoginID, string ApiTransactionKey, string customerProfileId, string merchantCustomerId, string description, string newEmailId) {
-            return base.Channel.UpdateCustomerProfileAsync(ApiLoginID, ApiTransactionKey, customerProfileId, merchantCustomerId, description, newEmailId);
+        public System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCustomerProfileDetails> RetrieveCustomerProfileAsync(string customerProfileId) {
+            return base.Channel.RetrieveCustomerProfileAsync(customerProfileId);
+        }
+        
+        public Allocat.WebApi.CustomService.ResTransactionDetails RetrieveTransactionDetails(string transactionId) {
+            return base.Channel.RetrieveTransactionDetails(transactionId);
+        }
+        
+        public System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResTransactionDetails> RetrieveTransactionDetailsAsync(string transactionId) {
+            return base.Channel.RetrieveTransactionDetailsAsync(transactionId);
         }
     }
 }

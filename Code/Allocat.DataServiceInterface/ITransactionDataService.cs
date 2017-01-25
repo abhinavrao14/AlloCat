@@ -7,6 +7,7 @@ namespace Allocat.DataServiceInterface
 {
     public interface ITransactionDataService : IDataService, IDisposable
     {
-        int CreateTransaction(DateTime TransactionInitiateDate, float Amount, int UserId, out TransactionalInformation transaction);
+        int Transaction_Create(DateTime TransactionInitiateDate, float Amount, int UserId,string RequestBody, out TransactionalInformation transaction);
+        int Transaction_Update(int TissueBankId, int TransactionId, string AuthTransactionId,string AuthCode,int StatusId,DateTime TransactionCompleteDate,string ResponseBody, out TransactionalInformation transaction);
     }
 }

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="APICalls" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net" />
+      <xsd:import schemaLocation="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities" />
+      <xsd:import schemaLocation="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAllocatCustomService_RegisterCustomerAndChargeProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterCustomerAndChargeProfile" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_RegisterCustomerAndChargeProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterCustomerAndChargeProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_ChargeCustomerProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChargeCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_ChargeCustomerProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChargeCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_UpdateCustomerProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_UpdateCustomerProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_RetrieveCustomerProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_RetrieveCustomerProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_RetrieveTransactionDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTransactionDetails" />
+  </wsdl:message>
+  <wsdl:message name="IAllocatCustomService_RetrieveTransactionDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTransactionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAllocatCustomService">
+    <wsdl:operation name="RegisterCustomerAndChargeProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfile" message="tns:IAllocatCustomService_RegisterCustomerAndChargeProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfileResponse" message="tns:IAllocatCustomService_RegisterCustomerAndChargeProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChargeCustomerProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfile" message="tns:IAllocatCustomService_ChargeCustomerProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfileResponse" message="tns:IAllocatCustomService_ChargeCustomerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfile" message="tns:IAllocatCustomService_UpdateCustomerProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfileResponse" message="tns:IAllocatCustomService_UpdateCustomerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomerProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfile" message="tns:IAllocatCustomService_RetrieveCustomerProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfileResponse" message="tns:IAllocatCustomService_RetrieveCustomerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTransactionDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetails" message="tns:IAllocatCustomService_RetrieveTransactionDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetailsResponse" message="tns:IAllocatCustomService_RetrieveTransactionDetails_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAllocatCustomService" type="tns:IAllocatCustomService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterCustomerAndChargeProfile">
+      <soap:operation soapAction="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChargeCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTransactionDetails">
+      <soap:operation soapAction="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="APICalls">
+    <wsdl:port name="BasicHttpBinding_IAllocatCustomService" binding="tns:BasicHttpBinding_IAllocatCustomService">
+      <soap:address location="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -20,6 +20,7 @@ namespace Allocat.DataModel
             this.Order = new HashSet<Order>();
             this.PurchaseRequest = new HashSet<PurchaseRequest>();
             this.RequestForQuote = new HashSet<RequestForQuote>();
+            this.Transaction = new HashSet<Transaction>();
         }
     
         public int StatusId { get; set; }
@@ -34,5 +35,7 @@ namespace Allocat.DataModel
         public virtual ReportType ReportType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestForQuote> RequestForQuote { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transaction> Transaction { get; set; }
     }
 }

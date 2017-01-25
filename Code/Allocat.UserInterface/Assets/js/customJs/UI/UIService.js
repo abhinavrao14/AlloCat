@@ -214,12 +214,12 @@
 //        return response;
 //    };
 
-//    this.SubmitUser = function (user_CUD_DTO) {
+//    this.SubmitUser = function (userMngmnt_User_CUD_DTO) {
 //        var response = $http({
 //            url: "http://localhost:63744/api/User",
 //            dataType: 'json',
 //            method: 'POST',
-//            data: user_CUD_DTO,
+//            data: userMngmnt_User_CUD_DTO,
 //            headers: {
 //                "Content-Type": "application/json"
 //            }

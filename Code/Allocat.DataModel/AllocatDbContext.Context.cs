@@ -49,6 +49,9 @@
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<Question> Question { get; set; }
+        public virtual DbSet<Error> Error { get; set; }
+        public virtual DbSet<TissueBankCreditCard> TissueBankCreditCard { get; set; }
+        public virtual DbSet<Transaction> Transaction { get; set; }
 
         public virtual int sp_RequestForQuote_TissueBank_Edit(Nullable<int> tissueBankId, string responseBody, string attachmentName, Nullable<int> createdBy, Nullable<int> lastModifiedBy, Nullable<int> requestForQuoteId, Nullable<int> statusId, string declineRemark, Nullable<int> quantity, Nullable<decimal> unitPrice, Nullable<decimal> lineTotal, Nullable<decimal> salesTax, Nullable<decimal> total, Nullable<System.DateTime> tissueBankSendByDate, string shippingMethod)
         {
@@ -403,14 +406,14 @@
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_User_CUD", userIdParameter, userNameParameter, passwordParameter, fullNameParameter, entityIDParameter, domainScopeIDParameter, mobileNumberParameter, emailIdParameter, isMobileVerifiedParameter, isEmailVerifiedParameter, isLockedOutParameter, lastLoginDateParameter, lastPasswordChangedDateParameter, lastLockoutDateParameter, failedPasswordAttemptCountParameter, failedPasswordAnswerAttemptCountParameter, passwordQuestionParameter, passwordAnswerParameter, securityQuestionParameter, securityAnswerParameter, isActiveParameter, createdByParameter, lastModifiedByParameter, entityTypeIdParameter, infoIdParameter, operationTypeParameter);
         }
 
-        public virtual ObjectResult<sp_User_GetUserRoleByUserId_Result> sp_User_GetUserRoleByUserId(Nullable<int> userId)
-        {
-            var userIdParameter = userId.HasValue ?
-                new SqlParameter("UserId", userId) :
-                new SqlParameter("UserId", typeof(int));
+        //public virtual ObjectResult<sp_User_GetUserRoleByUserId_Result> sp_User_GetUserRoleByUserId(Nullable<int> userId)
+        //{
+        //    var userIdParameter = userId.HasValue ?
+        //        new SqlParameter("UserId", userId) :
+        //        new SqlParameter("UserId", typeof(int));
 
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_User_GetUserRoleByUserId_Result>("sp_User_GetUserRoleByUserId @UserId", userIdParameter);
-        }
+        //    return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_User_GetUserRoleByUserId_Result>("sp_User_GetUserRoleByUserId @UserId", userIdParameter);
+        //}
 
         public virtual ObjectResult<sp_UserDetail_GetByUserId_Result> sp_UseDetail_GetByUserId(Nullable<int> userId, string infoType)
         {
@@ -629,64 +632,7 @@
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<Nullable<int>>("sp_UserMngmt_TissueBank_GetCountByTissueBankId @TissueBankId, @SearchBy", tissueBankIdParameter, searchByParameter);
         }
 
-        public virtual int sp_TissueBank_Add(string tissueBankName, string contactPersonName, string contactPersonNumber, string tissueBankEmailId, string businessURL, string tissueBankAddress, Nullable<int> cityId, string tissueBankStateLicense, string aATBLicenseNumber, Nullable<System.DateTime> aATBExpirationDate, Nullable<System.DateTime> aATBAccredationDate, string userName, string password)
-        {
-            var tissueBankNameParameter = tissueBankName != null ?
-                new ObjectParameter("TissueBankName", tissueBankName) :
-                new ObjectParameter("TissueBankName", typeof(string));
-
-            var contactPersonNameParameter = contactPersonName != null ?
-                new ObjectParameter("ContactPersonName", contactPersonName) :
-                new ObjectParameter("ContactPersonName", typeof(string));
-
-            var contactPersonNumberParameter = contactPersonNumber != null ?
-                new ObjectParameter("ContactPersonNumber", contactPersonNumber) :
-                new ObjectParameter("ContactPersonNumber", typeof(string));
-
-            var tissueBankEmailIdParameter = tissueBankEmailId != null ?
-                new ObjectParameter("TissueBankEmailId", tissueBankEmailId) :
-                new ObjectParameter("TissueBankEmailId", typeof(string));
-
-            var businessURLParameter = businessURL != null ?
-                new ObjectParameter("BusinessURL", businessURL) :
-                new ObjectParameter("BusinessURL", typeof(string));
-
-            var tissueBankAddressParameter = tissueBankAddress != null ?
-                new ObjectParameter("TissueBankAddress", tissueBankAddress) :
-                new ObjectParameter("TissueBankAddress", typeof(string));
-
-            var cityIdParameter = cityId.HasValue ?
-                new ObjectParameter("CityId", cityId) :
-                new ObjectParameter("CityId", typeof(int));
-
-            var tissueBankStateLicenseParameter = tissueBankStateLicense != null ?
-                new ObjectParameter("TissueBankStateLicense", tissueBankStateLicense) :
-                new ObjectParameter("TissueBankStateLicense", typeof(string));
-
-            var aATBLicenseNumberParameter = aATBLicenseNumber != null ?
-                new ObjectParameter("AATBLicenseNumber", aATBLicenseNumber) :
-                new ObjectParameter("AATBLicenseNumber", typeof(string));
-
-            var aATBExpirationDateParameter = aATBExpirationDate.HasValue ?
-                new ObjectParameter("AATBExpirationDate", aATBExpirationDate) :
-                new ObjectParameter("AATBExpirationDate", typeof(System.DateTime));
-
-            var aATBAccredationDateParameter = aATBAccredationDate.HasValue ?
-                new ObjectParameter("AATBAccredationDate", aATBAccredationDate) :
-                new ObjectParameter("AATBAccredationDate", typeof(System.DateTime));
-
-            var userNameParameter = userName != null ?
-                new ObjectParameter("UserName", userName) :
-                new ObjectParameter("UserName", typeof(string));
-
-            var passwordParameter = password != null ?
-                new ObjectParameter("Password", password) :
-                new ObjectParameter("Password", typeof(string));
-
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_TissueBank_Add", tissueBankNameParameter, contactPersonNameParameter, contactPersonNumberParameter, tissueBankEmailIdParameter, businessURLParameter, tissueBankAddressParameter, cityIdParameter, tissueBankStateLicenseParameter, aATBLicenseNumberParameter, aATBExpirationDateParameter, aATBAccredationDateParameter, userNameParameter, passwordParameter);
-        }
-
-        public virtual int usp_TissueBank_Registration(string fullName, string userName, string emailId, string securityQuestion, string securityAnswer, string password)
+        public virtual int usp_TissueBank_User_Registration(string fullName, string userName, string emailId, string securityQuestion, string securityAnswer, string password)
         {
             var fullNameParameter = fullName != null ?
                 new ObjectParameter("FullName", fullName) :
@@ -712,7 +658,184 @@
                 new ObjectParameter("Password", password) :
                 new ObjectParameter("Password", typeof(string));
 
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_TissueBank_Registration", fullNameParameter, userNameParameter, emailIdParameter, securityQuestionParameter, securityAnswerParameter, passwordParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_TissueBank_User_Registration", fullNameParameter, userNameParameter, emailIdParameter, securityQuestionParameter, securityAnswerParameter, passwordParameter);
         }
+
+        public virtual ObjectResult<string> usp_TissueBank_Add(string tissueBankName, string contactPersonName, string contactPersonNumber, string tissueBankEmailId, string businessURL, string tissueBankAddress, Nullable<int> cityId, string zipCode, string tissueBankStateLicense, string aATBLicenseNumber, Nullable<System.DateTime> aATBExpirationDate, Nullable<System.DateTime> aATBAccredationDate, string customerProfileId, string customerPaymentProfileIds, Nullable<int> userId, Nullable<int> tissueBankId, Nullable<int> transactionId, string authTransactionId, string authCode, Nullable<int> statusId, Nullable<System.DateTime> transactionCompleteDate, string responseBody)
+        {
+            var tissueBankNameParameter = tissueBankName != null ?
+                new SqlParameter("TissueBankName", tissueBankName) :
+                new SqlParameter("TissueBankName", typeof(string));
+
+            var contactPersonNameParameter = contactPersonName != null ?
+                new SqlParameter("ContactPersonName", contactPersonName) :
+                new SqlParameter("ContactPersonName", typeof(string));
+
+            var contactPersonNumberParameter = contactPersonNumber != null ?
+                new SqlParameter("ContactPersonNumber", contactPersonNumber) :
+                new SqlParameter("ContactPersonNumber", typeof(string));
+
+            var tissueBankEmailIdParameter = tissueBankEmailId != null ?
+                new SqlParameter("TissueBankEmailId", tissueBankEmailId) :
+                new SqlParameter("TissueBankEmailId", typeof(string));
+
+            var businessURLParameter = businessURL != null ?
+                new SqlParameter("BusinessURL", businessURL) :
+                new SqlParameter("BusinessURL", typeof(string));
+
+            var tissueBankAddressParameter = tissueBankAddress != null ?
+                new SqlParameter("TissueBankAddress", tissueBankAddress) :
+                new SqlParameter("TissueBankAddress", typeof(string));
+
+            var cityIdParameter = cityId.HasValue ?
+                new SqlParameter("CityId", cityId) :
+                new SqlParameter("CityId", typeof(int));
+
+            var zipCodeParameter = zipCode != null ?
+                new SqlParameter("ZipCode", zipCode) :
+                new SqlParameter("ZipCode", typeof(string));
+
+            var tissueBankStateLicenseParameter = tissueBankStateLicense != null ?
+                new SqlParameter("TissueBankStateLicense", tissueBankStateLicense) :
+                new SqlParameter("TissueBankStateLicense", typeof(string));
+
+            var aATBLicenseNumberParameter = aATBLicenseNumber != null ?
+                new SqlParameter("AATBLicenseNumber", aATBLicenseNumber) :
+                new SqlParameter("AATBLicenseNumber", typeof(string));
+
+            var aATBExpirationDateParameter = aATBExpirationDate.HasValue ?
+                new SqlParameter("AATBExpirationDate", aATBExpirationDate) :
+                new SqlParameter("AATBExpirationDate", typeof(System.DateTime));
+
+            var aATBAccredationDateParameter = aATBAccredationDate.HasValue ?
+                new SqlParameter("AATBAccredationDate", aATBAccredationDate) :
+                new SqlParameter("AATBAccredationDate", typeof(System.DateTime));
+
+            var customerProfileIdParameter = customerProfileId != null ?
+                new SqlParameter("CustomerProfileId", customerProfileId) :
+                new SqlParameter("CustomerProfileId", typeof(string));
+
+            var customerPaymentProfileIdsParameter = customerPaymentProfileIds != null ?
+                new SqlParameter("CustomerPaymentProfileIds", customerPaymentProfileIds) :
+                new SqlParameter("CustomerPaymentProfileIds", typeof(string));
+
+            var userIdParameter = userId.HasValue ?
+                new SqlParameter("UserId", userId) :
+                new SqlParameter("UserId", typeof(int));
+
+            var tissueBankIdParameter = tissueBankId.HasValue ?
+                new SqlParameter("TissueBankId", tissueBankId) :
+                new SqlParameter("TissueBankId", typeof(int));
+
+            var transactionIdParameter = transactionId.HasValue ?
+                new SqlParameter("TransactionId", transactionId) :
+                new SqlParameter("TransactionId", typeof(int));
+
+            var authTransactionIdParameter = authTransactionId != null ?
+                new SqlParameter("AuthTransactionId", authTransactionId) :
+                new SqlParameter("AuthTransactionId", typeof(string));
+
+            var authCodeParameter = authCode != null ?
+                new SqlParameter("AuthCode", authCode) :
+                new SqlParameter("AuthCode", typeof(string));
+
+            var statusIdParameter = statusId.HasValue ?
+                new SqlParameter("StatusId", statusId) :
+                new SqlParameter("StatusId", typeof(int));
+
+            var transactionCompleteDateParameter = transactionCompleteDate.HasValue ?
+                new SqlParameter("TransactionCompleteDate", transactionCompleteDate) :
+                new SqlParameter("TransactionCompleteDate", typeof(System.DateTime));
+
+            var responseBodyParameter = responseBody != null ?
+                new SqlParameter("ResponseBody", responseBody) :
+                new SqlParameter("ResponseBody", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<string>("usp_TissueBank_Add @TissueBankName, @ContactPersonName, @ContactPersonNumber, @TissueBankEmailId, @BusinessURL, @TissueBankAddress, @CityId, @ZipCode, @TissueBankStateLicense, @AATBLicenseNumber, @AATBExpirationDate, @AATBAccredationDate, @CustomerProfileId, @CustomerPaymentProfileIds, @UserId, @TissueBankId, @TransactionId, @AuthTransactionId, @AuthCode, @StatusId, @TransactionCompleteDate, @ResponseBody", tissueBankNameParameter, contactPersonNameParameter, contactPersonNumberParameter, tissueBankEmailIdParameter, businessURLParameter, tissueBankAddressParameter, cityIdParameter, zipCodeParameter, tissueBankStateLicenseParameter, aATBLicenseNumberParameter, aATBExpirationDateParameter, aATBAccredationDateParameter, customerProfileIdParameter, customerPaymentProfileIdsParameter, userIdParameter, tissueBankIdParameter, transactionIdParameter, authTransactionIdParameter, authCodeParameter, statusIdParameter, transactionCompleteDateParameter, responseBodyParameter);
+        }
+
+        public virtual int usp_Transaction_Update(Nullable<int> tissueBankId, Nullable<int> transactionId, string authTransactionId, string authCode, Nullable<int> statusId, Nullable<System.DateTime> transactionCompleteDate, string responseBody, ObjectParameter returnMessage)
+        {
+            var tissueBankIdParameter = tissueBankId.HasValue ?
+                new ObjectParameter("TissueBankId", tissueBankId) :
+                new ObjectParameter("TissueBankId", typeof(int));
+
+            var transactionIdParameter = transactionId.HasValue ?
+                new ObjectParameter("TransactionId", transactionId) :
+                new ObjectParameter("TransactionId", typeof(int));
+
+            var authTransactionIdParameter = authTransactionId != null ?
+                new ObjectParameter("AuthTransactionId", authTransactionId) :
+                new ObjectParameter("AuthTransactionId", typeof(string));
+
+            var authCodeParameter = authCode != null ?
+                new ObjectParameter("AuthCode", authCode) :
+                new ObjectParameter("AuthCode", typeof(string));
+
+            var statusIdParameter = statusId.HasValue ?
+                new ObjectParameter("StatusId", statusId) :
+                new ObjectParameter("StatusId", typeof(int));
+
+            var transactionCompleteDateParameter = transactionCompleteDate.HasValue ?
+                new ObjectParameter("TransactionCompleteDate", transactionCompleteDate) :
+                new ObjectParameter("TransactionCompleteDate", typeof(System.DateTime));
+
+            var responseBodyParameter = responseBody != null ?
+                new ObjectParameter("ResponseBody", responseBody) :
+                new ObjectParameter("ResponseBody", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_Transaction_Update", tissueBankIdParameter, transactionIdParameter, authTransactionIdParameter, authCodeParameter, statusIdParameter, transactionCompleteDateParameter, responseBodyParameter, returnMessage);
+        }
+
+        public virtual ObjectResult<Nullable<decimal>> usp_Transaction_Create(Nullable<System.DateTime> transactionInitiateDate, Nullable<decimal> amount, Nullable<int> userId, string requestBody)
+        {
+            var transactionInitiateDateParameter = transactionInitiateDate.HasValue ?
+                new SqlParameter("TransactionInitiateDate", transactionInitiateDate) :
+                new SqlParameter("TransactionInitiateDate", typeof(System.DateTime));
+
+            var amountParameter = amount.HasValue ?
+                new SqlParameter("Amount", amount) :
+                new SqlParameter("Amount", typeof(decimal));
+
+            var userIdParameter = userId.HasValue ?
+                new SqlParameter("UserId", userId) :
+                new SqlParameter("UserId", typeof(int));
+
+            var requestBodyParameter = requestBody != null ?
+                new SqlParameter("RequestBody", requestBody) :
+                new SqlParameter("RequestBody", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<Nullable<decimal>>("usp_Transaction_Create @TransactionInitiateDate, @Amount, @UserId, @RequestBody", transactionInitiateDateParameter, amountParameter, userIdParameter, requestBodyParameter);
+        }
+
+        public virtual int usp_Error_Create(Nullable<int> statusId, string errorCode, string errorBody, string stackTrace, Nullable<int> transactionId, Nullable<int> userId)
+        {
+            var statusIdParameter = statusId.HasValue ?
+                new ObjectParameter("StatusId", statusId) :
+                new ObjectParameter("StatusId", typeof(int));
+
+            var errorCodeParameter = errorCode != null ?
+                new ObjectParameter("ErrorCode", errorCode) :
+                new ObjectParameter("ErrorCode", typeof(string));
+
+            var errorBodyParameter = errorBody != null ?
+                new ObjectParameter("ErrorBody", errorBody) :
+                new ObjectParameter("ErrorBody", typeof(string));
+
+            var stackTraceParameter = stackTrace != null ?
+                new ObjectParameter("StackTrace", stackTrace) :
+                new ObjectParameter("StackTrace", typeof(string));
+
+            var transactionIdParameter = transactionId.HasValue ?
+                new ObjectParameter("TransactionId", transactionId) :
+                new ObjectParameter("TransactionId", typeof(int));
+
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_Error_Create", statusIdParameter, errorCodeParameter, errorBodyParameter, stackTraceParameter, transactionIdParameter, userIdParameter);
+        }
+
     }
 }

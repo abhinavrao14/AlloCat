@@ -25,7 +25,7 @@ namespace Allocat.WebApi.WebApiModel
         public string SortExpression { get; set; }
     }
 
-    public class User_CUD_DTO
+    public class UserMngmnt_User_CUD_DTO
     {
         public int UserId { get; set; }
         public string UserName { get; set; }
