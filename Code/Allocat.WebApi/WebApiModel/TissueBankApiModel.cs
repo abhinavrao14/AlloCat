@@ -28,7 +28,6 @@ namespace Allocat.WebApi.WebApiModel
         public string AATBLicenseNumber { get; set; }
         public DateTime AATBExpirationDate { get; set; }
         public DateTime AATBAccredationDate { get; set; }
-<<<<<<< HEAD
         public string CreditCardNumber { get; set; }
         public int CreditCardType { get; set; }
         public string ExpiryDate { get; set; }
@@ -48,29 +47,12 @@ namespace Allocat.WebApi.WebApiModel
         public int UserId { get; set; }
         public int TissueBankId { get; set; }
 
-=======
-        public string CustomerProfileId { get; set; }
-        public string CustomerPaymentProfileIds { get; set; }
-
-        public string City { get; set; }
-        public string ZipCode { get; set; }
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         public int TransactionId { get; set; }
         public string AuthTransactionId { get; set; }
         public string AuthCode { get; set; }
         public int StatusId { get; set; }
         public DateTime TransactionCompleteDate { get; set; }
         public string ResponseBody { get; set; }
-<<<<<<< HEAD
-=======
-        public string CreditCardNumber { get; set; }
-        public int CreditCardType { get; set; }
-        public string ExpiryDate { get; set; }
-        public string CardCode { get; set; }
-
-        public int UserId { get; set; }
-        public int TissueBankId { get; set; }
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
     }
 
     public class TissueBankSignUp_DTO
@@ -80,7 +62,6 @@ namespace Allocat.WebApi.WebApiModel
         public string EmailId { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
-<<<<<<< HEAD
     }
 
     public class TissueBankUpdate_DTO
@@ -129,7 +110,5 @@ namespace Allocat.WebApi.WebApiModel
         public DateTime TransactionCompleteDate { get; set; }
         public string ResponseBody { get; set; }
         public string OperationType { get; set; }
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
     }
 }

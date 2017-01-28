@@ -63,13 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="EmailService\ConfigurationReader.cs" />
     <Compile Include="EmailService\Consumer.cs" />
     <Compile Include="EmailService\EmailBody.cs" />
     <Compile Include="EmailService\SendMail.cs" />
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
     <Compile Include="StatusBusinessService.cs" />
     <Compile Include="OrderBusinessRule.cs" />
     <Compile Include="CityBusinessRule.cs" />

@@ -8,33 +8,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allocat.ApplicationService", "Allocat.ApplicationService\Allocat.ApplicationService.csproj", "{5EB83154-696C-45FD-8CDF-D51276745CA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allocat.DataService", "Allocat.DataService\Allocat.DataService.csproj", "{95436E91-7AB4-4601-B487-D7CB3C2073EC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{26BE7648-FF79-4494-868F-69B960E06C7F} = {26BE7648-FF79-4494-868F-69B960E06C7F}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allocat.DataServiceInterface", "Allocat.DataServiceInterface\Allocat.DataServiceInterface.csproj", "{55EC7051-83CC-49AB-AD54-C1AEB06BBC07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allocat.Utility", "Allocat.Utility\Allocat.Utility.csproj", "{381AB95B-DCDF-439A-B828-B52D18A2072C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allocat.UserInterface", "Allocat.UserInterface\Allocat.UserInterface.csproj", "{DB830B0D-946C-450B-A63B-5A33ADE26598}"
-	ProjectSection(ProjectDependencies) = postProject
-		{26BE7648-FF79-4494-868F-69B960E06C7F} = {26BE7648-FF79-4494-868F-69B960E06C7F}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allocat.WebApi", "Allocat.WebApi\Allocat.WebApi.csproj", "{F2B58162-F0E9-4F50-B516-54DFE81A1FAC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{26BE7648-FF79-4494-868F-69B960E06C7F} = {26BE7648-FF79-4494-868F-69B960E06C7F}
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allocat.CustomService.Authorize.Net", "D:\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net.csproj", "{26BE7648-FF79-4494-868F-69B960E06C7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSenderLibrary", "F:\MSMQMailService\MailSenderLibrary\MailSenderLibrary.csproj", "{B432F3BB-8A84-48E1-8714-007420CBCC9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSenderLibrary", "E:\Project\Allocat\MSMQMailService\MailSenderLibrary\MailSenderLibrary.csproj", "{B432F3BB-8A84-48E1-8714-007420CBCC9E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSMQMailService", "E:\Project\Allocat\MSMQMailService\MSMQMailService\MSMQMailService.csproj", "{59DEA82B-2347-4773-A31A-6FE187443CE1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSenderLibrary", "..\MSMQMailService\MailSenderLibrary\MailSenderLibrary.csproj", "{B432F3BB-8A84-48E1-8714-007420CBCC9E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSMQMailService", "..\MSMQMailService\MSMQMailService\MSMQMailService.csproj", "{59DEA82B-2347-4773-A31A-6FE187443CE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSMQMailService", "F:\MSMQMailService\MSMQMailService\MSMQMailService.csproj", "{59DEA82B-2347-4773-A31A-6FE187443CE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,13 +55,6 @@ Global
 		{F2B58162-F0E9-4F50-B516-54DFE81A1FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2B58162-F0E9-4F50-B516-54DFE81A1FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2B58162-F0E9-4F50-B516-54DFE81A1FAC}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
-=======
-		{26BE7648-FF79-4494-868F-69B960E06C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26BE7648-FF79-4494-868F-69B960E06C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26BE7648-FF79-4494-868F-69B960E06C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26BE7648-FF79-4494-868F-69B960E06C7F}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
 		{B432F3BB-8A84-48E1-8714-007420CBCC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B432F3BB-8A84-48E1-8714-007420CBCC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B432F3BB-8A84-48E1-8714-007420CBCC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU

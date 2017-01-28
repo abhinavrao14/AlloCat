@@ -233,7 +233,6 @@ app.service("TissueBankService", function ($http) {
             dataType: 'json',
             method: 'POST',
             data: tissueBankAdd_DTO,
-<<<<<<< HEAD
             headers: {
                 "Content-Type": "application/json"
             }
@@ -256,8 +255,6 @@ app.service("TissueBankService", function ($http) {
             url: "http://localhost:63744/api/TissueBank",
             dataType: 'json',
             data: tissueBankUpdate_DTO,
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             headers: {
                 "Content-Type": "application/json"
             }

@@ -16,17 +16,12 @@ namespace Allocat.ApplicationService
             userDataService = new UserDataService();
         }
 
-<<<<<<< HEAD
         public void ValidateTissueBank_Add(string TissueBankName, string ContactPersonFirstName, string ContactPersonLastName, string ContactPersonNumber, string ContactPersonEmailId, string FaxNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string ZipCode, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string CreditCardNumber, int CreditCardType, string ExpiryDate, string CardCode, string CustomerProfileId, string CustomerPaymentProfileIds, string BillingAddress, int BillingCityId, string BillingZipCode, string BillingFaxNumber, string BillingEmailId, string BillingContactNumber, string BillingCity, string BillingState, string State, string City, int UserId, int TissueBankId, int TransactionId, string AuthTransactionId, string AuthCode, int StatusId, DateTime TransactionCompleteDate, string ResponseBody)
-=======
-        public void ValidateTissueBank_Add(string TissueBankName, string ContactPersonName, string ContactPersonNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string ZipCode, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string CustomerProfileId, string CustomerPaymentProfileIds, int UserId, int TissueBankId, int TransactionId, string AuthTransactionId, string AuthCode, int StatusId, DateTime TransactionCompleteDate, string ResponseBody)
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         {
             ValidateUniqueTissueBankEmailId(TissueBankEmailId);
             ValidateUniqueContactPersonNumber(ContactPersonNumber);
             ValidateUniqueAATBLicenseNumber(AATBLicenseNumber);
             ValidateUniqueTissueBankStateLicense(TissueBankStateLicense);
-<<<<<<< HEAD
         }
 
         public void ValidateTissueBank_Update(string TissueBankName, string ContactPersonFirstName, string ContactPersonLastName, string ContactPersonNumber, string ContactPersonEmailId, string FaxNumber, string TissueBankEmailId, string BusinessURL, string TissueBankAddress, int CityId, string ZipCode, string CustomerServiceLandLineNumber, string TaxPayerId, string TissueBankStateLicense, string AATBLicenseNumber, DateTime AATBExpirationDate, DateTime AATBAccredationDate, string CreditCardNumber, string CustomerProfileId, string CustomerPaymentProfileIds, string BillingAddress, int BillingCityId, string BillingZipCode, string BillingFaxNumber, string BillingEmailId, string BillingContactNumber, int UserId, int TissueBankId, int TransactionId, string AuthTransactionId, string AuthCode, int StatusId, DateTime TransactionCompleteDate, string ResponseBody, string OperationType)
@@ -35,8 +30,6 @@ namespace Allocat.ApplicationService
             ValidateSingleContactPersonNumber(ContactPersonNumber, TissueBankId);
             ValidateSingleAATBLicenseNumber(AATBLicenseNumber, TissueBankId);
             ValidateSingleTissueBankStateLicense(TissueBankStateLicense, TissueBankId);
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         }
 
         private void ValidateUniqueUserName(string UserName)
@@ -96,7 +89,6 @@ namespace Allocat.ApplicationService
         public void ValidateTissueBankUserRegistration(string FullName, string UserName, string EmailId, string SecurityQuestion, string SecurityAnswer)
         {
             userDataService.CreateSession();
-<<<<<<< HEAD
 
             ValidateUniqueEmailId(EmailId);
             ValidateUniqueUserName(UserName);
@@ -139,10 +131,5 @@ namespace Allocat.ApplicationService
                 AddValidationError("EmailId", "Email Id : " + EmailId + " already exists.");
             }
         }
-=======
-            ValidateUniqueEmailId(EmailId);
-            ValidateUniqueUserName(UserName);
-        }
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
     }
 }

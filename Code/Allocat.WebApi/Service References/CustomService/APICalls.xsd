@@ -11,10 +11,7 @@
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HomeAddress" nillable="true" type="tns:AddressInfo" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-<<<<<<< HEAD
       <xs:element minOccurs="0" name="MerchantCustomerId" nillable="true" type="xs:string" />
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
       <xs:element minOccurs="0" name="OfficeAddress" nillable="true" type="tns:AddressInfo" />
       <xs:element minOccurs="0" name="PaymentType" type="tns:PaymentType" />
     </xs:sequence>
@@ -70,7 +67,6 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="PaymentType" nillable="true" type="tns:PaymentType" />
-<<<<<<< HEAD
   <xs:complexType name="CustomerPaymentProfile">
     <xs:sequence>
       <xs:element minOccurs="0" name="BillTo" nillable="true" type="tns:AddressInfo" />
@@ -81,6 +77,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CustomerPaymentProfile" nillable="true" type="tns:CustomerPaymentProfile" />
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
 </xs:schema>

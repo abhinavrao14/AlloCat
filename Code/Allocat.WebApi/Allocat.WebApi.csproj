@@ -270,17 +270,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-<<<<<<< HEAD
     <None Include="Service References\CustomService\APICalls4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\CustomService\APICalls5.xsd">
-=======
-    <None Include="Service References\CustomService\APICalls3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CustomService\APICalls4.xsd">
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -322,12 +315,9 @@
     <None Include="Service References\CustomService\APICalls2.xsd">
       <SubType>Designer</SubType>
     </None>
-<<<<<<< HEAD
     <None Include="Service References\CustomService\APICalls3.xsd">
       <SubType>Designer</SubType>
     </None>
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

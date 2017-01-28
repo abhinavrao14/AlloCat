@@ -50,12 +50,9 @@ namespace Allocat.WebApi.CustomService {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-<<<<<<< HEAD
         private string MerchantCustomerIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         private Allocat.WebApi.CustomService.AddressInfo OfficeAddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -189,7 +186,6 @@ namespace Allocat.WebApi.CustomService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string MerchantCustomerId {
             get {
                 return this.MerchantCustomerIdField;
@@ -203,8 +199,6 @@ namespace Allocat.WebApi.CustomService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         public Allocat.WebApi.CustomService.AddressInfo OfficeAddress {
             get {
                 return this.OfficeAddressField;
@@ -987,23 +981,15 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-<<<<<<< HEAD
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
         "essEntities.Exceptions")]
     [System.SerializableAttribute()]
     public partial class CustomException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-=======
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResCustomerProfileDetails", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities.ResponseEntities")]
-    [System.SerializableAttribute()]
-    public partial class ResCustomerProfileDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-<<<<<<< HEAD
         private string ExceptionMessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1014,39 +1000,6 @@ namespace Allocat.WebApi.CustomService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
-=======
-        private string CustomerProfileIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MerchantCustomerIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Allocat.WebApi.CustomService.PaymentProfile[] PaymentPField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RefIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SessionTokenField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Allocat.WebApi.CustomService.ShippingAddress[] ShippingProfilesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] SubscriptionIdsField;
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1059,7 +1012,6 @@ namespace Allocat.WebApi.CustomService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string ExceptionMessage {
             get {
                 return this.ExceptionMessageField;
@@ -1068,113 +1020,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.ExceptionMessageField, value) != true)) {
                     this.ExceptionMessageField = value;
                     this.RaisePropertyChanged("ExceptionMessage");
-=======
-        public string CustomerProfileId {
-            get {
-                return this.CustomerProfileIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CustomerProfileIdField, value) != true)) {
-                    this.CustomerProfileIdField = value;
-                    this.RaisePropertyChanged("CustomerProfileId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EmailId {
-            get {
-                return this.EmailIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailIdField, value) != true)) {
-                    this.EmailIdField = value;
-                    this.RaisePropertyChanged("EmailId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MerchantCustomerId {
-            get {
-                return this.MerchantCustomerIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MerchantCustomerIdField, value) != true)) {
-                    this.MerchantCustomerIdField = value;
-                    this.RaisePropertyChanged("MerchantCustomerId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MessageCode {
-            get {
-                return this.MessageCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageCodeField, value) != true)) {
-                    this.MessageCodeField = value;
-                    this.RaisePropertyChanged("MessageCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Allocat.WebApi.CustomService.PaymentProfile[] PaymentP {
-            get {
-                return this.PaymentPField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaymentPField, value) != true)) {
-                    this.PaymentPField = value;
-                    this.RaisePropertyChanged("PaymentP");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RefId {
-            get {
-                return this.RefIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RefIdField, value) != true)) {
-                    this.RefIdField = value;
-                    this.RaisePropertyChanged("RefId");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string InnerException {
             get {
                 return this.InnerExceptionField;
@@ -1183,22 +1033,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.InnerExceptionField, value) != true)) {
                     this.InnerExceptionField = value;
                     this.RaisePropertyChanged("InnerException");
-=======
-        public string SessionToken {
-            get {
-                return this.SessionTokenField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SessionTokenField, value) != true)) {
-                    this.SessionTokenField = value;
-                    this.RaisePropertyChanged("SessionToken");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string StackTrace {
             get {
                 return this.StackTraceField;
@@ -1207,22 +1046,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.StackTraceField, value) != true)) {
                     this.StackTraceField = value;
                     this.RaisePropertyChanged("StackTrace");
-=======
-        public Allocat.WebApi.CustomService.ShippingAddress[] ShippingProfiles {
-            get {
-                return this.ShippingProfilesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShippingProfilesField, value) != true)) {
-                    this.ShippingProfilesField = value;
-                    this.RaisePropertyChanged("ShippingProfiles");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string Title {
             get {
                 return this.TitleField;
@@ -1231,16 +1059,6 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.TitleField, value) != true)) {
                     this.TitleField = value;
                     this.RaisePropertyChanged("Title");
-=======
-        public string[] SubscriptionIds {
-            get {
-                return this.SubscriptionIdsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SubscriptionIdsField, value) != true)) {
-                    this.SubscriptionIdsField = value;
-                    this.RaisePropertyChanged("SubscriptionIds");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
@@ -1257,22 +1075,14 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-<<<<<<< HEAD
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerPaymentProfile", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net")]
     [System.SerializableAttribute()]
     public partial class CustomerPaymentProfile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-=======
-    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentProfile", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities.ResponseEntities")]
-    [System.SerializableAttribute()]
-    public partial class PaymentProfile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-<<<<<<< HEAD
         private Allocat.WebApi.CustomService.AddressInfo BillToField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1286,21 +1096,6 @@ namespace Allocat.WebApi.CustomService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool isUpdateCreditCardInfoField;
-=======
-        private Allocat.WebApi.CustomService.ShippingAddress BillToField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CustomerTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool DefaultPaymentProfileField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PaymentItemField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PaymentProfileIdField;
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1313,11 +1108,7 @@ namespace Allocat.WebApi.CustomService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public Allocat.WebApi.CustomService.AddressInfo BillTo {
-=======
-        public Allocat.WebApi.CustomService.ShippingAddress BillTo {
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             get {
                 return this.BillToField;
             }
@@ -1330,7 +1121,6 @@ namespace Allocat.WebApi.CustomService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public Allocat.WebApi.CustomService.CreditCard CardInfo {
             get {
                 return this.CardInfoField;
@@ -1339,22 +1129,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.CardInfoField, value) != true)) {
                     this.CardInfoField = value;
                     this.RaisePropertyChanged("CardInfo");
-=======
-        public string CustomerType {
-            get {
-                return this.CustomerTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CustomerTypeField, value) != true)) {
-                    this.CustomerTypeField = value;
-                    this.RaisePropertyChanged("CustomerType");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string CustomerPaymentProfileId {
             get {
                 return this.CustomerPaymentProfileIdField;
@@ -1363,22 +1142,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.CustomerPaymentProfileIdField, value) != true)) {
                     this.CustomerPaymentProfileIdField = value;
                     this.RaisePropertyChanged("CustomerPaymentProfileId");
-=======
-        public bool DefaultPaymentProfile {
-            get {
-                return this.DefaultPaymentProfileField;
-            }
-            set {
-                if ((this.DefaultPaymentProfileField.Equals(value) != true)) {
-                    this.DefaultPaymentProfileField = value;
-                    this.RaisePropertyChanged("DefaultPaymentProfile");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string CustomerProfileId {
             get {
                 return this.CustomerProfileIdField;
@@ -1387,22 +1155,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.CustomerProfileIdField, value) != true)) {
                     this.CustomerProfileIdField = value;
                     this.RaisePropertyChanged("CustomerProfileId");
-=======
-        public string PaymentItem {
-            get {
-                return this.PaymentItemField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaymentItemField, value) != true)) {
-                    this.PaymentItemField = value;
-                    this.RaisePropertyChanged("PaymentItem");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public bool isUpdateCreditCardInfo {
             get {
                 return this.isUpdateCreditCardInfoField;
@@ -1411,16 +1168,6 @@ namespace Allocat.WebApi.CustomService {
                 if ((this.isUpdateCreditCardInfoField.Equals(value) != true)) {
                     this.isUpdateCreditCardInfoField = value;
                     this.RaisePropertyChanged("isUpdateCreditCardInfo");
-=======
-        public string PaymentProfileId {
-            get {
-                return this.PaymentProfileIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaymentProfileIdField, value) != true)) {
-                    this.PaymentProfileIdField = value;
-                    this.RaisePropertyChanged("PaymentProfileId");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
@@ -1659,23 +1406,15 @@ namespace Allocat.WebApi.CustomService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-<<<<<<< HEAD
     [System.Runtime.Serialization.DataContractAttribute(Name="ResCustomerProfileDetails", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
         "essEntities.ResponseEntities")]
     [System.SerializableAttribute()]
     public partial class ResCustomerProfileDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-=======
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResTransactionDetails", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
-        "essEntities.ResponseEntities")]
-    [System.SerializableAttribute()]
-    public partial class ResTransactionDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-<<<<<<< HEAD
         private string CustomerProfileIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1707,39 +1446,6 @@ namespace Allocat.WebApi.CustomService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] SubscriptionIdsField;
-=======
-        private decimal AuthAmountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ErrorCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ErrorTextField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageDescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ResponseCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal SettleAmountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime SubmitTimeLocalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TransactionIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TransactionStatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TransactionTypeField;
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1752,7 +1458,6 @@ namespace Allocat.WebApi.CustomService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string CustomerProfileId {
             get {
                 return this.CustomerProfileIdField;
@@ -1761,22 +1466,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.CustomerProfileIdField, value) != true)) {
                     this.CustomerProfileIdField = value;
                     this.RaisePropertyChanged("CustomerProfileId");
-=======
-        public decimal AuthAmount {
-            get {
-                return this.AuthAmountField;
-            }
-            set {
-                if ((this.AuthAmountField.Equals(value) != true)) {
-                    this.AuthAmountField = value;
-                    this.RaisePropertyChanged("AuthAmount");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string Description {
             get {
                 return this.DescriptionField;
@@ -1785,22 +1479,11 @@ namespace Allocat.WebApi.CustomService {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
-=======
-        public string ErrorCode {
-            get {
-                return this.ErrorCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true)) {
-                    this.ErrorCodeField = value;
-                    this.RaisePropertyChanged("ErrorCode");
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-<<<<<<< HEAD
         public string EmailId {
             get {
                 return this.EmailIdField;
@@ -2120,11 +1803,6 @@ namespace Allocat.WebApi.CustomService {
         public string ErrorText {
             get {
                 return this.ErrorTextField;
-=======
-        public string ErrorText {
-            get {
-                return this.ErrorTextField;
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             }
             set {
                 if ((object.ReferenceEquals(this.ErrorTextField, value) != true)) {
@@ -2254,12 +1932,9 @@ namespace Allocat.WebApi.CustomService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfileResponse" +
             "")]
-<<<<<<< HEAD
         [System.ServiceModel.FaultContractAttribute(typeof(Allocat.WebApi.CustomService.CustomException), Action="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfileCustomEx" +
             "ceptionFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
             "essEntities.Exceptions")]
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         Allocat.WebApi.CustomService.ResCustomerProfile RegisterCustomerAndChargeProfile(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RegisterCustomerAndChargeProfileResponse" +
@@ -2267,19 +1942,15 @@ namespace Allocat.WebApi.CustomService {
         System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCustomerProfile> RegisterCustomerAndChargeProfileAsync(Allocat.WebApi.CustomService.Customer objCustomer, decimal AmountToBeCharged);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfileResponse")]
-<<<<<<< HEAD
         [System.ServiceModel.FaultContractAttribute(typeof(Allocat.WebApi.CustomService.CustomException), Action="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfileCustomExceptionFaul" +
             "t", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
             "essEntities.Exceptions")]
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         Allocat.WebApi.CustomService.ResTransaction ChargeCustomerProfile(string CustomerProfileId, string CustomerPaymentProfileId, decimal AmountToBeCharged);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/ChargeCustomerProfileResponse")]
         System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResTransaction> ChargeCustomerProfileAsync(string CustomerProfileId, string CustomerPaymentProfileId, decimal AmountToBeCharged);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfileResponse")]
-<<<<<<< HEAD
         [System.ServiceModel.FaultContractAttribute(typeof(Allocat.WebApi.CustomService.CustomException), Action="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfileCustomExceptionFaul" +
             "t", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
             "essEntities.Exceptions")]
@@ -2310,31 +1981,19 @@ namespace Allocat.WebApi.CustomService {
         [System.ServiceModel.FaultContractAttribute(typeof(Allocat.WebApi.CustomService.CustomException), Action="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfileCustomExceptionFa" +
             "ult", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
             "essEntities.Exceptions")]
-=======
-        void UpdateCustomerProfile(string customerProfileId, string merchantCustomerId, string description, string newEmailId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/UpdateCustomerProfileResponse")]
-        System.Threading.Tasks.Task UpdateCustomerProfileAsync(string customerProfileId, string merchantCustomerId, string description, string newEmailId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfileResponse")]
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         Allocat.WebApi.CustomService.ResCustomerProfileDetails RetrieveCustomerProfile(string customerProfileId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveCustomerProfileResponse")]
         System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResCustomerProfileDetails> RetrieveCustomerProfileAsync(string customerProfileId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetails", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetailsResponse")]
-<<<<<<< HEAD
         [System.ServiceModel.FaultContractAttribute(typeof(Allocat.WebApi.CustomService.CustomException), Action="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetailsCustomExceptio" +
             "nFault", Name="CustomException", Namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.Busin" +
             "essEntities.Exceptions")]
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         Allocat.WebApi.CustomService.ResTransactionDetails RetrieveTransactionDetails(string transactionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetails", ReplyAction="http://tempuri.org/IAllocatCustomService/RetrieveTransactionDetailsResponse")]
         System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResTransactionDetails> RetrieveTransactionDetailsAsync(string transactionId);
-<<<<<<< HEAD
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/DeleteCustomerProfile", ReplyAction="http://tempuri.org/IAllocatCustomService/DeleteCustomerProfileResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Allocat.WebApi.CustomService.CustomException), Action="http://tempuri.org/IAllocatCustomService/DeleteCustomerProfileCustomExceptionFaul" +
@@ -2362,8 +2021,6 @@ namespace Allocat.WebApi.CustomService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAllocatCustomService/DeleteCustomerShippingAddress", ReplyAction="http://tempuri.org/IAllocatCustomService/DeleteCustomerShippingAddressResponse")]
         System.Threading.Tasks.Task<bool> DeleteCustomerShippingAddressAsync(string customerProfileId, string customerAddressId);
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2409,7 +2066,6 @@ namespace Allocat.WebApi.CustomService {
             return base.Channel.ChargeCustomerProfileAsync(CustomerProfileId, CustomerPaymentProfileId, AmountToBeCharged);
         }
         
-<<<<<<< HEAD
         public bool UpdateCustomerProfile(string customerProfileId, string merchantCustomerId, string description, string newEmailId) {
             return base.Channel.UpdateCustomerProfile(customerProfileId, merchantCustomerId, description, newEmailId);
         }
@@ -2434,16 +2090,6 @@ namespace Allocat.WebApi.CustomService {
             return base.Channel.UpdateCustomerShipingAddressAsync(customerProfileID, customerAddressId, objShippingAddress, objCardInfo);
         }
         
-=======
-        public void UpdateCustomerProfile(string customerProfileId, string merchantCustomerId, string description, string newEmailId) {
-            base.Channel.UpdateCustomerProfile(customerProfileId, merchantCustomerId, description, newEmailId);
-        }
-        
-        public System.Threading.Tasks.Task UpdateCustomerProfileAsync(string customerProfileId, string merchantCustomerId, string description, string newEmailId) {
-            return base.Channel.UpdateCustomerProfileAsync(customerProfileId, merchantCustomerId, description, newEmailId);
-        }
-        
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         public Allocat.WebApi.CustomService.ResCustomerProfileDetails RetrieveCustomerProfile(string customerProfileId) {
             return base.Channel.RetrieveCustomerProfile(customerProfileId);
         }
@@ -2459,7 +2105,6 @@ namespace Allocat.WebApi.CustomService {
         public System.Threading.Tasks.Task<Allocat.WebApi.CustomService.ResTransactionDetails> RetrieveTransactionDetailsAsync(string transactionId) {
             return base.Channel.RetrieveTransactionDetailsAsync(transactionId);
         }
-<<<<<<< HEAD
         
         public bool DeleteCustomerProfile(string customerProfileId) {
             return base.Channel.DeleteCustomerProfile(customerProfileId);
@@ -2484,7 +2129,5 @@ namespace Allocat.WebApi.CustomService {
         public System.Threading.Tasks.Task<bool> DeleteCustomerShippingAddressAsync(string customerProfileId, string customerAddressId) {
             return base.Channel.DeleteCustomerShippingAddressAsync(customerProfileId, customerAddressId);
         }
-=======
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
     }
 }

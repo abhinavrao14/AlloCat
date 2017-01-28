@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.Exceptions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.Exceptions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="CustomException">
     <xs:sequence>
@@ -10,83 +9,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CustomException" nillable="true" type="tns:CustomException" />
-=======
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net" />
-  <xs:import schemaLocation="http://dc74b22765d945188bf492795f868334.cloudapp.net/APICalls.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities" />
-  <xs:element name="RegisterCustomerAndChargeProfile">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net" minOccurs="0" name="objCustomer" nillable="true" type="q1:Customer" />
-        <xs:element minOccurs="0" name="AmountToBeCharged" type="xs:decimal" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegisterCustomerAndChargeProfileResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities" minOccurs="0" name="RegisterCustomerAndChargeProfileResult" nillable="true" type="q2:ResCustomerProfile" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ChargeCustomerProfile">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CustomerProfileId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="CustomerPaymentProfileId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="AmountToBeCharged" type="xs:decimal" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ChargeCustomerProfileResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities" minOccurs="0" name="ChargeCustomerProfileResult" nillable="true" type="q3:ResTransaction" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateCustomerProfile">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="customerProfileId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="merchantCustomerId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="newEmailId" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateCustomerProfileResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RetrieveCustomerProfile">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="customerProfileId" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RetrieveCustomerProfileResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities" minOccurs="0" name="RetrieveCustomerProfileResult" nillable="true" type="q4:ResCustomerProfileDetails" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RetrieveTransactionDetails">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RetrieveTransactionDetailsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Allocat.CustomService.Authorize.Net.BusinessEntities.ResponseEntities" minOccurs="0" name="RetrieveTransactionDetailsResult" nillable="true" type="q5:ResTransactionDetails" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
->>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
 </xs:schema>
