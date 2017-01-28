@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,8 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StatusDataService.cs" />
     <Compile Include="EntityFrameworkDataService.cs" />
     <Compile Include="CityDataService.cs" />
+    <Compile Include="HospitalTypeDataService.cs" />
+    <Compile Include="HospitalDataService.cs" />
+    <Compile Include="KeyValueDataService.cs" />
+    <Compile Include="ErrorDataService.cs" />
+    <Compile Include="TransactionDataService.cs" />
     <Compile Include="TissueBankDataService.cs" />
     <Compile Include="StateDataService.cs" />
     <Compile Include="UserDataService.cs" />

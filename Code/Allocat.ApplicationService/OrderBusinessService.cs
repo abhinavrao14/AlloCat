@@ -17,7 +17,6 @@ namespace Allocat.ApplicationService
         public IEnumerable<sp_Order_TissueBank_GetByTissueBankId_Result> GetOrderByTissueBankId(int TissueBankId, string SearchBy, int CurrentPage, int PageSize, string SortDirection, string SortExpression, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
-            orderDataService.CreateSession();
             OrderBusinessRule orderBusinessRule = new OrderBusinessRule();
 
             IEnumerable<sp_Order_TissueBank_GetByTissueBankId_Result> lstOrder = null;

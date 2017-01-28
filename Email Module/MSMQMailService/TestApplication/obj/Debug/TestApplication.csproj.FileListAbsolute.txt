@@ -36,3 +36,16 @@ D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\De
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\Debug\Microsoft.WindowsAzure.ActiveDirectory.Authentication.dll
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\bin\Debug\Microsoft.WindowsAzure.ActiveDirectory.Authentication.xml
 D:\Aaaaaaaaamita\Allocat\January\3january\MSMQMailService\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\TestApplication.exe.config
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\obj\Debug\TestApplication.exe
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\obj\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\TestApplication.exe
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\TestApplication.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\MailSenderLibrary.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\Microsoft.WindowsAzure.ActiveDirectory.Authentication.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\Netmester.Mail.Serialization.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\MailSenderLibrary.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\bin\Debug\Microsoft.WindowsAzure.ActiveDirectory.Authentication.xml
+C:\Users\Admin\Desktop\Allocat_GIT\Email Module\MSMQMailService\TestApplication\obj\Debug\TestApplication.csprojResolveAssemblyReference.cache

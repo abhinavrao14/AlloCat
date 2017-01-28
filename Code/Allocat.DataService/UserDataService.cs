@@ -124,19 +124,7 @@ namespace Allocat.DataService
             var parameterTempUser_CUD = new SqlParameter("@TempUser_CUD", SqlDbType.Structured);
             parameterTempUser_CUD.TypeName = "dbo.TempUser_CUD";
 
-            if(TempUser_CUD==null)
-            {
-                DataTable dt = new DataTable();
-                dt.Columns.Add("RoleID", typeof(int));
-                dt.Columns.Add("UserID", typeof(int));
-                dt.Rows.Add(0, 0);
-                TempUser_CUD = dt;
-            }
-            else
-            {
-                parameterTempUser_CUD.Value = TempUser_CUD;
-
-            }
+            
 
             rowAffected = dbConnection.Database.ExecuteSqlCommand("exec dbo.sp_UserMngmt_TissueBank_CreateUpdateDelete @UserId, @UserName, @Password, @FullName,  @MobileNumber, @EmailId,@CreatedBy, @LastModifiedBy,@InfoId,@AllowLogin, @OperationType, @TempUser_CUD", parameterUserId, parameterUserName, parameterPassword, parameterFullName, parameterMobileNumber, parameterEmailId, parameterCreatedBy, parameterLastModifiedBy, parameterInfoId, parameterAllowLogin, parameterOperationType, parameterTempUser_CUD);
 
@@ -153,5 +141,24 @@ namespace Allocat.DataService
 
             return rowAffected;
         }
+
+        public bool ValidateUniqueEmailId(string EmailId)
+        {
+            User user = dbConnection.User.FirstOrDefault(u => u.EmailId == EmailId);
+            if (user == null)
+                return true;
+
+            return false;
+        }
+
+        public bool ValidateUniqueUserName(string UserName)
+        {
+            User user = dbConnection.User.FirstOrDefault(u => u.UserName == UserName);
+            if (user == null)
+                return true;
+
+            return false;
+        }
+
     }
 }

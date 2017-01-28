@@ -24,5 +24,19 @@ namespace Allocat.DataService
 
             return lstState;
         }
+
+        public State GetStateById(int StateId,out TransactionalInformation transaction)
+        {
+            transaction = new TransactionalInformation();
+            dbConnection.Configuration.ProxyCreationEnabled = false;
+            State state = (from s in dbConnection.State
+                                           where s.StateId==StateId
+                                           select s).FirstOrDefault();
+
+            transaction.ReturnStatus = true;
+            transaction.ReturnMessage.Add("state found.");
+
+            return state;
+        }
     }
 }

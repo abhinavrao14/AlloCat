@@ -17,7 +17,6 @@ namespace Allocat.ApplicationService
         public IEnumerable<State> GetState(out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
-            stateDataService.CreateSession();
             IEnumerable<State> lstState = null;
             StateBusinessRule stateBusinessRule = new StateBusinessRule();
             try
@@ -43,6 +42,35 @@ namespace Allocat.ApplicationService
             }
 
             return lstState;
+        }
+
+        public State GetStateById(int StateId, out TransactionalInformation transaction)
+        {
+            transaction = new TransactionalInformation();
+            State state = null;
+            StateBusinessRule stateBusinessRule = new StateBusinessRule();
+            try
+            {
+                stateDataService.CreateSession();
+
+                state = stateDataService.GetStateById(StateId, out transaction);
+                transaction.ReturnStatus = stateBusinessRule.ValidationStatus;
+                transaction.ReturnMessage = stateBusinessRule.ValidationMessage;
+                transaction.ValidationErrors = stateBusinessRule.ValidationErrors;
+            }
+            catch (Exception ex)
+            {
+                transaction.ReturnMessage = new List<string>();
+                string errorMessage = ex.Message;
+                transaction.ReturnStatus = false;
+                transaction.ReturnMessage.Add(errorMessage);
+            }
+            finally
+            {
+                stateDataService.CloseSession();
+            }
+
+            return state;
         }
     }
 }

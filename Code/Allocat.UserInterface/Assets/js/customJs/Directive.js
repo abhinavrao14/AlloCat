@@ -38,7 +38,6 @@
     };
 });
 
-	  
 app.directive("fileread", ['$parse', '$window', function ($parse, $window) {
     return {
         scope: {
@@ -70,13 +69,13 @@ app.directive("fileread", ['$parse', '$window', function ($parse, $window) {
                         if (data.length > 0) {
                             headerNames.forEach(function (h) {
                                 $scope.opts.columnDefs.push({
-                                    
+
                                     field: h,
                                     width: 150
                                 });
                             });
 
-                            var filledData=[];
+                            var filledData = [];
                             for (i = 0; i < data.length; i++) {
                                 if (data[i].ProductMasterName != null)
                                     filledData.push(data[i]);
@@ -116,32 +115,28 @@ app.directive('overwriteEmail', function () {
     };
 });
 
-app.directive('hideme', ['$http', '$timeout', function ($http, $timeout)
-    {
+app.directive('hideme', ['$http', '$timeout', function ($http, $timeout) {
     return {
         transclude: true,
         restrict: 'E',
         template: '<div id="loaderDiv"  ng-show="showEl"><div class="ajax-loader" ng-transclude></div></div>',
 
-            link: function ($scope, $elm, $attrs)
-            {
-                $scope.isLoading = function () {
-                    return $http.pendingRequests.length > 0;
-                };
+        link: function ($scope, $elm, $attrs) {
+            $scope.isLoading = function () {
+                return $http.pendingRequests.length > 0;
+            };
 
-                $scope.$watch($scope.isLoading, function (v)
-                {
-                    if (v) {
-                        $scope.showEl = true;
-                    }else{
-                        $scope.showEl = false;
-                    }
-                });
-            }
-        };
+            $scope.$watch($scope.isLoading, function (v) {
+                if (v) {
+                    $scope.showEl = true;
+                } else {
+                    $scope.showEl = false;
+                }
+            });
+        }
+    };
 
 }]);
-
 
 app.directive('confirmOnExit', function () {
     return {
@@ -161,7 +156,6 @@ app.directive('confirmOnExit', function () {
         }
     };
 });
-
 
 app.directive('modal2', function () {
     return {
@@ -196,7 +190,6 @@ app.directive('modal2', function () {
         }
     };
 });
-
 
 app.directive("passwordVerify", function () {
     return {

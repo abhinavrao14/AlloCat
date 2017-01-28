@@ -25,5 +25,19 @@ namespace Allocat.DataService
 
             return listCity;
         }
+
+        public City GetCityById(int CityId, out TransactionalInformation transaction)
+        {
+            transaction = new TransactionalInformation();
+            dbConnection.Configuration.ProxyCreationEnabled = false;
+            City city = (from c in dbConnection.City
+                           where c.CityID== CityId
+                           select c).FirstOrDefault();
+
+            transaction.ReturnStatus = true;
+            transaction.ReturnMessage.Add("city found.");
+
+            return city;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿app.controller("HospitalController", function ($scope, HospitalService, StateService, CityService, $window, MsgService) {
+﻿app.controller("HospitalController", function ($scope, HospitalService,HospitalTypeService, StateService, CityService, $window, MsgService) {
 
     //angular validation
     $scope.phoneNumber = /^\d{3}\d{3}\d{4}/;
@@ -14,6 +14,15 @@
     StateService.GetStates()
        .success(function (data, status, headers, config) {
            $scope.States = data.States;
+       })
+       .error(function (data, status, headers, config) {
+           var Message = MsgService.makeMessage(data.ReturnMessage)
+           message('error', 'Error!', Message);
+       });
+
+    HospitalTypeService.GetHospitalTypes()
+       .success(function (data, status, headers, config) {
+           $scope.HospitalTypes = data.HospitalTypes;
        })
        .error(function (data, status, headers, config) {
            var Message = MsgService.makeMessage(data.ReturnMessage)

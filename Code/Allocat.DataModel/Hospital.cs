@@ -28,6 +28,7 @@ namespace Allocat.DataModel
         public Nullable<int> HospitalTypeID { get; set; }
         public string HospitalAddress { get; set; }
         public Nullable<int> HospitalCityId { get; set; }
+        public string BusinessURL { get; set; }
         public string FaxNumber { get; set; }
         public string HospitalLandLineNo { get; set; }
         public string RegistrationNumber { get; set; }

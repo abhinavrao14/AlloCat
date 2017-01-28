@@ -28,9 +28,6 @@ namespace Allocat.UserInterface
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Assets/js/lib/jquery.validate*"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Assets/js/lib/modernizr-*"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Assets/js/lib/bootstrap.js",
                       "~/Assets/js/lib/respond.js"));

@@ -17,5 +17,16 @@ namespace Allocat.ApplicationService
             //Regular Expression Validations
             ValidateNumeric(stateId, "State Id");
         }
+
+
+        public void validateCityRequestByCityId(int CityId)
+        {
+            //Required Validations
+            ValidateRequired(CityId, "City Id");
+
+            //Regular Expression Validations
+            ValidateNumeric(CityId, "City Id");
+        }
+
     }
 }

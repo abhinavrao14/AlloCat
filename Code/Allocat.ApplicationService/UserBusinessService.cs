@@ -18,7 +18,6 @@ namespace Allocat.ApplicationService
         public IEnumerable<sp_UserMngmt_TissueBank_GetByTissueBankId_Result> GetUser(int TissueBankId, string SearchBy, int CurrentPage, int PageSize, string SortDirection, string SortExpression, out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
-            userDataService.CreateSession();
             UserBusinessRule userBusinessRule = new UserBusinessRule();
 
             IEnumerable<sp_UserMngmt_TissueBank_GetByTissueBankId_Result> lstUser = null;
@@ -180,7 +179,18 @@ namespace Allocat.ApplicationService
 
                 if (userBusinessRule.ValidationStatus == true)
                 {
-                    if (OperationType != "changePass")
+                    if (OperationType == "changePass")
+                    {
+                        if (TempUser_CUD == null)
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Columns.Add("RoleID", typeof(int));
+                            dt.Columns.Add("UserID", typeof(int));
+                            dt.Rows.Add(0, 0);
+                            TempUser_CUD = dt;
+                        }
+                    }
+                    else
                     {
                         TempUser_CUD.Columns.Remove("RoleName");
                         TempUser_CUD.Columns.Add("UserId", typeof(int));

@@ -31,7 +31,7 @@ namespace Allocat.Web.Security
                     if (!CurrentUser.IsInRole(Roles))
                     {
                         filterContext.Result = new RedirectToRouteResult(new
-                     RouteValueDictionary(new { controller = "Error", action = "AccessDenied", area = ""  }));
+                     RouteValueDictionary(new { controller = "Response", action = "AccessDenied", area = "" }));
 
                         // base.OnAuthorization(filterContext); //returns to login url
                     }
@@ -42,7 +42,7 @@ namespace Allocat.Web.Security
                     if (!Users.Contains(CurrentUser.UserId.ToString()))
                     {
                         filterContext.Result = new RedirectToRouteResult(new
-                     RouteValueDictionary(new { controller = "Error", action = "AccessDenied", area = ""  }));
+                     RouteValueDictionary(new { controller = "Response", action = "AccessDenied", area = "" }));
 
                         // base.OnAuthorization(filterContext); //returns to login url
                     }
@@ -51,7 +51,7 @@ namespace Allocat.Web.Security
             else
             {
                 filterContext.Result = new RedirectToRouteResult(new
-                     RouteValueDictionary(new { controller = "Account", action = "Index" , area = ""  }));
+                     RouteValueDictionary(new { controller = "Account", action = "Index", area = "" }));
             }
         }
     }

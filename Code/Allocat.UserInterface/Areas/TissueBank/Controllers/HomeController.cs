@@ -8,6 +8,8 @@ namespace Allocat.UserInterface.Areas.TissueBank.Controllers
         [CustomAuthorize(Roles = "TISSUE BANK SUPER ADMIN, TISSUE BANK INVENTORY MANAGER")]
         public ActionResult Index()
         {
+            ViewBag.user = System.Web.HttpContext.Current.User;
+
             return View();
         }
     }

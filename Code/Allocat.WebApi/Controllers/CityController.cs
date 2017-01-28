@@ -27,25 +27,25 @@ namespace Allocat.WebApi.Controllers
         /// <returns></returns>
         public HttpResponseMessage Get(int StateId)
         {
-            CityStateApiModel cityStateApiModel = new CityStateApiModel();
+            CommonApiModel commonApiModel = new CommonApiModel();
             TransactionalInformation transaction = new TransactionalInformation();
             CityBusinessService cityBusinessService = new CityBusinessService(cityDataService);
             
             IEnumerable<City> Cities = cityBusinessService.GetCity
                 (StateId,out transaction);
-            cityStateApiModel.Cities = Cities;
+            commonApiModel.Cities = Cities;
 
-            cityStateApiModel.ReturnStatus = transaction.ReturnStatus;
-            cityStateApiModel.ReturnMessage = transaction.ReturnMessage;
-            cityStateApiModel.IsAuthenicated = true;
+            commonApiModel.ReturnStatus = transaction.ReturnStatus;
+            commonApiModel.ReturnMessage = transaction.ReturnMessage;
+            commonApiModel.IsAuthenicated = true;
 
             if (transaction.ReturnStatus == true)
             {
-                var response = Request.CreateResponse<CityStateApiModel>(HttpStatusCode.OK, cityStateApiModel);
+                var response = Request.CreateResponse<CommonApiModel>(HttpStatusCode.OK, commonApiModel);
                 return response;
             }
 
-            var badResponse = Request.CreateResponse<CityStateApiModel>(HttpStatusCode.BadRequest, cityStateApiModel);
+            var badResponse = Request.CreateResponse<CommonApiModel>(HttpStatusCode.BadRequest, commonApiModel);
             return badResponse;
         }
     }

@@ -3,3 +3,9 @@ D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.N
 D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\bin\Debug\TestAppCustomService.pdb
 D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\obj\Debug\TestAppCustomService.exe
 D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\obj\Debug\TestAppCustomService.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\bin\Debug\TestAppCustomService.exe.config
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\bin\Debug\TestAppCustomService.exe
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\bin\Debug\TestAppCustomService.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\obj\Debug\TestAppCustomService.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\obj\Debug\TestAppCustomService.exe
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\TestAppCustomService\obj\Debug\TestAppCustomService.pdb

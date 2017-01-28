@@ -26,9 +26,9 @@ namespace TestAppCustomService
 
             objCustomer.CardInfo = credit;
 
-            objCustomer.EmailId = "Sachan.Amita33@gmail.com";
-            objCustomer.FirstName = "Sachan";
-            objCustomer.LastName = "Am";
+            objCustomer.EmailId = "sindhu2843@gmail.com";
+            objCustomer.FirstName = "sindhu";
+            objCustomer.LastName = "priya";
 
             address.Address = "Sushant lok";
             address.City = "gurgaon";

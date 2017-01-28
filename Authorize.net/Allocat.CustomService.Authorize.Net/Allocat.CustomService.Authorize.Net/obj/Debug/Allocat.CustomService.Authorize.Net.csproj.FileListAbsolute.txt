@@ -19,3 +19,12 @@ D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.N
 D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Debug\Allocat.CustomService.Authorize.Net.csprojResolveAssemblyReference.cache
 D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Debug\Allocat.CustomService.Authorize.Net.dll
 D:\Aaaaaaaaamita\Allocat\January\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Debug\Allocat.CustomService.Authorize.Net.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Debug\Allocat.CustomService.Authorize.Net.dll.config
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Debug\Allocat.CustomService.Authorize.Net.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Debug\Allocat.CustomService.Authorize.Net.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Debug\AuthorizeNet.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\bin\Debug\AuthorizeNet.xml
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Debug\Allocat.CustomService.Authorize.Net.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Debug\Allocat.CustomService.Authorize.Net.dll
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Debug\Allocat.CustomService.Authorize.Net.pdb
+C:\Users\Admin\Desktop\Allocat_GIT\Authorize.net\Allocat.CustomService.Authorize.Net\Allocat.CustomService.Authorize.Net\obj\Debug\XsdGeneratedCode\GeneratedXsdTypes.cs

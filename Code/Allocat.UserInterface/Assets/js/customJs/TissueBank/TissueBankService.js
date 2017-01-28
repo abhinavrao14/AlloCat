@@ -211,12 +211,12 @@ app.service("UserDetailService", function ($http) {
         return response;
     };
 
-    this.SubmitUser = function (user_CUD_DTO) {
+    this.SubmitUser = function (userMngmnt_User_CUD_DTO) {
         var response = $http({
             url: "http://localhost:63744/api/User",
             dataType: 'json',
             method: 'POST',
-            data: user_CUD_DTO,
+            data: userMngmnt_User_CUD_DTO,
             headers: {
                 "Content-Type": "application/json"
             }
@@ -227,12 +227,34 @@ app.service("UserDetailService", function ($http) {
 
 app.service("TissueBankService", function ($http) {
 
-    this.AddTb = function (tissueBank_DTO) {
+    this.AddTb = function (tissueBankAdd_DTO) {
         var response = $http({
             url: "http://localhost:63744/api/TissueBank",
             dataType: 'json',
             method: 'POST',
-            data: tissueBank_DTO,
+            data: tissueBankAdd_DTO,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        return response;
+    };
+
+    this.GetTissueBankById = function (TissueBankId) {
+        var response = $http({
+            method: "Get",
+            url: "http://localhost:63744/api/TissueBank",
+            params: { TissueBankId: TissueBankId }
+        });
+        return response;
+    };
+
+    this.UpdateTbDetail = function (tissueBankUpdate_DTO) {
+        var response = $http({
+            method: "Put",
+            url: "http://localhost:63744/api/TissueBank",
+            dataType: 'json',
+            data: tissueBankUpdate_DTO,
             headers: {
                 "Content-Type": "application/json"
             }

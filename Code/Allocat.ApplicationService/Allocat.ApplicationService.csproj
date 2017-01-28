@@ -38,8 +38,22 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MailSenderLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MSMQMailService\MailSenderLibrary\bin\Debug\MailSenderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>E:\Project\Allocat\MSMQMailService\TestApplication\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>E:\Project\Allocat\MSMQMailService\TestApplication\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Netmester.Mail.Serialization">
+      <HintPath>E:\Project\Allocat\MSMQMailService\TestApplication\bin\Debug\Netmester.Mail.Serialization.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,11 +63,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailService\ConfigurationReader.cs" />
+    <Compile Include="EmailService\Consumer.cs" />
+    <Compile Include="EmailService\EmailBody.cs" />
+    <Compile Include="EmailService\SendMail.cs" />
+    <Compile Include="StatusBusinessService.cs" />
     <Compile Include="OrderBusinessRule.cs" />
     <Compile Include="CityBusinessRule.cs" />
+    <Compile Include="HospitalTypeBusinessRule.cs" />
+    <Compile Include="KeyValueBusinessRule.cs" />
     <Compile Include="StateBusinessRule.cs" />
     <Compile Include="CityBusinessService.cs" />
+    <Compile Include="HospitalTypeBusinessService.cs" />
+    <Compile Include="HospitalBusinessRule.cs" />
+    <Compile Include="KeyValueBusinessService.cs" />
+    <Compile Include="TransactionBusinessRule.cs" />
     <Compile Include="TissueBankBusinessRule.cs" />
+    <Compile Include="HospitalBusinessService.cs" />
+    <Compile Include="ErrorBusinessService.cs" />
+    <Compile Include="TransactionBusinessService.cs" />
     <Compile Include="TissueBankBusinessService.cs" />
     <Compile Include="UserBusinessRule.cs" />
     <Compile Include="StateBusinessService.cs" />
@@ -65,7 +93,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OrderBusinessService.cs" />
     <Compile Include="RFQBusinessService.cs" />
-    <Compile Include="ValidationRules_old.cs" />
     <Compile Include="ValidationRules.cs" />
     <Compile Include="Validations.cs" />
   </ItemGroup>

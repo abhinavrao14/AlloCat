@@ -1137,28 +1137,28 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
 
     $scope.Submit = function () {
         if ($scope.UserRoles.length > 0) {
-            var user_CUD_DTO = {};
-            user_CUD_DTO.UserId = $scope.S_UserId;
-            user_CUD_DTO.UserName = $scope.UserDetail.UserName;
-            user_CUD_DTO.FullName = $scope.UserDetail.FullName;
-            user_CUD_DTO.MobileNumber = $scope.UserDetail.MobileNumber;
-            user_CUD_DTO.EmailId = $scope.UserDetail.EmailId;
-            user_CUD_DTO.CreatedBy = $scope.CreatedBy;
-            user_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
-            user_CUD_DTO.InfoId = $scope.InfoId;
-            user_CUD_DTO.AllowLogin = $scope.UserDetail.AllowLogin;
-            user_CUD_DTO.TempUser_CUD = $scope.UserRoles;
+            var userMngmnt_User_CUD_DTO = {};
+            userMngmnt_User_CUD_DTO.UserId = $scope.S_UserId;
+            userMngmnt_User_CUD_DTO.UserName = $scope.UserDetail.UserName;
+            userMngmnt_User_CUD_DTO.FullName = $scope.UserDetail.FullName;
+            userMngmnt_User_CUD_DTO.MobileNumber = $scope.UserDetail.MobileNumber;
+            userMngmnt_User_CUD_DTO.EmailId = $scope.UserDetail.EmailId;
+            userMngmnt_User_CUD_DTO.CreatedBy = $scope.CreatedBy;
+            userMngmnt_User_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
+            userMngmnt_User_CUD_DTO.InfoId = $scope.InfoId;
+            userMngmnt_User_CUD_DTO.AllowLogin = $scope.UserDetail.AllowLogin;
+            userMngmnt_User_CUD_DTO.TempUser_CUD = $scope.UserRoles;
 
             if ($scope.S_UserId == '') {
-                user_CUD_DTO.OperationType = 'insert';
+                userMngmnt_User_CUD_DTO.OperationType = 'insert';
             }
             else {
-                user_CUD_DTO.OperationType = 'update';
+                userMngmnt_User_CUD_DTO.OperationType = 'update';
             }
 
-            console.log(user_CUD_DTO);
+            console.log(userMngmnt_User_CUD_DTO);
 
-            var response = UserDetailService.SubmitUser(user_CUD_DTO);
+            var response = UserDetailService.SubmitUser(userMngmnt_User_CUD_DTO);
 
             response
            .success(function (data, status, headers, config) {
@@ -1182,15 +1182,15 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
     };
 
     $scope.PasswordSubmit = function () {
-        var user_CUD_DTO = {};
-        user_CUD_DTO.UserId = $scope.S_UserId;
-        user_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
-        user_CUD_DTO.Password = $scope.UserDetail.Password;
-        user_CUD_DTO.OperationType = 'changePass';
+        var userMngmnt_User_CUD_DTO = {};
+        userMngmnt_User_CUD_DTO.UserId = $scope.S_UserId;
+        userMngmnt_User_CUD_DTO.LastModifiedBy = $scope.LastModifiedBy;
+        userMngmnt_User_CUD_DTO.Password = $scope.UserDetail.Password;
+        userMngmnt_User_CUD_DTO.OperationType = 'changePass';
 
-        //console.log(user_CUD_DTO);
+        //console.log(userMngmnt_User_CUD_DTO);
 
-        var response = UserDetailService.SubmitUser(user_CUD_DTO);
+        var response = UserDetailService.SubmitUser(userMngmnt_User_CUD_DTO);
 
         response
        .success(function (data, status, headers, config) {
@@ -1224,82 +1224,128 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
 
 });
 
-app.controller("TissueBankController", function ($scope, TissueBankService, StateService, CityService, $window, MsgService) {
-
-    //$scope.InfoId = document.getElementById("InfoId").value;
-    //$scope.CreatedBy = document.getElementById("LoggedUserId").value;
-    //$scope.LastModifiedBy = document.getElementById("LoggedUserId").value;
+app.controller("TissueBankProfileController", function ($scope, TissueBankService, StateService, CityService, $window, MsgService) {
+    $scope.tissueBank = {};
+    $scope.tissueBank.States = [];
+    $scope.tissueBank.BillingStates = [];
+    $scope.tissueBank.TissueBankId = document.getElementById("TissueBankId").value;
+    $scope.tissueBank.LoggedUserId = document.getElementById("LoggedUserId").value;
 
     //angular validation
     $scope.phoneNumber = /^\d{3}\d{3}\d{4}/;
     $scope.validateEmail = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/
     $scope.tbNameValidate = /^[A-Za-z\s]+$/;
-    $scope.personName = /^[a-zA-Z]*$/;
+    $scope.personName = /^[A-Za-z\s]+$/;
     $scope.userName = /^\S{3,}$/;
     $scope.dateOptions = {
         'starting-day': 1
     };
     $scope.url = /(http(s)?:\\)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?/;
 
-    StateService.GetStates()
-       .success(function (data, status, headers, config) {
-           $scope.States = data.States;
-       })
-       .error(function (data, status, headers, config) {
-           var Message = MsgService.makeMessage(data.ReturnMessage)
-           message('error', 'Error!', Message);
-       });
+    if ($scope.tissueBank.TissueBankId == 0) {
+        StateService.GetStates()
+           .success(function (data, status, headers, config) {
+               $scope.tissueBank.States = data.States;
+               $scope.tissueBank.BillingStates = data.States;
+           })
+           .error(function (data, status, headers, config) {
+               var Message = MsgService.makeMessage(data.ReturnMessage)
+               message('error', 'Error!', Message);
+           });
+    }
 
     $scope.GetCities = function (stateId) {
         GetCities(stateId);
     };
 
-    $scope.AddTb = function () {
-        var err = '';
-        err = ValidateAddTb();
-
-        if (ValidateAddTb() == '') {
-            var tissueBank_DTO = {
-                TissueBankName: $scope.TissueBankName,
-                ContactPersonName: $scope.ContactPersonName,
-                ContactPersonNumber: $scope.ContactPersonNumber,
-                TissueBankEmailId: $scope.TissueBankEmailId,
-                BusinessURL: $scope.BusinessURL,
-                TissueBankAddress: $scope.TissueBankAddress,
-                CityId: $scope.city.CityID,
-                TissueBankStateLicense: $scope.TissueBankStateLicense,
-                AATBAccredationDate: $scope.AATBAccredationDate,
-                AATBLicenseNumber: $scope.AATBLicenseNumber,
-                AATBExpirationDate: $scope.AATBExpirationDate,
-                UserName: $scope.UserName,
-            };
-
-            console.log(tissueBank_DTO);
-
-            var response = TissueBankService.AddTb(tissueBank_DTO);
-            response.success(function (data, status, headers, config) {
-                var Message = MsgService.makeMessage(data.ReturnMessage)
-                message('success', 'Success!', Message);
-
-                ClearFields();
-            }).error(function (data, status, headers, config) {
-                var Message = MsgService.makeMessage(data.ReturnMessage)
-                message('error', 'Error!', Message);
-            });
-        }
-        else {
-            message('error', 'Error!', err);
-        }
-
+    $scope.GetBillingCities = function (stateId) {
+        GetBillingCities(stateId);
     };
 
-    function ValidateAddTb() {
-        var err = '';
+    $scope.AddTb = function () {
+        if ($window.confirm("We will charge $25 as Registration-Fees. Are you agreed with this?")) {
+            var err = '';
+            err = ValidateTbSubmit();
 
-        if (Object.prototype.toString.call($scope.AATBAccredationDate) !== '[object Date]') {
+            if (ValidateTbSubmit() == '') {
+                var tissueBankAdd_DTO = {
+                    TissueBankName: $scope.tissueBank.TissueBankName,
+                    ContactPersonFirstName: $scope.tissueBank.ContactPersonFirstName,
+                    ContactPersonLastName: $scope.tissueBank.ContactPersonLastName,
+                    ContactPersonNumber: $scope.tissueBank.ContactPersonNumber,
+                    ContactPersonEmailId: $scope.tissueBank.ContactPersonEmailId,
+                    FaxNumber: $scope.tissueBank.FaxNumber,
+                    TissueBankEmailId: $scope.tissueBank.ContactPersonEmailId,
+                    BusinessURL: $scope.tissueBank.BusinessURL,
+                    TissueBankAddress: $scope.tissueBank.TissueBankAddress,
+                    CityId: $scope.tissueBank.city.CityID,
+                    ZipCode: $scope.tissueBank.ZipCode,
+                    TissueBankStateLicense: $scope.tissueBank.TissueBankStateLicense,
+                    AATBAccredationDate: $scope.tissueBank.AATBAccredationDate,
+                    AATBLicenseNumber: $scope.tissueBank.AATBLicenseNumber,
+                    AATBExpirationDate: $scope.tissueBank.AATBExpirationDate,
+                    CreditCardNumber: $scope.tissueBank.CreditCardNumber,
+                    CreditCardType: 0,
+                    ExpiryDate: $scope.tissueBank.ExpiryDate,
+                    CardCode: $scope.tissueBank.CardCode,
+                    BillingAddress: $scope.tissueBank.BillingAddress,
+                    BillingCityId: $scope.tissueBank.BillingCity.CityID,
+                    BillingZipCode: $scope.tissueBank.BillingZipCode,
+                    BillingFaxNumber: $scope.tissueBank.BillingFaxNumber,
+                    BillingEmailId: $scope.tissueBank.BillingEmailId,
+                    BillingContactNumber: $scope.tissueBank.BillingContactNumber,
+                    BillingCity: $scope.tissueBank.BillingCity.CityName,
+                    BillingState: $scope.tissueBank.BillingState.StateName,
+                    State: $scope.tissueBank.state.StateName,
+                    City: $scope.tissueBank.city.CityName,
+                    UserId: $scope.tissueBank.LoggedUserId,
+                    TissueBankId: $scope.tissueBank.TissueBankId
+                };
+
+                console.log(tissueBankAdd_DTO);
+
+                var response = TissueBankService.AddTb(tissueBankAdd_DTO);
+                response.success(function (data, status, headers, config) {
+                    $window.location.href = '/Response/TissueBank_Registration_Successful';
+                    console.log(data);
+                    //var Message = MsgService.makeMessage(data.ReturnMessage)
+                    //message('success', 'Success!', Message);
+                    //  ClearFields();
+                }).error(function (data, status, headers, config) {
+                    console.log(data.ReturnMessage);
+                    var Message = MsgService.makeMessage(data.ReturnMessage)
+                    message('error', 'Error!', Message);
+                });
+            }
+            else {
+                message('error', 'Error!', err);
+            }
+        }
+    };
+
+
+
+    function ValidateTbSubmit() {
+        var err = '';
+        if (typeof $scope.tissueBank.AATBAccredationDate === 'string') {
+            var TExist = $scope.tissueBank.AATBAccredationDate.includes("T");
+            if (TExist == true) {
+                var res = $scope.tissueBank.AATBAccredationDate.split("T");
+                $scope.tissueBank.AATBAccredationDate = new Date(res[0]);
+            }
+        }
+        if (typeof $scope.tissueBank.AATBExpirationDate === 'string') {
+            TExist = $scope.tissueBank.AATBExpirationDate.includes("T");
+            if (TExist == true) {
+                var res = $scope.tissueBank.AATBExpirationDate.split("T");
+                $scope.tissueBank.AATBExpirationDate = new Date(res[0]);
+            }
+        }
+
+        if (Object.prototype.toString.call($scope.tissueBank.AATBAccredationDate) !== '[object Date]') {
             err = 'Invalid AATB Accredation Date';
         }
-        if (Object.prototype.toString.call($scope.AATBExpirationDate) !== '[object Date]') {
+        if (Object.prototype.toString.call($scope.tissueBank.AATBExpirationDate) !== '[object Date]') {
             if (err == '') {
                 err = 'Invalid AATB Expiration Date';
             }
@@ -1309,8 +1355,8 @@ app.controller("TissueBankController", function ($scope, TissueBankService, Stat
             }
         }
         if (err == '') {
-            var AATBAccredationDate = new Date($scope.AATBAccredationDate);
-            var AATBExpirationDate = new Date($scope.AATBExpirationDate);
+            var AATBAccredationDate = new Date($scope.tissueBank.AATBAccredationDate);
+            var AATBExpirationDate = new Date($scope.tissueBank.AATBExpirationDate);
 
             if (AATBExpirationDate < AATBAccredationDate) {
                 err = 'AATB Expiration Date must be greated than AATB Accredation Date';
@@ -1320,51 +1366,165 @@ app.controller("TissueBankController", function ($scope, TissueBankService, Stat
         return err;
     }
 
-    GetCities = function (stateId) {
-        //$scope.GetCities = function (stateId) {
-        if ($scope.state != null) {
-            if (stateId) {
-                CityService.GetCities(stateId)
-                    .success(function (data, status, headers, config) {
-                        if (data.Cities == "") {
-                            var Message = MsgService.makeMessage(data.ReturnMessage)
-                            message('error', 'Error!', Message);
-                            //message('info', 'Not available!', 'Cities are not available for state : <b>' + state.StateName + '</b>');
-                            $scope.Cities = null;
-                        }
-                        else {
-                            $scope.Cities = data.Cities;
-                        }
-                    }).error(function (data, status, headers, config) {
-                        var Message = MsgService.makeMessage(data.ReturnMessage)
-                        message('error', 'Error!', Message);
-                        $scope.Cities = null;
-                    });
-            }
-            else {
-                $scope.Cities = null;
-            }
+    if ($scope.tissueBank.TissueBankId > 0) {
+        //get tb details
+        GetTissueBankById($scope.tissueBank.TissueBankId);
+    }
+
+    function GetTissueBankById(TissueBankId) {
+        TissueBankService.GetTissueBankById(TissueBankId)
+        .success(function (data, status, headers, config) {
+            $scope.tissueBank = data.tissueBank;
+            console.log($scope.tissueBank);
+
+            //get states
+            StateService.GetStates()
+                .success(function (data, status, headers, config) {
+                    $scope.tissueBank.States = data.States;
+                    $scope.tissueBank.BillingStates = data.States;
+                })
+                .error(function (data, status, headers, config) {
+                    var Message = MsgService.makeMessage(data.ReturnMessage)
+                    message('error', 'Error!', Message);
+                });
+
+            //set billing state
+            $scope.tissueBank.BillingState = { StateId: $scope.tissueBank.BillingStateId };
+            //get billing city
+            GetBillingCities($scope.tissueBank.BillingStateId);
+            //set billing city
+            $scope.tissueBank.BillingCity = { CityID: $scope.tissueBank.BillingCityId };
+            //set state
+            $scope.tissueBank.state = { StateId: $scope.tissueBank.StateId };
+            //get city
+            GetCities($scope.tissueBank.StateId);
+            //set city
+            $scope.tissueBank.city = { CityID: $scope.tissueBank.CityId };
+
+        }).error(function (data, status, headers, config) {
+            var Message = MsgService.makeMessage(data.ReturnMessage)
+            message('error', 'Error!', Message);
+        });
+    };
+
+    $scope.UpdateTissueBankDetail = function () {
+        var err = '';
+        err = ValidateTbSubmit();
+
+        if (ValidateTbSubmit() == '') {
+            $scope.tissueBank.OperationType = 'UpdateTissueBankDetail';
+            $scope.tissueBank.TissueBankId = document.getElementById("TissueBankId").value;
+            $scope.tissueBank.UserId = document.getElementById("LoggedUserId").value;
+
+            //NOTE: billing City name and billing state name is going empty
+            console.log($scope.tissueBank);
+
+            var response = TissueBankService.UpdateTbDetail($scope.tissueBank);
+            response.success(function (data, status, headers, config) {
+                console.log(data);
+                var Message = MsgService.makeMessage(data.ReturnMessage)
+                message('success', 'Success!', Message);
+
+                //get tb details
+                GetTissueBankById($scope.tissueBank.TissueBankId);
+            }).error(function (data, status, headers, config) {
+                console.log(data.ReturnMessage);
+                var Message = MsgService.makeMessage(data.ReturnMessage)
+                message('error', 'Error!', Message);
+            });
         }
         else {
-            $scope.Cities = null;
+            message('error', 'Error!', err);
+        }
+    };
+
+    $scope.UpdateBillingDetail = function () {
+        $scope.tissueBank.OperationType = 'UpdateBillingDetail';
+        $scope.tissueBank.TissueBankId = document.getElementById("TissueBankId").value;
+        $scope.tissueBank.UserId = document.getElementById("LoggedUserId").value;
+
+        //NOTE: billing City name and billing state name is going empty
+        console.log($scope.tissueBank);
+
+        var response = TissueBankService.UpdateTbDetail($scope.tissueBank);
+        response.success(function (data, status, headers, config) {
+            console.log(data);
+            var Message = MsgService.makeMessage(data.ReturnMessage)
+            message('success', 'Success!', Message);
+
+            //get tb details
+            GetTissueBankById($scope.tissueBank.TissueBankId);
+        }).error(function (data, status, headers, config) {
+            console.log(data.ReturnMessage);
+            var Message = MsgService.makeMessage(data.ReturnMessage)
+            message('error', 'Error!', Message);
+        });
+    };
+
+    GetCities = function (stateId) {
+        if (stateId != null) {
+            CityService.GetCities(stateId)
+                .success(function (data, status, headers, config) {
+                    if (data.Cities == "") {
+                        var Message = MsgService.makeMessage(data.ReturnMessage)
+                        message('error', 'Error!', Message);
+                        //message('info', 'Not available!', 'Cities are not available for state : <b>' + state.StateName + '</b>');
+                        $scope.tissueBank.Cities = null;
+                    }
+                    else {
+                        $scope.tissueBank.Cities = data.Cities;
+                    }
+                }).error(function (data, status, headers, config) {
+                    var Message = MsgService.makeMessage(data.ReturnMessage)
+                    message('error', 'Error!', Message);
+                    $scope.tissueBank.Cities = null;
+                });
+        }
+        else {
+            $scope.tissueBank.Cities = null;
         }
     }
 
-    function ClearFields() {
-        $scope.TissueBankName = "";
-        $scope.ContactPersonName = "";
-        $scope.ContactPersonNumber = "";
-        $scope.TissueBankEmailId = "";
-        $scope.BusinessURL = "";
-        $scope.TissueBankAddress = "";
-        $scope.CityId = "";
-        $scope.TissueBankStateLicense = "";
-        $scope.AATBLicenseNumber = "";
-        $scope.AATBExpirationDate = "";
-        $scope.AATBAccredationDate = "";
 
-        $scope.city = null;
-        $scope.state = { StateId: 0 };
+    GetBillingCities = function (stateId) {
+        if (stateId != null) {
+            CityService.GetCities(stateId)
+                .success(function (data, status, headers, config) {
+                    if (data.Cities == "") {
+                        var Message = MsgService.makeMessage(data.ReturnMessage)
+                        message('error', 'Error!', Message);
+                        //message('info', 'Not available!', 'Cities are not available for state : <b>' + state.StateName + '</b>');
+                        $scope.tissueBank.BillingCities = null;
+                    }
+                    else {
+                        $scope.tissueBank.BillingCities = data.Cities;
+                    }
+                }).error(function (data, status, headers, config) {
+                    var Message = MsgService.makeMessage(data.ReturnMessage)
+                    message('error', 'Error!', Message);
+                    $scope.tissueBank.BillingCities = null;
+                });
+        }
+        else {
+            $scope.tissueBank.BillingCities = null;
+        }
+    }
+    function ClearFields() {
+        $scope.tissueBank.TissueBankName = "";
+        $scope.tissueBank.ContactPersonFirstName = "";
+        $scope.tissueBank.ContactPersonLastName = "";
+        $scope.tissueBank.ContactPersonNumber = "";
+        $scope.tissueBank.TissueBankEmailId = "";
+        $scope.tissueBank.BusinessURL = "";
+        $scope.tissueBank.TissueBankAddress = "";
+        $scope.tissueBank.CityId = "";
+        $scope.tissueBank.TissueBankStateLicense = "";
+        $scope.tissueBank.AATBLicenseNumber = "";
+        $scope.tissueBank.AATBExpirationDate = "";
+        $scope.tissueBank.AATBAccredationDate = "";
+
+        $scope.tissueBank.city = null;
+        $scope.tissueBank.state = { StateId: 0 };
     }
 
     function message(type, title, content) {
