@@ -101,7 +101,7 @@ namespace Allocat.WebApi.Controllers
                 tissueBankAdd_DTO.TransactionId = TransactionId;
 
                 //removing card detail from object and then storing response detail in db
-                tissueBankAdd_DTO.CreditCardNumber = tissueBankAdd_DTO.CreditCardNumber.Substring(11, 4);
+                tissueBankAdd_DTO.CreditCardNumber = tissueBankAdd_DTO.CreditCardNumber;
                 tissueBankAdd_DTO.CreditCardType = 0;
                 tissueBankAdd_DTO.CardCode = "";
                 tissueBankAdd_DTO.ExpiryDate = "";
@@ -231,7 +231,7 @@ namespace Allocat.WebApi.Controllers
                 //get status from database for Success
                 status = statusBusinessService.GetStatusByStatusName("Success");
 
-                tissueBankUpdate_DTO.CreditCardNumber = tissueBankUpdate_DTO.CreditCardNumber.Substring(11, 4);
+                tissueBankUpdate_DTO.CreditCardNumber = tissueBankUpdate_DTO.CreditCardNumber;
                 tissueBankUpdate_DTO.CreditCardType = 0;
                 tissueBankUpdate_DTO.CardCode = "";
                 tissueBankUpdate_DTO.ExpiryDate = "";

@@ -7,82 +7,63 @@
 <script src="~/Assets/js/customJs/TissueBank/TissueBankService.js"></script>
 
 <style>
-    table {
-        width: 100%;
-    }
-
-    td, th {
-        border: 1px solid orange;
-    }
-
-    @@media only screen and (max-width: 900px) {
-        #c1 {
+    @@media only screen and (min-width: 951px) {
+        .icn {
             display: none;
         }
     }
 
-    @@media only screen and (min-width: 901px) {
+    @@media only screen and (max-width: 950px) {
+        #c1 {
+            display: none;
+        }
+    }
+	@@media only screen and (min-width: 951px) {
         #r1 {
             display: none;
         }
     }
 
-    @@media only screen and (max-width: 850px) {
+	@@media only screen and (max-width: 900px) {
         #c2 {
             display: none;
         }
     }
-
-    @@media only screen and (min-width: 851px) {
+	@@media only screen and (min-width: 901px) {
         #r2 {
             display: none;
         }
     }
 
-    @@media only screen and (max-width: 800px) {
+	@@media only screen and (max-width: 850px) {
         #c3 {
             display: none;
         }
     }
-
-    @@media only screen and (min-width: 801px) {
+	@@media only screen and (min-width: 851px) {
         #r3 {
             display: none;
         }
     }
 
-    @@media only screen and (max-width: 750px) {
+	@@media only screen and (max-width: 800px) {
         #c4 {
             display: none;
         }
     }
-
-    @@media only screen and (min-width: 751px) {
+	@@media only screen and (min-width: 801px) {
         #r4 {
             display: none;
         }
     }
 
-    @@media only screen and (max-width: 700px) {
+	@@media only screen and (max-width: 750px) {
         #c5 {
             display: none;
         }
     }
-
-    @@media only screen and (min-width: 701px) {
+	@@media only screen and (min-width: 751px) {
         #r5 {
-            display: none;
-        }
-    }
-
-     @@media only screen and (max-width: 650px) {
-        #c6 {
-            display: none;
-        }
-    }
-
-    @@media only screen and (min-width: 651px) {
-        #r6 {
             display: none;
         }
     }
@@ -95,271 +76,179 @@
         <div class="breadcrumb-label text-light-gray">You are here: </div>
         <li>
             <a href="@Url.Action("Index", "Home", new { Area = "TissueBank" })">
-                <span class="mm-text">Home</span>
+                <span class="mm-text"><u>Home</u></span>
             </a>
         </li>
-        <li class="active"><a href="#">Report Panel</a></li>
-        <li class="active"><a href="">Order</a></li>
+        <li class="active"><a href="#"><u>Reports Panel</u></a></li>
+        <li class="active"><a href="">Purchase Order</a></li>
     </ul>
     <div class="page-header">
         <div class="row">
             <!-- Page header, center on small screens -->
-            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;Order</h1>
+            <h1 class="col-xs-12 col-sm-4 text-center text-left-sm">Purchase Order</h1>
         </div>
     </div>
-    <div class="col-sm-12">
-        <div class="panel">
-            <div class="col-md-12" style="margin-top:20px;">
-                <div class="col-md-3" style="font-size:18px; margin-bottom:10px;">
-                    Total : {{TotalOrders}} Orders
+
+    <div class="table-header">
+        <div class="table-caption">
+            <div class="row">
+                <div class="col-md-2" style="text-align:center; border-right:1px solid #8ba4c2; height:31px;">
+                    Total Orders({{TotalOrders}})
                 </div>
-                <div class="col-md-5" style="margin-bottom:10px;">
-                    <input class="form-control" ng-model="SearchBy" placeholder="Search" type="search" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13);" ng-change="search()" />
+                <div class="col-md-4" style="text-align:center; border-right:1px solid #8ba4c2; height:31px; margin-bottom:3px">
+                    <input class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="SearchBy" placeholder="Search here..." onfocus="this.placeholder=''" onblur="this.placeholder='Search here...'" type="search" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13);" ng-change="search()">
                 </div>
-                <div class="col-md-2" style="float:right">
+                <div class="col-md-4">
+                    <ul class="pagination">
+                        <li><a href="#">«</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
                     <label class="filter-col" style="margin-right:0;" for="pref-perpage">Per Page: </label>
                     <select class="form-control" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13); display:inline-block; width:50%" ng-disabled="TotalOrders<1" ng-options="item for item in PageSizes" ng-model="PageSize" ng-change="PageSizeChanged()"></select>
                 </div>
-                <div class="col-md-2" style="margin-bottom:10px;">
-                    <ul class="pagination" style="float:right">
-                        <li ng-click="getFirstPage()" ng-if="CurrentPage>1"><a href="#">««</a></li>
-                        <li ng-click="getPreviousPage()" ng-if="CurrentPage>1"><a href="#">«</a></li>
-                        <li class="active"><a href="#">{{CurrentPage}}/{{TotalPage}} </a></li>
-                        <li ng-click="getNextPage()" ng-if="CurrentPage*PageSize<TotalOrders"><a href="#">»</a></li>
-                        <li ng-click="getLastPage()" ng-if="CurrentPage*PageSize<TotalOrders"><a href="#">»»</a></li>
+            </div>
+        </div>
+    </div>
+
+    <span ng-if="dataLoading" style="color:darkgreen;">Please Wait..</span>
+    <span ng-if="Orders.length==0" style="color:darkgreen;">Sorry..No Orders.</span>
+    <table ng-if="Orders.length!=0" class="table table-hover table-striped" id="tablestyle">
+        <thead id="headerstyle">
+            <tr>
+                <th></th>
+                <th style="text-align:center">
+                    <div style="cursor:pointer" ng-click="Sort('OrderId')">
+                        <span ng-show="SortExpression  == 'OrderId' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
+                        <span ng-show="SortExpression == 'OrderId' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
+                        Order ID
+                    </div>
+                </th>
+                <th id="c1" style="text-align:center">
+                    <div style="cursor:pointer" ng-click="Sort('CreatedDate')">
+                        <span ng-show="SortExpression  == 'CreatedDate' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
+                        <span ng-show="SortExpression == 'CreatedDate' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
+                        Order Date
+                    </div>
+                </th>
+                <th id="c2" style="text-align:center">
+                    <div style="cursor:pointer" ng-click="Sort('NeedByDate')">
+                        <span ng-show="SortExpression  == 'NeedByDate' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
+                        <span ng-show="SortExpression == 'NeedByDate' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
+                        Need By Date
+                    </div>
+                </th>
+                <th id="c3" style="text-align:center">RFQ ID</th>
+                <th id="c5" style="text-align:center">Product Code</th>
+                <th id="c4" style="text-align:center">Product Name</th>
+                <th style="text-align:center">
+                    <div style="cursor:pointer" ng-click="Sort('StatusName')">
+                        <span ng-show="SortExpression  == 'StatusName' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
+                        <span ng-show="SortExpression == 'StatusName' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
+                        Status
+                    </div>
+                </th>
+                <th style="text-align:center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="Order in Orders">
+                <td>
+                    <button class="icn" ng-if="Order.expanded" ng-click="Order.expanded = false" id="button1">-</button>
+                    <button class="icn" ng-if="!Order.expanded" ng-click="Order.expanded = true" id="button2">+</button>
+                </td>
+                <td style="vertical-align:middle"> {{Order.OrderId}}</td>
+                <td id="c1" style="vertical-align:middle">{{Order.CreatedDate | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td id="c2" style="vertical-align:middle">{{Order.NeedByDate | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td id="c3" style="vertical-align:middle">{{Order.RequestForQuoteId==null ? 'N/A' : Order.RequestForQuoteId}}</td>
+                <td id="c5" style="vertical-align:middle">{{Order.ProductCode}}</td>
+                <td id="c4" style="vertical-align:middle">{{Order.ProductMasterName}}</td>
+                <td style="display:flex; justify-content:center">
+                    <div id="pending" ng-if="Order.StatusName == 'Pending'">
+                        Pending
+                    </div>
+                    <div id="acknowledged" ng-if="Order.StatusName == 'Acknowledged'">
+                        Acknowledged
+                    </div>
+                    <div id="closed" ng-if="Order.StatusName == 'Closed'">
+                        Closed
+                    </div>
+                    <div id="declined" ng-if="Order.StatusName == 'Declined By TissueBank'">
+                        Declined By Tissue Bank
+                    </div>
+                </td>
+                <td style="vertical-align:middle">
+                    @{
+                        var ViewCompleteUrl = Url.Action("Manage", "Order", new { OrderId = "{{Order.OrderId}}" });
+                        ViewCompleteUrl = HttpUtility.UrlDecode(ViewCompleteUrl);
+                    }
+                    <a data-ng-href="@ViewCompleteUrl"><span title="Manage" style="cursor:pointer"><i class="fa fa-pencil-square-o"style="font-size:18px; color:#4bacd0"></i></span></a>
+                </td>
+            </tr>
+            <tr ng-if="Order.expanded" ng-repeat-end="">
+                <td colspan="7">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <table class="table table-hover table-striped">
+                                <tr id="r1">
+                                    <td><b>Order Date</b></td>
+                                    <td><i>{{Order.CreatedDate | date : 'yyyy-MM-dd HH:mm:ss'}}</i></td>
+                                </tr>
+                                <tr id="r2">
+                                    <td><b>Need By Date</b></td>
+                                    <td><i>{{Order.NeedByDate | date : 'yyyy-MM-dd HH:mm:ss'}}</i></td>
+                                </tr>
+                                <tr id="r3">
+                                    <td><b>RFQ ID</b></td>
+                                    <td><i>{{Order.RequestForQuoteId==null ? 'N/A' : Order.RequestForQuoteId}}</i></td>
+                                </tr>
+                                <tr id="r4">
+                                    <td><b>Product Name</b></td>
+                                    <td><i>{{Order.ProductMasterName}}</i></td>
+                                </tr>
+                                <tr id="r5">
+                                    <td><b>Product Code</b></td>
+                                    <td><i>{{Order.ProductCode}}</i></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-footer">
+        <div class="table-caption">
+            <div class="row">
+                <div class="col-md-2" style="text-align:center; border-right:1px solid #8ba4c2; height:31px;">
+                    Total Orders({{TotalOrders}})
+                </div>
+                <div class="col-md-4" style="text-align:center; border-right:1px solid #8ba4c2; height:31px; margin-bottom:3px">
+                    <input class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="SearchBy" placeholder="Search here..." onfocus="this.placeholder=''" onblur="this.placeholder='Search here...'" type="search" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13);" ng-change="search()">
+                </div>
+                <div class="col-md-4">
+                    <ul class="pagination">
+                        <li><a href="#">«</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">»</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="panel-body">
-                <div class="table-primary">
-                    <span ng-if="dataLoading" style="color:darkgreen;">Please Wait..</span>
-                    <span ng-if="Orders.length==0" style="color:darkgreen;">Sorry..No Orders.</span>
-                    <table ng-if="Orders.length!=0" class="table table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>
-                                    <div style="cursor:pointer" ng-click="Sort('OrderId')">
-                                        <span ng-show="SortExpression  == 'OrderId' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                                        <span ng-show="SortExpression == 'OrderId' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                                        Order ID
-                                    </div>
-                                </th>
-                                <th>
-                                    <div style="cursor:pointer" ng-click="Sort('CreatedDate')">
-                                        <span ng-show="SortExpression  == 'CreatedDate' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                                        <span ng-show="SortExpression == 'CreatedDate' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                                        Order Date
-                                    </div>
-                                </th>
-                                <th id="c6">
-                                    <div style="cursor:pointer" ng-click="Sort('NeedByDate')">
-                                        <span ng-show="SortExpression  == 'NeedByDate' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                                        <span ng-show="SortExpression == 'NeedByDate' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                                        Need By Date
-                                    </div>
-                                </th>
-                                <th id="c5">
-                                    RFQ ID
-                                </th>
-                                <th id="c4">
-                                    Product Code
-                                </th>
-                                <th id="c3">
-                                    Product Name
-                                </th>
-                                @*<th>
-                        <div style="cursor:pointer" ng-click="Sort('Quantity')">
-                            <span ng-show="SortExpression  == 'Quantity' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                            <span ng-show="SortExpression == 'Quantity' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                            Quantity
-                        </div>
-                    </th>
-                    <th>
-                        Unit Price
-                    </th>
-
-                    <th>
-                        Total Price
-                    </th>*@
-                                <th id="c2">
-                                    <div style="cursor:pointer" ng-click="Sort('StatusName')">
-                                        <span ng-show="SortExpression  == 'StatusName' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                                        <span ng-show="SortExpression == 'StatusName' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                                        Status
-                                    </div>
-                                </th>
-
-                                <th id="c1">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat-start="Order in Orders">
-                                <td style="vertical-align:middle">
-                                    <button ng-if="Order.expanded" ng-click="Order.expanded = false" style="background-color:red; color:#ffffff; border-color:#ffffff; border-radius:5px">-</button>
-                                    <button ng-if="!Order.expanded" ng-click="Order.expanded = true" style="background-color:green; color:#ffffff; border-color:#ffffff; border-radius:5px">+</button>
-                                </td>
-                                <td style="vertical-align:middle">{{Order.OrderId}}</td>
-                                <td style="vertical-align:middle">{{Order.CreatedDate | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
-                                <td id="c6" style="vertical-align:middle">{{Order.NeedByDate | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
-                                <td id="c5" style="vertical-align:middle">
-                                    {{Order.RequestForQuoteId==null ? 'N/A' : Order.RequestForQuoteId}}
-                                </td>
-                                <td id="c4" style="vertical-align:middle">{{Order.ProductCode}}</td>
-                                <td id="c3" style="vertical-align:middle">{{Order.ProductMasterName}}</td>
-                                @*<td>{{Order.Quantity}}</td>
-                    <td>{{Order.UnitPrice | currency}}</td>
-
-                    <td>{{Order.OrderLineTotal | currency}}</td>*@
-                                <td id="c2" style="vertical-align:middle">
-                                    <div class="warning-tag" ng-if="Order.StatusName == 'Pending'">
-                                        Pending
-                                    </div>
-                                    <div class="ack-tag" ng-if="Order.StatusName == 'Acknowledged'">
-                                        Acknowledged
-                                    </div>
-                                    <div class="on-going-tag" ng-if="Order.StatusName == 'Closed'">
-                                        Closed
-                                    </div>
-                                    <div class="decline-tag" ng-if="Order.StatusName == 'Declined By TissueBank'">
-                                        Declined By TissueBank
-                                    </div>
-                                </td>
-
-                                <td id="c1" style="width:10%; vertical-align:middle">
-                                    @{
-                                        var ViewCompleteUrl = Url.Action("Manage", "Order", new { OrderId = "{{Order.OrderId}}" });
-                                        ViewCompleteUrl = HttpUtility.UrlDecode(ViewCompleteUrl);
-                                    }
-                                    <a data-ng-href="@ViewCompleteUrl"><i class="fa fa-pencil-square-o"></i> <u style="color:#2175ac;">Manage</u></a>
-                                    @*<span class="btn btn-flat"><a data-ng-href="@ViewCompleteUrl"><i class="fa fa-search-plus"></i>Manage</a></span>*@
-                                </td>
-                            </tr>
-
-                            <tr ng-if="Order.expanded" ng-repeat-end="">
-                                <td colspan="9">
-                                    <div class="col-md-12">
-                                        <div class="col-md-6">
-                                            <table class="table table-bordered table-hover table-striped">
-                                                <tr>
-                                                    <td><b>Quantity</b></td>
-                                                    <td><i>{{Order.Quantity}}</i></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Unit Price</b></td>
-                                                    <td><i>{{Order.UnitPrice | currency}}</i></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Total Price</b></td>
-                                                    <td><i>{{Order.OrderLineTotal | currency}}</i></td>
-                                                </tr>
-                                                <tr id="r6">
-                                                    <td>
-                                                        <div style="display:inline; cursor:pointer" ng-click="Sort('NeedByDate')">
-                                                            <span ng-show="SortExpression  == 'NeedByDate' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                                                            <span ng-show="SortExpression == 'NeedByDate' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                                                            <b>Need By Date </b>
-                                                        </div>
-                                                    </td>
-                                                    <td>{{Order.NeedByDate | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
-                                                </tr>
-                                                <tr id="r5">
-                                                    <td><b>RFQ ID</b></td>
-                                                    <td>{{Order.RequestForQuoteId==null ? 'N/A' : Order.RequestForQuoteId}}</td>
-                                                </tr>
-                                                <tr id="r4">
-                                                    <td><b>Product Code</b></td>
-                                                    <td>{{Order.ProductCode}}</td>
-                                                </tr>
-                                                <tr id="r3">
-                                                    <td><b>Product Name</b></td>
-                                                    <td>{{Order.ProductMasterName}}</td>
-                                                </tr>
-                                                <tr id="r2">
-                                                    <td>
-                                                        <div style="cursor:pointer; display:inline-block" ng-click="Sort('StatusName')">
-                                                            <span ng-show="SortExpression  == 'StatusName' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                                                            <span ng-show="SortExpression == 'StatusName' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                                                            <b>Status </b>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div style="display:inline-block; width:100px">
-                                                            <div class="warning-tag" ng-if="Order.StatusName == 'Pending'">
-                                                                Pending
-                                                            </div>
-                                                            <div class="sucess-tag" ng-if="Order.StatusName == 'Acknowledged'">
-                                                                Acknowledged
-                                                            </div>
-                                                            <div class="on-going-tag" ng-if="Order.StatusName == 'Closed'">
-                                                                Closed
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr id="r1">
-                                                    <td><b>Action</b></td>
-                                                    <td>
-                                                        <a style="display: inline" data-ng-href="@ViewCompleteUrl"><i class="fa fa-pencil-square-o"></i> <u style="color:#2175ac;">Manage</u></a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        @*<div class="col-md-4">
-                        <b>Quantity : </b> {{Order.Quantity}}
-                    </div>
-                    <div class="col-md-4">
-                        <b>Unit Price : </b> {{Order.UnitPrice | currency}}
-                    </div>
-                    <div class="col-md-4">
-                        <b>Total Price : </b> {{Order.OrderLineTotal | currency}}
-                    </div>*@
-
-                                        @*<div id="r6" class="col-md-12">
-                        <div style="display:inline; cursor:pointer" ng-click="Sort('NeedByDate')">
-                            <span ng-show="SortExpression  == 'NeedByDate' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                            <span ng-show="SortExpression == 'NeedByDate' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                            <b>Need By Date : </b>
-                        </div>
-                        <div style="display:inline">
-                            {{Order.NeedByDate | date : 'yyyy-MM-dd HH:mm:ss'}}
-                        </div>
-                    </div>*@
-                                        @*<div id="r5" class="col-md-12">
-                        <b> RFQ ID : </b> {{Order.RequestForQuoteId==null ? 'N/A' : Order.RequestForQuoteId}}
-                    </div>*@
-                                        @*<div id="r4" class="col-md-12">
-                        <b>Product Code : </b> {{Order.ProductCode}}
-                    </div>*@
-                                        @*<div id="r3" class="col-md-12">
-                        <b>Product Name : </b> {{Order.ProductMasterName}}
-                    </div>*@
-                                        @*<div id="r2" class="col-md-12">
-                        <div style="cursor:pointer; display:inline-block" ng-click="Sort('StatusName')">
-                            <span ng-show="SortExpression  == 'StatusName' && SortDirection=='DESC'" class="fa fa-caret-down"></span>
-                            <span ng-show="SortExpression == 'StatusName' && SortDirection=='ASC'" class="fa fa-caret-up"></span>
-                            <b>Status : </b>
-                        </div>
-                        <div style="display:inline-block; width:100px">
-                            <div class="warning-tag" ng-if="Order.StatusName == 'Pending'">
-                                Pending
-                            </div>
-                            <div class="sucess-tag" ng-if="Order.StatusName == 'Acknowledged'">
-                                Acknowledged
-                            </div>
-                            <div class="on-going-tag" ng-if="Order.StatusName == 'Closed'">
-                                Closed
-                            </div>
-                        </div>
-                    </div>*@
-                                        @*<div id="r1" class="col-md-12">
-                        <b>Action : </b> <a style="display: inline" data-ng-href="@ViewCompleteUrl"><i class="fa fa-pencil-square-o"></i> <u style="color:#2175ac;">Manage</u></a>
-                    </div>*@
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="col-md-2">
+                    <label class="filter-col" style="margin-right:0;" for="pref-perpage">Per Page: </label>
+                    <select class="form-control" style="box-shadow: inset 0 1px 5px rgba(0,0,0,.13); display:inline-block; width:50%" ng-disabled="TotalOrders<1" ng-options="item for item in PageSizes" ng-model="PageSize" ng-change="PageSizeChanged()"></select>
                 </div>
             </div>
         </div>
