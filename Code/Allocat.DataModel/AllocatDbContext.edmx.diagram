@@ -4,7 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD
       <Diagram DiagramId="b7a6c32b379444789334453410ddb29d" Name="Diagram1" ZoomLevel="172">
+=======
+      <Diagram DiagramId="b7a6c32b379444789334453410ddb29d" Name="Diagram1">
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         <EntityTypeShape EntityType="AllocatDbModel.City" Width="1.5" PointX="6.75" PointY="30.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AllocatDbModel.Company" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AllocatDbModel.DomainScope" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
@@ -33,7 +37,11 @@
         <EntityTypeShape EntityType="AllocatDbModel.Status" Width="1.5" PointX="9" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AllocatDbModel.TaggedNotification" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AllocatDbModel.TissueBank" Width="1.5" PointX="9" PointY="27.875" IsExpanded="true" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="AllocatDbModel.TissueBankCreditCard" Width="1.5" PointX="12.75" PointY="30.75" IsExpanded="true" />
+=======
+        <EntityTypeShape EntityType="AllocatDbModel.TissueBankCreditCard" Width="1.5" PointX="11.25" PointY="30.75" IsExpanded="true" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         <EntityTypeShape EntityType="AllocatDbModel.TissueBankProduct" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AllocatDbModel.Transaction" Width="1.5" PointX="11.25" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AllocatDbModel.User" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />

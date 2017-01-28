@@ -1224,12 +1224,19 @@ app.controller("UserDetailController", function ($scope, UserDetailService, MsgS
 
 });
 
+<<<<<<< HEAD
 app.controller("TissueBankProfileController", function ($scope, TissueBankService, StateService, CityService, $window, MsgService) {
     $scope.tissueBank = {};
     $scope.tissueBank.States = [];
     $scope.tissueBank.BillingStates = [];
     $scope.tissueBank.TissueBankId = document.getElementById("TissueBankId").value;
     $scope.tissueBank.LoggedUserId = document.getElementById("LoggedUserId").value;
+=======
+app.controller("TissueBankController", function ($scope, TissueBankService, StateService, CityService, $window, MsgService) {
+
+    $scope.TissueBankId = document.getElementById("TissueBankId").value;
+    $scope.LoggedUserId = document.getElementById("LoggedUserId").value;
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
 
     //angular validation
     $scope.phoneNumber = /^\d{3}\d{3}\d{4}/;
@@ -1258,6 +1265,7 @@ app.controller("TissueBankProfileController", function ($scope, TissueBankServic
         GetCities(stateId);
     };
 
+<<<<<<< HEAD
     $scope.GetBillingCities = function (stateId) {
         GetBillingCities(stateId);
     };
@@ -1300,6 +1308,36 @@ app.controller("TissueBankProfileController", function ($scope, TissueBankServic
                     City: $scope.tissueBank.city.CityName,
                     UserId: $scope.tissueBank.LoggedUserId,
                     TissueBankId: $scope.tissueBank.TissueBankId
+=======
+    $scope.AddTb = function () {
+        if ($window.confirm("We will charge $25 as Registration-Fees. Are you agreed with this?")) {
+            var err = '';
+            err = ValidateAddTb();
+
+            if (ValidateAddTb() == '') {
+                var tissueBankAdd_DTO = {
+                    TissueBankName: $scope.TissueBankName,
+                    ContactPersonName: $scope.ContactPersonName,
+                    ContactPersonNumber: $scope.ContactPersonNumber,
+                    TissueBankEmailId: $scope.TissueBankEmailId,
+                    BusinessURL: $scope.BusinessURL,
+                    TissueBankAddress: $scope.TissueBankAddress,
+                    CityId: $scope.city.CityID,
+                    ZipCode: $scope.ZipCode,
+                    TissueBankStateLicense: $scope.TissueBankStateLicense,
+                    AATBAccredationDate: $scope.AATBAccredationDate,
+                    AATBLicenseNumber: $scope.AATBLicenseNumber,
+                    AATBExpirationDate: $scope.AATBExpirationDate,
+                    UserName: $scope.UserName,
+
+                    CreditCardNumber: $scope.CreditCardNumber,
+                    CreditCardType: 0,
+                    ExpiryDate: $scope.ExpiryDate,
+                    City: $scope.city.CityName,
+                    CardCode: $scope.CardCode,
+                    UserId: $scope.LoggedUserId,
+                    TissueBankId: $scope.TissueBankId
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                 };
 
                 console.log(tissueBankAdd_DTO);
@@ -1307,7 +1345,11 @@ app.controller("TissueBankProfileController", function ($scope, TissueBankServic
                 var response = TissueBankService.AddTb(tissueBankAdd_DTO);
                 response.success(function (data, status, headers, config) {
                     $window.location.href = '/Response/TissueBank_Registration_Successful';
+<<<<<<< HEAD
                     console.log(data);
+=======
+
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
                     //var Message = MsgService.makeMessage(data.ReturnMessage)
                     //message('success', 'Success!', Message);
                     //  ClearFields();

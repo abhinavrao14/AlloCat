@@ -26,6 +26,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ResTransaction" nillable="true" type="tns:ResTransaction" />
+<<<<<<< HEAD
   <xs:complexType name="ShippingAddress">
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
@@ -43,6 +44,8 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ShippingAddress" nillable="true" type="tns:ShippingAddress" />
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
   <xs:complexType name="ResCustomerProfileDetails">
     <xs:sequence>
       <xs:element minOccurs="0" name="CustomerProfileId" nillable="true" type="xs:string" />
@@ -75,6 +78,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PaymentProfile" nillable="true" type="tns:PaymentProfile" />
+<<<<<<< HEAD
+=======
+  <xs:complexType name="ShippingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerAddressId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaxNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShippingAddress" nillable="true" type="tns:ShippingAddress" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
   <xs:complexType name="ArrayOfShippingAddress">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ShippingAddress" nillable="true" type="tns:ShippingAddress" />

@@ -17,6 +17,10 @@ namespace Allocat.ApplicationService
         public IEnumerable<HospitalType> GetHospitalType(out TransactionalInformation transaction)
         {
             transaction = new TransactionalInformation();
+<<<<<<< HEAD
+=======
+            hospitalTypeDataService.CreateSession();
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             IEnumerable<HospitalType> lstHospitalType = null;
             HospitalTypeBusinessRule hospitalTypeBusinessRule = new HospitalTypeBusinessRule();
             try

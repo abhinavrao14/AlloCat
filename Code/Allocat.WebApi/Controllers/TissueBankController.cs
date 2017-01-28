@@ -17,8 +17,11 @@ namespace Allocat.WebApi.Controllers
         ITransactionDataService transactionDataService;
         IErrorDataService errorDataService;
         IStatusDataService statusDataService;
+<<<<<<< HEAD
         IStateDataService stateDataService;
         ICityDataService cityDataService;
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
 
         public TissueBankController()
         {
@@ -26,6 +29,7 @@ namespace Allocat.WebApi.Controllers
             transactionDataService = new TransactionDataService();
             errorDataService = new ErrorDataService();
             statusDataService = new StatusDataService();
+<<<<<<< HEAD
             stateDataService = new StateDataService();
             cityDataService = new CityDataService();
         }
@@ -53,6 +57,8 @@ namespace Allocat.WebApi.Controllers
 
             var badResponse = Request.CreateResponse<TissueBankApiModel>(HttpStatusCode.BadRequest, tbApiModel);
             return badResponse;
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         }
 
         [HttpPost]
@@ -60,6 +66,7 @@ namespace Allocat.WebApi.Controllers
         {
             //Initialisation
             TransactionalInformation transaction = new TransactionalInformation();
+<<<<<<< HEAD
             TissueBankApiModel tbApiModel = new TissueBankApiModel();
             Status status = new Status();
 
@@ -198,6 +205,8 @@ namespace Allocat.WebApi.Controllers
             //Initialisation
             bool AuthResponse = false;
             TransactionalInformation transaction = new TransactionalInformation();
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             TissueBankApiModel tbApiModel = new TissueBankApiModel();
             Status status = new Status();
 
@@ -205,6 +214,7 @@ namespace Allocat.WebApi.Controllers
             TransactionBusinessService transactionBusinessService = new TransactionBusinessService(transactionDataService);
             ErrorBusinessService errorBusinessService = new ErrorBusinessService(errorDataService);
             StatusBusinessService statusBusinessService = new StatusBusinessService(statusDataService);
+<<<<<<< HEAD
             StateBusinessService stateBusinessService = new StateBusinessService(stateDataService);
             CityBusinessService cityBusinessService = new CityBusinessService(cityDataService);
 
@@ -246,6 +256,58 @@ namespace Allocat.WebApi.Controllers
             {
                 tbApiModel.ReturnStatus = transaction.ReturnStatus = false;
                 tbApiModel.ReturnMessage.Add("Authorize .Net operation failed.");
+=======
+
+            //Convert object to string to send as requestBody
+            string objToPass = Utility.Utilities.SerializeObject<TissueBankAdd_DTO>(tissueBankAdd_DTO);
+
+            //create transaction
+            int TransactionId = transactionBusinessService.Transaction_Create(DateTime.Now, 25, tissueBankAdd_DTO.UserId, objToPass, out transaction);
+
+            //Cutting $25 for registration
+            var response = CreateCustomerProfileAndCharge(tissueBankAdd_DTO);
+
+            //if response is not null then only save tissue bank detail in database and update transaction too.
+            //if (response.CustomerProfileId != null)
+            if (true)
+            {
+                //get status from database for Success
+                status = statusBusinessService.GetStatusByStatusName("Success");
+                #region static data of response from authorize .net
+
+                tissueBankAdd_DTO.AuthTransactionId = "123454613";
+                tissueBankAdd_DTO.CustomerProfileId = "56456123132";
+                tissueBankAdd_DTO.CustomerPaymentProfileIds = "[{sfdsd:asdasd},{asdfasdf:sadfasdf}]";
+                tissueBankAdd_DTO.AuthCode = "456456";
+                #endregion
+
+                //tissueBankAdd_DTO.AuthTransactionId = response.Transaction.TransactionId;
+                //tissueBankAdd_DTO.CustomerProfileId = response.CustomerProfileId;
+                //tissueBankAdd_DTO.CustomerPaymentProfileIds = response.CustomerPaymentProfileIds.ToString();
+                //tissueBankAdd_DTO.AuthCode = response.Transaction.AuthCode;
+
+                tissueBankAdd_DTO.StatusId = status.StatusId;
+                tissueBankAdd_DTO.TransactionCompleteDate = DateTime.Now;
+                tissueBankAdd_DTO.TransactionId = TransactionId;
+                tissueBankAdd_DTO.ResponseBody = Utility.Utilities.SerializeObject<ResCustomerProfile>(response);
+
+                //add tissue bank
+                tissueBankBusinessService.TissueBank_Add(tissueBankAdd_DTO.TissueBankName, tissueBankAdd_DTO.ContactPersonName, tissueBankAdd_DTO.ContactPersonNumber, tissueBankAdd_DTO.TissueBankEmailId, tissueBankAdd_DTO.BusinessURL, tissueBankAdd_DTO.TissueBankAddress, tissueBankAdd_DTO.CityId, tissueBankAdd_DTO.ZipCode, tissueBankAdd_DTO.TissueBankStateLicense, tissueBankAdd_DTO.AATBLicenseNumber, tissueBankAdd_DTO.AATBExpirationDate, tissueBankAdd_DTO.AATBAccredationDate, tissueBankAdd_DTO.CustomerProfileId, tissueBankAdd_DTO.CustomerPaymentProfileIds, tissueBankAdd_DTO.UserId, tissueBankAdd_DTO.TissueBankId, tissueBankAdd_DTO.TransactionId, tissueBankAdd_DTO.AuthTransactionId, tissueBankAdd_DTO.AuthCode, tissueBankAdd_DTO.StatusId, tissueBankAdd_DTO.TransactionCompleteDate, tissueBankAdd_DTO.ResponseBody, out transaction);
+
+                tbApiModel.ReturnMessage = transaction.ReturnMessage;
+                tbApiModel.ReturnStatus = transaction.ReturnStatus;
+            }
+            else
+            {
+                //get status from database for Success
+                status = statusBusinessService.GetStatusByStatusName("Error");
+
+                //if response is null then log error and update transaction too.
+                string errorMessage = errorBusinessService.Error_Create(status.StatusId, response.Message, "", TransactionId, tissueBankAdd_DTO.UserId, response.MessageCode);
+
+                tbApiModel.ReturnStatus = transaction.ReturnStatus = false;
+                tbApiModel.ReturnMessage.Add(response.Message);
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             }
 
             if (transaction.ReturnStatus == false)
@@ -259,6 +321,7 @@ namespace Allocat.WebApi.Controllers
             }
         }
 
+<<<<<<< HEAD
         private bool UpdateCustomerProfile(TissueBankUpdate_DTO tissueBankUpdate_DTO)
         {
             CustomService.AllocatCustomServiceClient obj = new AllocatCustomServiceClient();
@@ -298,6 +361,61 @@ namespace Allocat.WebApi.Controllers
 
             // calling service method
             bool response = obj.UpdateCustomerPaymentProfile(objCustomer);
+=======
+        private ResCustomerProfile CreateCustomerProfileAndCharge(TissueBankAdd_DTO tissueBankAdd_DTO)
+        {
+            CustomService.AllocatCustomServiceClient obj = new AllocatCustomServiceClient();
+            Customer objCustomer = new Customer();
+            ResCustomerProfile response = new ResCustomerProfile();
+            CreditCard credit = new CreditCard();
+            AddressInfo address = new AddressInfo();
+            // Setting input data
+
+            credit.CreditCardNumber = tissueBankAdd_DTO.CreditCardNumber;
+            credit.CreditCardType = tissueBankAdd_DTO.CreditCardType;
+            credit.CardCode = tissueBankAdd_DTO.ExpiryDate;
+            credit.ExpiryDate = tissueBankAdd_DTO.ExpiryDate;
+
+            objCustomer.CardInfo = credit;
+
+            objCustomer.EmailId = tissueBankAdd_DTO.TissueBankEmailId;
+            objCustomer.FirstName = tissueBankAdd_DTO.ContactPersonName;
+            objCustomer.LastName = "";
+
+            address.Address = tissueBankAdd_DTO.TissueBankAddress;
+            address.City = tissueBankAdd_DTO.City;
+            address.Company = tissueBankAdd_DTO.TissueBankName;
+            address.Country = "";
+            address.ZipCode = tissueBankAdd_DTO.ZipCode;
+            address.Email = tissueBankAdd_DTO.TissueBankEmailId;
+            address.FaxNumber = "";
+            address.FirstName = tissueBankAdd_DTO.ContactPersonName;
+            address.LastName = "";
+            address.PhoneNumber = tissueBankAdd_DTO.ContactPersonNumber;
+            address.State = "";
+            objCustomer.HomeAddress = address;
+
+            address = null;
+            address = new AddressInfo();
+
+            address.Address = tissueBankAdd_DTO.TissueBankAddress;
+            address.City = tissueBankAdd_DTO.City;
+            address.Company = tissueBankAdd_DTO.TissueBankName;
+            address.Country = "";
+            address.ZipCode = tissueBankAdd_DTO.ZipCode;
+            address.Email = tissueBankAdd_DTO.TissueBankEmailId;
+            address.FaxNumber = "";
+            address.FirstName = tissueBankAdd_DTO.ContactPersonName;
+            address.LastName = "";
+            address.PhoneNumber = tissueBankAdd_DTO.ContactPersonNumber;
+            address.State = "";
+            objCustomer.OfficeAddress = address;
+
+            objCustomer.PaymentType = PaymentType.CreditCard;
+
+            // calling service method
+            response = obj.RegisterCustomerAndChargeProfile(objCustomer, 25);
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             return response;
         }
     }

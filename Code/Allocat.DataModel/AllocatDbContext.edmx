@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AllocatDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AllocatDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityID" />
@@ -343,12 +343,15 @@
           <Property Name="AATBAccredationDate" Type="date" />
           <Property Name="CustomerProfileId" Type="nvarchar" MaxLength="20" />
           <Property Name="CustomerPaymentProfileIds" Type="nvarchar(max)" />
+<<<<<<< HEAD
           <Property Name="BillingAddress" Type="nvarchar" MaxLength="200" />
           <Property Name="BillingCityId" Type="int" />
           <Property Name="BillingZipCode" Type="nvarchar" MaxLength="10" />
           <Property Name="BillingFaxNumber" Type="nvarchar" MaxLength="15" />
           <Property Name="BillingEmailId" Type="nvarchar" MaxLength="50" />
           <Property Name="BillingContactNumber" Type="nvarchar" MaxLength="15" />
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           <Property Name="IsAllocatMember" Type="bit" />
           <Property Name="IsAccountVerified" Type="bit" />
           <Property Name="IsActive" Type="bit" />
@@ -1136,20 +1139,30 @@
         </Function>
         <Function Name="usp_TissueBank_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TissueBankName" Type="nvarchar" Mode="In" />
+<<<<<<< HEAD
           <Parameter Name="ContactPersonFirstName" Type="nvarchar" Mode="In" />
           <Parameter Name="ContactPersonLastName" Type="nvarchar" Mode="In" />
           <Parameter Name="ContactPersonNumber" Type="nvarchar" Mode="In" />
           <Parameter Name="ContactPersonEmailId" Type="nvarchar" Mode="In" />
           <Parameter Name="FaxNumber" Type="nvarchar" Mode="In" />
+=======
+          <Parameter Name="ContactPersonName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ContactPersonNumber" Type="nvarchar" Mode="In" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           <Parameter Name="TissueBankEmailId" Type="nvarchar" Mode="In" />
           <Parameter Name="BusinessURL" Type="nvarchar" Mode="In" />
           <Parameter Name="TissueBankAddress" Type="nvarchar" Mode="In" />
           <Parameter Name="CityId" Type="int" Mode="In" />
+<<<<<<< HEAD
           <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+=======
+          <Parameter Name="ZipCode" Type="nvarchar" Mode="In" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           <Parameter Name="TissueBankStateLicense" Type="nvarchar" Mode="In" />
           <Parameter Name="AATBLicenseNumber" Type="nvarchar" Mode="In" />
           <Parameter Name="AATBExpirationDate" Type="date" Mode="In" />
           <Parameter Name="AATBAccredationDate" Type="date" Mode="In" />
+<<<<<<< HEAD
           <Parameter Name="CreditCardNumber" Type="nvarchar" Mode="In" />
           <Parameter Name="CustomerProfileId" Type="nvarchar" Mode="In" />
           <Parameter Name="CustomerPaymentProfileIds" Type="nvarchar(max)" Mode="In" />
@@ -1159,6 +1172,10 @@
           <Parameter Name="BillingFaxNumber" Type="nvarchar" Mode="In" />
           <Parameter Name="BillingEmailId" Type="nvarchar" Mode="In" />
           <Parameter Name="BillingContactNumber" Type="nvarchar" Mode="In" />
+=======
+          <Parameter Name="CustomerProfileId" Type="nvarchar" Mode="In" />
+          <Parameter Name="CustomerPaymentProfileIds" Type="nvarchar(max)" Mode="In" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           <Parameter Name="UserId" Type="int" Mode="In" />
           <Parameter Name="TissueBankId" Type="int" Mode="In" />
           <Parameter Name="TransactionId" Type="int" Mode="In" />
@@ -1168,6 +1185,7 @@
           <Parameter Name="TransactionCompleteDate" Type="datetime" Mode="In" />
           <Parameter Name="ResponseBody" Type="nvarchar(max)" Mode="In" />
         </Function>
+<<<<<<< HEAD
         <Function Name="usp_TissueBank_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TissuebankId" Type="int" Mode="In" />
         </Function>
@@ -1202,6 +1220,8 @@
           <Parameter Name="UserId" Type="int" Mode="In" />
           <Parameter Name="TissueBankId" Type="int" Mode="In" />
         </Function>
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         <Function Name="usp_TissueBank_User_Registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FullName" Type="nvarchar" Mode="In" />
           <Parameter Name="UserName" Type="nvarchar" Mode="In" />
@@ -1445,7 +1465,8 @@
             <End Role="UserRole" EntitySet="UserRole" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AllocatDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1867,6 +1888,7 @@
           <NavigationProperty Name="TissueBankCreditCard" Relationship="Self.FK_TissueBankCreditCard_TissueBank" FromRole="TissueBank" ToRole="TissueBankCreditCard" />
           <NavigationProperty Name="TissueBankProduct" Relationship="Self.FK_TissueBankProduct_TissueBank" FromRole="TissueBank" ToRole="TissueBankProduct" />
           <NavigationProperty Name="Transaction" Relationship="Self.FK_Transaction_TissueBank" FromRole="TissueBank" ToRole="Transaction" />
+<<<<<<< HEAD
           <Property Name="ContactPersonEmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BillingAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="BillingCityId" Type="Int32" />
@@ -1876,6 +1898,8 @@
           <Property Name="BillingContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="ContactPersonFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ContactPersonLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         </EntityType>
         <EntityType Name="TissueBankCreditCard">
           <Key>
@@ -2767,7 +2791,7 @@
             <Parameter Name="SortExpression" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_OrderDetail_TissueBank_GetByOrderId" ReturnType="Collection(AllocatDbModel.sp_OrderDetail_TissueBank_GetByOrderId_Result)">
-          <Parameter Name="OrderId" Mode="In" Type="Int32" />
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RequestForQuote_TissueBank_Edit">
             <Parameter Name="TissueBankId" Mode="In" Type="Int32" />
@@ -2795,10 +2819,10 @@
             <Parameter Name="SortExpression" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RequestForQuoteDetail_TissueBank_GetByRequestForQuoteId" ReturnType="Collection(AllocatDbModel.sp_RequestForQuoteDetail_TissueBank_GetByRequestForQuoteId_Result)">
-          <Parameter Name="RequestForQuoteId" Mode="In" Type="Int32" />
+            <Parameter Name="RequestForQuoteId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RequestResponse_TissueBank_GetByTissueBankId" ReturnType="Collection(AllocatDbModel.sp_RequestResponse_TissueBank_GetByTissueBankId_Result)">
-          <Parameter Name="RequestForQuoteId" Mode="In" Type="Int32" />
+            <Parameter Name="RequestForQuoteId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_TissueBankProduct_TissueBank_AddUpdate" />
           <FunctionImport Name="sp_TissueBankProduct_TissueBank_GetByTissueBankId" ReturnType="Collection(AllocatDbModel.sp_TissueBankProduct_TissueBank_GetByTissueBankId_Result)">
@@ -2823,17 +2847,25 @@
             <Parameter Name="SortExpression" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_User_GetEntityInfoByUserName" ReturnType="Collection(AllocatDbModel.sp_User_GetEntityInfoByUserName_Result)">
-          <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_User_GetRoleByUserName" ReturnType="Collection(String)">
+<<<<<<< HEAD
           <Parameter Name="UserName" Mode="In" Type="String" />
+=======
+            <Parameter Name="UserName" Mode="In" Type="String" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           </FunctionImport>
           <FunctionImport Name="sp_UserDetail_GetByUserId" ReturnType="Collection(AllocatDbModel.sp_UserDetail_GetByUserId_Result)">
             <Parameter Name="UserId" Mode="In" Type="Int32" />
             <Parameter Name="InfoType" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_UserMngmt_GetUserRoleByUserId" ReturnType="Collection(AllocatDbModel.sp_UserMngmt_GetUserRoleByUserId_Result)">
+<<<<<<< HEAD
           <Parameter Name="UserId" Mode="In" Type="Int32" />
+=======
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           </FunctionImport>
           <FunctionImport Name="sp_UserMngmt_TissueBank_CreateUpdateDelete">
             <Parameter Name="UserId" Mode="In" Type="Int32" />
@@ -2857,7 +2889,7 @@
             <Parameter Name="SortExpression" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_UserMngmt_TissueBank_GetByUserId" ReturnType="Collection(AllocatDbModel.sp_UserMngmt_TissueBank_GetByUserId_Result)">
-          <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_UserMngmt_TissueBank_GetCountByTissueBankId" ReturnType="Collection(Int32)">
             <Parameter Name="TissueBankId" Mode="In" Type="Int32" />
@@ -2878,7 +2910,11 @@
             <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_UserProfileDetail_TissueBank_GetByUserId" ReturnType="Collection(AllocatDbModel.sp_UserProfileDetail_TissueBank_GetByUserId_Result)">
+<<<<<<< HEAD
           <Parameter Name="UserId" Mode="In" Type="Int32" />
+=======
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           </FunctionImport>
           <FunctionImport Name="usp_Error_Create">
             <Parameter Name="StatusId" Mode="In" Type="Int32" />
@@ -2888,6 +2924,7 @@
             <Parameter Name="TransactionId" Mode="In" Type="Int32" />
             <Parameter Name="UserId" Mode="In" Type="Int32" />
           </FunctionImport>
+<<<<<<< HEAD
           <FunctionImport Name="usp_TissueBank_User_Registration">
             <Parameter Name="FullName" Mode="In" Type="String" />
             <Parameter Name="UserName" Mode="In" Type="String" />
@@ -2912,6 +2949,8 @@
             <Parameter Name="ResponseBody" Mode="In" Type="String" />
             <Parameter Name="ReturnMessage" Mode="InOut" Type="String" />
           </FunctionImport>
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
           <FunctionImport Name="usp_TissueBank_Add" ReturnType="Collection(String)">
             <Parameter Name="TissueBankName" Mode="In" Type="String" />
             <Parameter Name="ContactPersonFirstName" Mode="In" Type="String" />
@@ -2928,6 +2967,7 @@
             <Parameter Name="AATBLicenseNumber" Mode="In" Type="String" />
             <Parameter Name="AATBExpirationDate" Mode="In" Type="DateTime" />
             <Parameter Name="AATBAccredationDate" Mode="In" Type="DateTime" />
+<<<<<<< HEAD
             <Parameter Name="CreditCardNumber" Mode="In" Type="String" />
             <Parameter Name="CustomerProfileId" Mode="In" Type="String" />
             <Parameter Name="CustomerPaymentProfileIds" Mode="In" Type="String" />
@@ -2937,6 +2977,10 @@
             <Parameter Name="BillingFaxNumber" Mode="In" Type="String" />
             <Parameter Name="BillingEmailId" Mode="In" Type="String" />
             <Parameter Name="BillingContactNumber" Mode="In" Type="String" />
+=======
+            <Parameter Name="CustomerProfileId" Mode="In" Type="String" />
+            <Parameter Name="CustomerPaymentProfileIds" Mode="In" Type="String" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
             <Parameter Name="UserId" Mode="In" Type="Int32" />
             <Parameter Name="TissueBankId" Mode="In" Type="Int32" />
             <Parameter Name="TransactionId" Mode="In" Type="Int32" />
@@ -2946,6 +2990,7 @@
             <Parameter Name="TransactionCompleteDate" Mode="In" Type="DateTime" />
             <Parameter Name="ResponseBody" Mode="In" Type="String" />
           </FunctionImport>
+<<<<<<< HEAD
           <FunctionImport Name="usp_TissueBank_Get" ReturnType="Collection(AllocatDbModel.usp_TissueBank_Get_Result)">
           <Parameter Name="TissuebankId" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -2979,6 +3024,31 @@
             <Parameter Name="CreditCardNumber" Mode="In" Type="String" />
             <Parameter Name="UserId" Mode="In" Type="Int32" />
             <Parameter Name="TissueBankId" Mode="In" Type="Int32" />
+=======
+          <FunctionImport Name="usp_TissueBank_User_Registration">
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="EmailId" Mode="In" Type="String" />
+            <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+            <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
+          </FunctionImport>
+          <FunctionImport Name="usp_Transaction_Create" ReturnType="Collection(Decimal)">
+            <Parameter Name="TransactionInitiateDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="RequestBody" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Transaction_Update">
+            <Parameter Name="TissueBankId" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionId" Mode="In" Type="Int32" />
+            <Parameter Name="AuthTransactionId" Mode="In" Type="String" />
+            <Parameter Name="AuthCode" Mode="In" Type="String" />
+            <Parameter Name="StatusId" Mode="In" Type="Int32" />
+            <Parameter Name="TransactionCompleteDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ResponseBody" Mode="In" Type="String" />
+            <Parameter Name="ReturnMessage" Mode="InOut" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_Order_TissueBank_GetByTissueBankId_Result">
@@ -3215,6 +3285,7 @@
           <Property Type="Int32" Name="InfoId" Nullable="true" />
           <Property Type="String" Name="DomainName" Nullable="true" MaxLength="100" />
         </ComplexType>
+<<<<<<< HEAD
         <ComplexType Name="usp_TissueBank_Get_Result">
           <Property Type="String" Name="TissueBankName" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="ContactPersonFirstName" Nullable="true" MaxLength="100" />
@@ -3260,6 +3331,8 @@
           <Property Type="String" Name="CreatedByUser" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="ModifiedByUser" Nullable="true" MaxLength="100" />
         </ComplexType>
+=======
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4036,6 +4109,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_Error_Create" FunctionName="AllocatDbModel.Store.usp_Error_Create" />
+<<<<<<< HEAD
           <FunctionImportMapping FunctionImportName="usp_TissueBank_User_Registration" FunctionName="AllocatDbModel.Store.usp_TissueBank_User_Registration" />
           <FunctionImportMapping FunctionImportName="usp_Transaction_Create" FunctionName="AllocatDbModel.Store.usp_Transaction_Create" />
           <FunctionImportMapping FunctionImportName="usp_Transaction_Update" FunctionName="AllocatDbModel.Store.usp_Transaction_Update" />
@@ -4091,6 +4165,12 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_TissueBank_UpdateTissueBankDetail" FunctionName="AllocatDbModel.Store.usp_TissueBank_UpdateTissueBankDetail" />
           <FunctionImportMapping FunctionImportName="usp_TissueBank_UpdateTissueBankBillingDetail" FunctionName="AllocatDbModel.Store.usp_TissueBank_UpdateTissueBankBillingDetail" />
+=======
+          <FunctionImportMapping FunctionImportName="usp_TissueBank_Add" FunctionName="AllocatDbModel.Store.usp_TissueBank_Add" />
+          <FunctionImportMapping FunctionImportName="usp_TissueBank_User_Registration" FunctionName="AllocatDbModel.Store.usp_TissueBank_User_Registration" />
+          <FunctionImportMapping FunctionImportName="usp_Transaction_Create" FunctionName="AllocatDbModel.Store.usp_Transaction_Create" />
+          <FunctionImportMapping FunctionImportName="usp_Transaction_Update" FunctionName="AllocatDbModel.Store.usp_Transaction_Update" />
+>>>>>>> 2b00939ddbec22f2dcf9ae366ed9f1ce95d9139f
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
